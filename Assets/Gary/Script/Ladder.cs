@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Ladder : MonoBehaviour {
+
+public class Ladder : MonoBehaviour 
+{
+
 
     private MovementController player;
 	// Use this for initialization

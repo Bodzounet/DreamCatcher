@@ -10,20 +10,36 @@ public class MovementController : MonoBehaviour
 	public float changeVelocityX = 0.8f;
 	public float maxVelocityX = 1f;
     public float jumpVelocity = 5f;
+
     private bool isGrounded = false;
     public bool isOnLadder = false;
+    public bool dead = false;
+
+
 	private Vector2 lastVelocity;
     public Vector2 ladderX;
+
+    public Vector3 spwanPos;
 
 	// Use this for initialization
 	void Start () 
 	{
+        spwanPos = rigidbody2D.transform.position;
 		lastVelocity = new Vector2(rigidbody2D.velocity.x, -jumpVelocity);
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+        //death
+        if (dead)
+        {
+            transform.position = spwanPos;
+            rigidbody2D.velocity = new Vector2(0, -jumpVelocity);
+            dead = false;
+            return;
+        }
+
 		float x = lastVelocity.x;
 		float y = lastVelocity.y;
 
