@@ -4,7 +4,7 @@ using System.Collections;
 
 public class MovementController : MonoBehaviour 
 {
-    private static float MAGIC_CONSTANT = 0.32f;
+    private static float MAGIC_CONSTANT = 0.31f;
 
 
 	public float changeVelocityX = 0.8f;
@@ -14,7 +14,6 @@ public class MovementController : MonoBehaviour
     private bool isGrounded = false;
     public bool isOnLadder = false;
     public bool dead = false;
-
 
 	private Vector2 lastVelocity;
     public Vector2 ladderX;
@@ -75,7 +74,7 @@ public class MovementController : MonoBehaviour
             isGrounded = true;
 
         //jump
-        if (Input.GetAxis("Vertical") > 0 && isGrounded)
+        if (Input.GetButtonDown("Jump")  && isGrounded)
         {
             isGrounded = false;
             y = jumpVelocity;
