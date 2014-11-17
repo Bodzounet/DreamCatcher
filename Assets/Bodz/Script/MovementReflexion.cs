@@ -9,6 +9,7 @@ public class MovementReflexion : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
+        mc = GameObject.Find("MapManager").GetComponent<MapController>();
         setPos();
 	}
 	
@@ -27,14 +28,14 @@ public class MovementReflexion : MonoBehaviour {
         RaycastHit2D tmp = Physics2D.Raycast(RealPlayer.transform.position, Vector3.right, Mathf.Infinity, 1 << 9);
         if (tmp.transform != null)
         {
-            x = RealPlayer.transform.position.x + 2 * Mathf.Abs(tmp.transform.position.x - x);
+            x = RealPlayer.transform.position.x + 2 * Mathf.Abs(tmp.transform.position.x - RealPlayer.transform.position.x);
             y = RealPlayer.transform.position.y;
         }
         //case horizontal Border
         else
         {
-            x = mc.width - RealPlayer.transform.position.x; // - XLeftBorderLevel, but always 0 so forget
-            y = RealPlayer.transform.position.y - mc.height / 2;
+            x = (mc.width * (mc.tileWidth - 1) / 50.0f) - RealPlayer.transform.position.x; // - XLeftBorderLevel, but always 0 so forget
+            y = RealPlayer.transform.position.y - (mc.height * (mc.tileHeight - 1) / 50.0f) / 2;
         }
 
         transform.position = new Vector3(x, y, RealPlayer.transform.position.z);
