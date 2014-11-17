@@ -122,13 +122,14 @@ public class MapController : MonoBehaviour {
                             {
                                 if (_i % width > center)
                                 {
-                                    points[p] = new Vector2(points[p].x + (tileWidth * (center - _i % width)) * 2 / 50.0f, points[p].y);
+                                       points[p] = new Vector2(points[p].x + (tileWidth * (center - _i % width)) * 2 / 50.0f, points[p].y);
                                 }
 
                                 if (points[p].y <= yDown)
                                 {
                                     points[p] = new Vector2(points[p].x, points[p].y - 0.01f);
                                 }
+
 
                             }
                             tmp.GetComponent<PolygonCollider2D>().points = points;
@@ -163,7 +164,8 @@ public class MapController : MonoBehaviour {
 					GameObject newEnt = Instantiate(Resources.Load(node.ChildNodes[i].Attributes["type"].Value, typeof(GameObject) )) as GameObject;
 					newEnt.transform.position = new Vector3(int.Parse(node.ChildNodes[i].Attributes["x"].Value) / 50.0f, ((height * tileHeight) / 50.0f) - int.Parse(node.ChildNodes[i].Attributes["y"].Value) / 50.0f, 0);
                     newEnt.transform.position -= new Vector3(0, (int.Parse(node.ChildNodes[i].Attributes["height"].Value) / tileHeight) / 2 * tileHeight / 50.0f + tileHeight / 100.0f, 0);
-                    newEnt.transform.localScale = new Vector3(int.Parse(node.ChildNodes[i].Attributes["width"].Value) / tileWidth, (int.Parse(node.ChildNodes[i].Attributes["height"].Value) / tileHeight));
+                    if (node.ChildNodes[i].ChildNodes[0] != null && node.ChildNodes[i].ChildNodes[0].ChildNodes[0].Attributes["name"].Value == "scale")
+                        newEnt.transform.localScale = new Vector3(int.Parse(node.ChildNodes[i].Attributes["width"].Value) / tileWidth, (int.Parse(node.ChildNodes[i].Attributes["height"].Value) / tileHeight));
 					//entities.Add(node.ChildNodes[i].Attributes["name"].Value, newEnt);
 				}
 

@@ -4,7 +4,7 @@ using System.Collections;
 
 public class MovementController : MonoBehaviour 
 {
-    private static float MAGIC_CONSTANT = 0.31f;
+    private static float MAGIC_CONSTANT = 0.3f;
 
 
 	public float changeVelocityX = 0.8f;
@@ -70,7 +70,8 @@ public class MovementController : MonoBehaviour
 			x = 0;
 
         //grounded ?
-        if (Physics2D.Linecast(transform.position, transform.position - Vector3.up * (MAGIC_CONSTANT * 1.1f), (1 << 8) + (1 << 9)).transform != null)
+        if (Physics2D.Linecast(transform.position + Vector3.right * (MAGIC_CONSTANT - 0.01f), transform.position - Vector3.up * (MAGIC_CONSTANT * 1.1f) + Vector3.right * (MAGIC_CONSTANT - 0.01f), (1 << 8) + (1 << 9)).transform != null ||
+            Physics2D.Linecast(transform.position + Vector3.left * (MAGIC_CONSTANT - 0.01f), transform.position - Vector3.up * (MAGIC_CONSTANT * 1.1f) + Vector3.left * (MAGIC_CONSTANT - 0.01f), (1 << 8) + (1 << 9)).transform != null)
             isGrounded = true;
 
         //jump

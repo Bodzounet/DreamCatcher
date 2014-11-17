@@ -10,12 +10,12 @@ public class Chest : MonoBehaviour {
 	private Rect[]						myRects = new Rect[4];
 	private string[]					mainMenuLabels = new string[4];
 	private int							currentlyPressedButton = -1;
-
-	CharacterInventory					characterInventoryLeft;
-	CharacterInventory					characterInventoryRight;
+    private bool                        canBeOpenend = false;
+    private GameObject             player;
+	CharacterInventory				characterInventoryLeft;
+	CharacterInventory				characterInventoryRight;
 	Dictionary<Item.ItemType, Texture>	items = new Dictionary<Item.ItemType, Texture>();
-	Dictionary<Key.KeyType, Texture>	keys = new Dictionary<Key.KeyType, Texture>();
-	
+	Dictionary<Key.KeyType, Texture>	 keys = new Dictionary<Key.KeyType, Texture>();
 	// Use this for initialization
 	void Start () {
 		myRects[0] = new Rect(Screen.width / 2 - 150, Screen.height / 2 - 25, 50, 50);
@@ -39,6 +39,8 @@ public class Chest : MonoBehaviour {
 		keys [Key.KeyType.NO_KEY] = Resources.Load<Texture>("NoKey");
 		keys [Key.KeyType.NORMAL] = Resources.Load<Texture>("NormalKey");
 		keys [Key.KeyType.SPECTRAL] = Resources.Load<Texture>("SpectralKey");
+
+        player = GameObject.Find("CharacterLeft");
 	}
 	
 	void	OnGUI() {
@@ -75,13 +77,13 @@ public class Chest : MonoBehaviour {
 				characterInventoryRight.key = tmp;
 				return;
 			}
-			if (Input.GetButtonDown ("Cancel")) {
+			if (Input.GetButtonDown ("Cancel") || (mainMenu.enabled &&  !canBeOpenend)) {
 				mainMenu.currentFocus = 0;
 				mainMenu.SetFocus(0);
 				mainMenu.enabled = false;
 			}
 		}
-		else if (Input.GetButtonDown("Validate")) {
+		else if (Input.GetButtonDown("Validate") && canBeOpenend) {
 			mainMenu.enabled = true;
 		}
 	}
@@ -89,4 +91,20 @@ public class Chest : MonoBehaviour {
 	private void Delay(){
 		mainMenu.isCheckingJoy = false;
 	}
+
+    void OnTriggerStay2D(Collider2D c)
+    {
+        if (c.gameObject == player)
+        {
+            canBeOpenend = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D c)
+    {
+        if (c.gameObject == player)
+        {
+            canBeOpenend = false;
+        }
+    }
 }
