@@ -19,12 +19,12 @@ public class MovementController : MonoBehaviour
 	private Vector2 lastVelocity;
     public Vector2 ladderX;
 
-    public Vector3 spwanPos;
+    public Vector3 spawnPos;
 
 	// Use this for initialization
 	void Start () 
 	{
-        spwanPos = rigidbody2D.transform.position;
+        spawnPos = rigidbody2D.transform.position;
 		lastVelocity = new Vector2(rigidbody2D.velocity.x, -jumpVelocity);
 	}
 	
@@ -34,7 +34,7 @@ public class MovementController : MonoBehaviour
         //death
         if (dead)
         {
-            transform.position = spwanPos;
+            transform.position = spawnPos;
             rigidbody2D.velocity = new Vector2(0, -jumpVelocity);
             dead = false;
             return;
