@@ -150,7 +150,6 @@ public class MapController : MonoBehaviour {
 				if(node.ChildNodes[i].Attributes["type"].Value == "spawn")
 				{
 					GameObject.Find("P1").transform.position = new Vector3(int.Parse(node.ChildNodes[i].Attributes["x"].Value) / 50.0f, ((height * tileHeight) / 50.0f) - int.Parse(node.ChildNodes[i].Attributes["y"].Value) / 50.0f, 0);
-                    GameObject.Find("P1Reflexion").GetComponent<MovementReflexion>().Border = border;
 				}
 				else
 				{
