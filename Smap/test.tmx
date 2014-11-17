@@ -1004,7 +1004,7 @@
    <tile gid="77"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="10"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -1015,12 +1015,12 @@
    <tile gid="11"/>
    <tile gid="9"/>
    <tile gid="9"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
    <tile gid="9"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="9"/>
    <tile gid="77"/>
    <tile gid="77"/>
    <tile gid="0"/>
@@ -1038,7 +1038,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="79"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -1299,5 +1299,6 @@
  </layer>
  <objectgroup name="Calque d'objets 1">
   <object name="spawn" type="spawn" x="48" y="506" width="51" height="56"/>
+  <object name="ladder" type="ladder" x="192" y="192" width="32" height="128"/>
  </objectgroup>
 </map>

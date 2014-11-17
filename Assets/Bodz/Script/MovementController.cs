@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MovementController : MonoBehaviour 
 {
-    private static float MAGIC_CONSTANT = 0.26f;
+    private static float MAGIC_CONSTANT = 0.16f;
 
 
 	public float changeVelocityX = 0.8f;
@@ -27,8 +27,8 @@ public class MovementController : MonoBehaviour
 
 		//change velocity
 		if (Input.GetAxis("Horizontal") < 0 &&
-                  Physics2D.Linecast((transform.position + Vector3.left * 0.29f) + Vector3.up * 0.26f,
-            (transform.position + Vector3.left * 0.29f) + Vector3.down * 0.26f,
+                  Physics2D.Linecast((transform.position + Vector3.left * (MAGIC_CONSTANT + 0.01f)) + Vector3.up * MAGIC_CONSTANT,
+            (transform.position + Vector3.left * (MAGIC_CONSTANT + 0.01f)) + Vector3.down * MAGIC_CONSTANT,
             (1 << 8) + (1 << 9)).transform == null)
 		{
 			if (x < -maxVelocityX)
@@ -37,8 +37,8 @@ public class MovementController : MonoBehaviour
 				x -= changeVelocityX;
 		}
 		else if (Input.GetAxis("Horizontal") > 0 &&
-                  Physics2D.Linecast((transform.position + Vector3.right * 0.29f) + Vector3.up * 0.26f, 
-            (transform.position + Vector3.right * 0.29f) + Vector3.down * 0.26f,
+                  Physics2D.Linecast((transform.position + Vector3.right * (MAGIC_CONSTANT + 0.01f)) + Vector3.up * MAGIC_CONSTANT,
+            (transform.position + Vector3.right * (MAGIC_CONSTANT + 0.01f)) + Vector3.down * MAGIC_CONSTANT,
             (1 << 8) + (1 << 9)).transform == null)
 		{
 			if (x > maxVelocityX)
@@ -50,7 +50,7 @@ public class MovementController : MonoBehaviour
 			x = 0;
 
         //grounded ?
-        if (Physics2D.Linecast(transform.position, transform.position - Vector3.up * 0.29f, (1 << 8) + (1 << 9)).transform != null)
+        if (Physics2D.Linecast(transform.position, transform.position - Vector3.up * (MAGIC_CONSTANT * 1.1f), (1 << 8) + (1 << 9)).transform != null)
             isGrounded = true;
 
         //jump
@@ -66,9 +66,10 @@ public class MovementController : MonoBehaviour
 		rigidbody2D.velocity = lastVelocity;
 	}   
 
-    //void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.yellow;
-    //    Gizmos.DrawLine((transform.position + Vector3.right * 0.29f) + Vector3.up * 0.26f, (transform.position + Vector3.right * 0.29f) + Vector3.down * 0.26f);
-    //}
+    /*void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine((transform.position + Vector3.right * (MAGIC_CONSTANT + 0.001f)) + Vector3.up * MAGIC_CONSTANT,
+            (transform.position + Vector3.right * (MAGIC_CONSTANT + 0.001f)) + Vector3.down * MAGIC_CONSTANT);
+    }*/
 }
