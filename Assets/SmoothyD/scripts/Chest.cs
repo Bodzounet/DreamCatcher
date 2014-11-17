@@ -75,8 +75,11 @@ public class Chest : MonoBehaviour {
 				characterInventoryRight.key = tmp;
 				return;
 			}
-			if (Input.GetButtonDown ("Cancel"))
+			if (Input.GetButtonDown ("Cancel")) {
+				mainMenu.currentFocus = 0;
+				mainMenu.SetFocus(0);
 				mainMenu.enabled = false;
+			}
 		}
 		else if (Input.GetButtonDown("Validate")) {
 			mainMenu.enabled = true;
