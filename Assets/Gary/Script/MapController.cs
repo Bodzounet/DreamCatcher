@@ -115,17 +115,25 @@ public class MapController : MonoBehaviour {
                     {
                         tmp.AddComponent<PolygonCollider2D>();
                         tmp.layer = LayerMask.NameToLayer("ground");
-                        if (_i % width > center)
-                        {
 
                             Vector2[] points = tmp.GetComponent<PolygonCollider2D>().points;
+                            float yDown = points[0].y;
                             for (int p = 0; p < points.Length; p++)
                             {
-                                points[p] = new Vector2(points[p].x + (tileWidth * (center - _i % width)) * 2 / 50.0f, points[p].y);
+                                if (_i % width > center)
+                                {
+                                    points[p] = new Vector2(points[p].x + (tileWidth * (center - _i % width)) * 2 / 50.0f, points[p].y);
+                                }
+
+                                if (points[p].y <= yDown)
+                                {
+                                    points[p] = new Vector2(points[p].x, points[p].y - 0.01f);
+                                }
+
                             }
                             tmp.GetComponent<PolygonCollider2D>().points = points;
-                        }
-                        else if (_i % width == center)
+                        
+                     if (_i % width == center)
                         {
                             tmp.layer = LayerMask.NameToLayer("center");
                         }
@@ -147,8 +155,8 @@ public class MapController : MonoBehaviour {
 			{  
 				if(node.ChildNodes[i].Attributes["type"].Value == "spawn")
 				{
-					GameObject.Find("P1").transform.position = new Vector3(int.Parse(node.ChildNodes[i].Attributes["x"].Value) / 50.0f, ((height * tileHeight) / 50.0f) - int.Parse(node.ChildNodes[i].Attributes["y"].Value) / 50.0f, 0);
-                    GameObject.Find("P1").GetComponent<MovementController>().spawnPos = GameObject.Find("P1").transform.position;
+					GameObject.Find("CharacterLeft").transform.position = new Vector3(int.Parse(node.ChildNodes[i].Attributes["x"].Value) / 50.0f, ((height * tileHeight) / 50.0f) - int.Parse(node.ChildNodes[i].Attributes["y"].Value) / 50.0f, 0);
+                    GameObject.Find("CharacterLeft").GetComponent<MovementController>().spawnPos = GameObject.Find("CharacterLeft").transform.position;
 				}
 				else
 				{

@@ -10,7 +10,7 @@ public class Ladder : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-        player = GameObject.Find("P1").GetComponent<MovementController>();
+        player = GameObject.Find("CharacterLeft").GetComponent<MovementController>();
 	}
 	
 	// Update is called once per frame

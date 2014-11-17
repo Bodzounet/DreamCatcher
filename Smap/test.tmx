@@ -25,7 +25,7 @@
  <tileset firstgid="138" name="mb" tilewidth="32" tileheight="32">
   <image source="meubles background.png" trans="ff00ff" width="128" height="96"/>
  </tileset>
- <layer name="Calque de Tile 1" width="21" height="20" opacity="0.9">
+ <layer name="Calque de Tile 1" width="21" height="20" visible="0" opacity="0.9">
   <data>
    <tile gid="0"/>
    <tile gid="21"/>
@@ -449,7 +449,7 @@
    <tile gid="0"/>
   </data>
  </layer>
- <layer name="Calque 3" width="21" height="20">
+ <layer name="Calque 3" width="21" height="20" visible="0">
   <data>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -566,7 +566,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="18"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>

@@ -9,7 +9,7 @@ public class Spikes : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-        player = GameObject.Find("P1").GetComponent<MovementController>();
+        player = GameObject.Find("CharacterLeft").GetComponent<MovementController>();
 	}
 
     void OnTriggerEnter2D(Collider2D col)
