@@ -15,7 +15,6 @@ public class MapController : MonoBehaviour {
     private int center;
     public PhysicsMaterial2D pmaterial;
 	private int _i = 0;
-    private GameObject border;
 	// Use this for initialization
 	void Start () 
 	{
@@ -128,7 +127,6 @@ public class MapController : MonoBehaviour {
                         }
                         else if (_i % width == center)
                         {
-                            border = tmp;
                             tmp.layer = LayerMask.NameToLayer("center");
                         }
                     }

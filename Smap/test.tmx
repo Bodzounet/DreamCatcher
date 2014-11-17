@@ -1300,5 +1300,6 @@
  <objectgroup name="Calque d'objets 1">
   <object name="spawn" type="spawn" x="48" y="506" width="51" height="56"/>
   <object name="ladder" type="ladder" x="192" y="192" width="32" height="128"/>
+  <object name="spike" type="spike" x="128" y="544" width="32" height="32"/>
  </objectgroup>
 </map>

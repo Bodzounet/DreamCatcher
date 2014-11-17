@@ -13,6 +13,7 @@ public class MovementController : MonoBehaviour
     private bool isGrounded = false;
     public bool isOnLadder = false;
 	private Vector2 lastVelocity;
+    public Vector2 ladderX;
 
 	// Use this for initialization
 	void Start () 
@@ -37,6 +38,7 @@ public class MovementController : MonoBehaviour
 				x = -maxVelocityX;
 			else
 				x -= changeVelocityX;
+            isOnLadder = false;
 		}
 		else if (Input.GetAxis("Horizontal") > 0 &&
                   Physics2D.Linecast((transform.position + Vector3.right * (MAGIC_CONSTANT + 0.01f)) + Vector3.up * MAGIC_CONSTANT,
@@ -47,6 +49,7 @@ public class MovementController : MonoBehaviour
 				x = maxVelocityX;
 			else
 				x += changeVelocityX;
+            isOnLadder = false;
 		}
 		else
 			x = 0;
@@ -63,6 +66,24 @@ public class MovementController : MonoBehaviour
         }
         else
             y = rigidbody2D.velocity.y;
+
+        //Ladder
+        if (Input.GetAxis("Vertical") > 0 && isOnLadder)
+        {
+            this.rigidbody2D.gravityScale = 0;
+            this.transform.position = new Vector3(ladderX.x, transform.position.y);
+            y = 1;
+        }
+        else if (Input.GetAxis("Vertical") < 0 && isOnLadder)
+        {
+            this.rigidbody2D.gravityScale = 0;
+            this.transform.position = new Vector3(ladderX.x, transform.position.y);
+            y = -1;
+        }
+        else if (isOnLadder && this.rigidbody2D.gravityScale == 0)
+            y = 0;
+        else
+            this.rigidbody2D.gravityScale = 1;
 
 		lastVelocity = new Vector2 (x, y);
 		rigidbody2D.velocity = lastVelocity;
