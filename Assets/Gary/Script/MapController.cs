@@ -166,6 +166,24 @@ public class MapController : MonoBehaviour {
                     newEnt.transform.position -= new Vector3(0, (int.Parse(node.ChildNodes[i].Attributes["height"].Value) / tileHeight) / 2 * tileHeight / 50.0f + tileHeight / 100.0f, 0);
                     if (node.ChildNodes[i].ChildNodes[0] != null && node.ChildNodes[i].ChildNodes[0].ChildNodes[0].Attributes["name"].Value == "scale")
                         newEnt.transform.localScale = new Vector3(int.Parse(node.ChildNodes[i].Attributes["width"].Value) / tileWidth, (int.Parse(node.ChildNodes[i].Attributes["height"].Value) / tileHeight));
+                    if (node.ChildNodes[i].ChildNodes[0] != null && node.ChildNodes[i].ChildNodes[0].ChildNodes[0].Attributes["name"].Value == "id")
+                    {
+                        newEnt.GetComponent<Door>().id = int.Parse(node.ChildNodes[i].ChildNodes[0].ChildNodes[0].Attributes["value"].Value);
+                        GameObject doorId = GameObject.Find("Door" + node.ChildNodes[i].ChildNodes[0].ChildNodes[0].Attributes["value"].Value);
+                        if (doorId == null)
+                        {
+                            doorId = new GameObject();
+                            doorId.transform.position = Vector3.zero;
+                            doorId.name = "Door" + node.ChildNodes[i].ChildNodes[0].ChildNodes[0].Attributes["value"].Value;
+                            newEnt.transform.parent = doorId.transform;
+                        }
+                        else
+                        {
+                            newEnt.GetComponent<Door>().other = doorId.transform.GetChild(0);
+                            doorId.transform.GetChild(0).GetComponent<Door>().other = newEnt.transform;
+                            newEnt.transform.parent = doorId.transform;
+                        }
+                    }
 					//entities.Add(node.ChildNodes[i].Attributes["name"].Value, newEnt);
 				}
 

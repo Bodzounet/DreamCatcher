@@ -11,9 +11,11 @@ public class MovementController : MonoBehaviour
 	public float maxVelocityX = 1f;
     public float jumpVelocity = 5f;
 
+    [SerializeField]
     private bool isGrounded = false;
     public bool isOnLadder = false;
     public bool dead = false;
+    public bool isEnter = false;
 
 	private Vector2 lastVelocity;
     public Vector2 ladderX;
@@ -70,12 +72,14 @@ public class MovementController : MonoBehaviour
 			x = 0;
 
         //grounded ?
-        if (Physics2D.Linecast(transform.position + Vector3.right * (MAGIC_CONSTANT - 0.01f), transform.position - Vector3.up * (MAGIC_CONSTANT * 1.1f) + Vector3.right * (MAGIC_CONSTANT - 0.01f), (1 << 8) + (1 << 9)).transform != null ||
-            Physics2D.Linecast(transform.position + Vector3.left * (MAGIC_CONSTANT - 0.01f), transform.position - Vector3.up * (MAGIC_CONSTANT * 1.1f) + Vector3.left * (MAGIC_CONSTANT - 0.01f), (1 << 8) + (1 << 9)).transform != null)
+        if (Physics2D.Linecast(transform.position + Vector3.right * (MAGIC_CONSTANT - 0.02f), transform.position - Vector3.up * (MAGIC_CONSTANT * 1.1f) + Vector3.right * (MAGIC_CONSTANT - 0.02f), (1 << 8) + (1 << 9)).transform != null ||
+            Physics2D.Linecast(transform.position + Vector3.left * (MAGIC_CONSTANT - 0.02f), transform.position - Vector3.up * (MAGIC_CONSTANT * 1.1f) + Vector3.left * (MAGIC_CONSTANT - 0.02f), (1 << 8) + (1 << 9)).transform != null)
             isGrounded = true;
+        else
+            isGrounded = false;
 
         //jump
-        if (Input.GetButtonDown("Jump")  && isGrounded)
+        if (Input.GetButtonDown("Jump")  && isGrounded && rigidbody2D.velocity.y <= 0)
         {
             isGrounded = false;
             y = jumpVelocity;
@@ -83,6 +87,8 @@ public class MovementController : MonoBehaviour
         else
             y = rigidbody2D.velocity.y;
 
+        if (Input.GetAxis("Vertical") <= 0)
+            isEnter = false;
         //Ladder
         if (Input.GetAxis("Vertical") > 0 && isOnLadder)
         {
@@ -103,12 +109,11 @@ public class MovementController : MonoBehaviour
 
 		lastVelocity = new Vector2 (x, y);
 		rigidbody2D.velocity = lastVelocity;
-	}   
+	}
 
-    /*void OnDrawGizmos()
+   /* void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLine((transform.position + Vector3.right * (MAGIC_CONSTANT + 0.001f)) + Vector3.up * MAGIC_CONSTANT,
-            (transform.position + Vector3.right * (MAGIC_CONSTANT + 0.001f)) + Vector3.down * MAGIC_CONSTANT);
+        Gizmos.DrawLine(transform.position + Vector3.right * (MAGIC_CONSTANT - 0.02f), transform.position - Vector3.up * (MAGIC_CONSTANT * 1.1f) + Vector3.right * (MAGIC_CONSTANT - 0.02f));
     }*/
 }
