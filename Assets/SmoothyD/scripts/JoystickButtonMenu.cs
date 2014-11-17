@@ -20,9 +20,9 @@ public class JoystickButtonMenu{
 	
 	public JoystickButtonMenu(int numOfButtons,Rect[] rectangles,string[] labels, string inputActionButton,JoyAxis axis){
 		if(axis == JoyAxis.Horizontal){
-			joystickInputName = "Horizontal";
+			joystickInputName = "HorizontalMenu";
 		}else if(axis == JoyAxis.Vertical){
-			joystickInputName = "Vertical";
+			joystickInputName = "VerticalMenu";
 		}
 		
 		numberOfButtons = numOfButtons;
