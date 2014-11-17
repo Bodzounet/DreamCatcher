@@ -163,7 +163,13 @@ public class MapController : MonoBehaviour {
         }
         Debug.Log("generé en : " + (System.DateTime.Now - beg).TotalSeconds + " seconds");
         Camera.main.transform.position = new Vector3((width / 2 * tileWidth) / 50.0f, (height / 2 * tileHeight) / 50.0f, Camera.main.transform.position.z);
+        while (tileset.Count > 0)
+        {
+            Destroy(tileset[0]);
+            tileset.Remove(tileset[0]);
+        }
         #endregion
+
     }
 	
 	// Update is called once per frame
