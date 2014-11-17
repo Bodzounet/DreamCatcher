@@ -11,7 +11,7 @@ public class MovementController : MonoBehaviour
     public float jumpVelocity = 5f;
     private bool isGrounded = true;
 
-	public Vector2 lastVelocity;
+	private Vector2 lastVelocity;
 
 	// Use this for initialization
 	void Start () 
@@ -29,7 +29,7 @@ public class MovementController : MonoBehaviour
 		if (Input.GetAxis("Horizontal") < 0 &&
                   Physics2D.Linecast((transform.position + Vector3.left * 0.29f) + Vector3.up * 0.26f,
             (transform.position + Vector3.left * 0.29f) + Vector3.down * 0.26f,
-            1 << 8).transform == null)
+            (1 << 8) + (1 << 9)).transform == null)
 		{
 			if (x < -maxVelocityX)
 				x = -maxVelocityX;
@@ -38,8 +38,8 @@ public class MovementController : MonoBehaviour
 		}
 		else if (Input.GetAxis("Horizontal") > 0 &&
                   Physics2D.Linecast((transform.position + Vector3.right * 0.29f) + Vector3.up * 0.26f, 
-            (transform.position + Vector3.right * 0.29f) + Vector3.down * 0.26f, 
-            1 << 8).transform == null)
+            (transform.position + Vector3.right * 0.29f) + Vector3.down * 0.26f,
+            (1 << 8) + (1 << 9)).transform == null)
 		{
 			if (x > maxVelocityX)
 				x = maxVelocityX;
@@ -50,7 +50,7 @@ public class MovementController : MonoBehaviour
 			x = 0;
 
         //grounded ?
-        if (Physics2D.Linecast(transform.position, transform.position - Vector3.up * 0.29f, 1 << 8).transform != null)
+        if (Physics2D.Linecast(transform.position, transform.position - Vector3.up * 0.29f, (1 << 8) + (1 << 9)).transform != null)
             isGrounded = true;
 
         //jump
