@@ -153,8 +153,10 @@ public class MapController : MonoBehaviour {
 				}
 				else
 				{
-					//GameObject newEnt = Instantiate(Resources.Load("Actors/" + node.ChildNodes[i].Attributes["type"].Value, typeof(GameObject) )) as GameObject;
-					//newEnt.transform.position = new Vector3(int.Parse(node.ChildNodes[i].Attributes["x"].Value) / 50.0f, ((height * tileHeight) / 50.0f) - int.Parse(node.ChildNodes[i].Attributes["y"].Value) / 50.0f, 0);			                             
+					GameObject newEnt = Instantiate(Resources.Load(node.ChildNodes[i].Attributes["type"].Value, typeof(GameObject) )) as GameObject;
+					newEnt.transform.position = new Vector3(int.Parse(node.ChildNodes[i].Attributes["x"].Value) / 50.0f, ((height * tileHeight) / 50.0f) - int.Parse(node.ChildNodes[i].Attributes["y"].Value) / 50.0f, 0);
+                    newEnt.transform.position -= new Vector3(0, (int.Parse(node.ChildNodes[i].Attributes["height"].Value) / tileHeight) / 2 * tileHeight / 50.0f + tileHeight / 100.0f, 0);
+                    newEnt.transform.localScale = new Vector3(int.Parse(node.ChildNodes[i].Attributes["width"].Value) / tileWidth, (int.Parse(node.ChildNodes[i].Attributes["height"].Value) / tileHeight));
 					//entities.Add(node.ChildNodes[i].Attributes["name"].Value, newEnt);
 				}
 

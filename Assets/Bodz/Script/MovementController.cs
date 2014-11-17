@@ -3,14 +3,14 @@ using System.Collections;
 
 public class MovementController : MonoBehaviour 
 {
-    private static float MAGIC_CONSTANT = 0.16f;
+    private static float MAGIC_CONSTANT = 0.32f;
 
 
 	public float changeVelocityX = 0.8f;
 	public float maxVelocityX = 1f;
     public float jumpVelocity = 5f;
-    private bool isGrounded = true;
-
+    private bool isGrounded = false;
+    public bool isOnLadder = false;
 	private Vector2 lastVelocity;
 
 	// Use this for initialization
