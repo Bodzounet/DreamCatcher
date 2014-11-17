@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using UnityEngine;
 using System.Collections;
 
@@ -26,6 +27,36 @@ public class MovementController : MonoBehaviour
 		float y = lastVelocity.y;
 
 		//change velocity
+=======
+﻿using UnityEngine;
+using System.Collections;
+
+public class MovementController : MonoBehaviour 
+{
+    private static float MAGIC_CONSTANT = 0.16f;
+
+
+	public float changeVelocityX = 0.8f;
+	public float maxVelocityX = 1f;
+    public float jumpVelocity = 5f;
+    private bool isGrounded = true;
+
+	private Vector2 lastVelocity;
+
+	// Use this for initialization
+	void Start () 
+	{
+		lastVelocity = new Vector2(rigidbody2D.velocity.x, -jumpVelocity);
+	}
+	
+	// Update is called once per frame
+	void Update () 
+	{
+		float x = lastVelocity.x;
+		float y = lastVelocity.y;
+
+		//change velocity
+>>>>>>> d882e60746f5792870339ba4c074d86975c2ae4e
 		if (Input.GetAxis("Horizontal") < 0 &&
                   Physics2D.Linecast((transform.position + Vector3.left * (MAGIC_CONSTANT + 0.01f)) + Vector3.up * MAGIC_CONSTANT,
             (transform.position + Vector3.left * (MAGIC_CONSTANT + 0.01f)) + Vector3.down * MAGIC_CONSTANT,
