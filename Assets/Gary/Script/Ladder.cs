@@ -18,7 +18,7 @@ public class Ladder : MonoBehaviour {
 
     void OnTriggerStay2D (Collider2D c)
     {
-        if (c.gameObject == player)
+        if (c.gameObject == player.gameObject)
         {
             player.ladderX = this.transform.position;
             player.isOnLadder = true;
@@ -27,7 +27,7 @@ public class Ladder : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D c)
     {
-        if (c.gameObject == player)
+        if (c.gameObject == player.gameObject)
         {
             player.isOnLadder = false;
         }
