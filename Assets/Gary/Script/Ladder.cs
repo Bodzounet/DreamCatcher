@@ -3,11 +3,11 @@ using System.Collections;
 
 public class Ladder : MonoBehaviour {
 
-    private GameObject player;
+    private MovementController player;
 	// Use this for initialization
 	void Start () 
     {
-        player = GameObject.Find("P1");
+        player = GameObject.Find("P1").GetComponent<MovementController>();
 	}
 	
 	// Update is called once per frame
@@ -20,8 +20,8 @@ public class Ladder : MonoBehaviour {
     {
         if (c.gameObject == player)
         {
-            player.GetComponent<MovementController>().ladderX = this.transform.position;
-            player.GetComponent<MovementController>().isOnLadder = true;
+            player.ladderX = this.transform.position;
+            player.isOnLadder = true;
         }
     }
 
@@ -29,7 +29,7 @@ public class Ladder : MonoBehaviour {
     {
         if (c.gameObject == player)
         {
-            player.GetComponent<MovementController>().isOnLadder = false;
+            player.isOnLadder = false;
         }
     }
 }
