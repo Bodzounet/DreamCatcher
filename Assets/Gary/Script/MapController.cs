@@ -15,6 +15,7 @@ public class MapController : MonoBehaviour {
     private int center;
     public PhysicsMaterial2D pmaterial;
 	private int _i = 0;
+    private GameObject border;
 	// Use this for initialization
 	void Start () 
 	{
@@ -114,14 +115,21 @@ public class MapController : MonoBehaviour {
                     if (l == map.GetElementsByTagName("data").Count - 1)
                     {
                         tmp.AddComponent<PolygonCollider2D>();
+                        tmp.layer = LayerMask.NameToLayer("ground");
                         if (_i % width > center)
                         {
+
                             Vector2[] points = tmp.GetComponent<PolygonCollider2D>().points;
                             for (int p = 0; p < points.Length; p++)
                             {
-                                points[p] = new Vector2(points[p].x - tileWidth * center / 50.0f, points[p].y);
+                                points[p] = new Vector2(points[p].x + (tileWidth * (center - _i % width)) * 2 / 50.0f, points[p].y);
                             }
                             tmp.GetComponent<PolygonCollider2D>().points = points;
+                        }
+                        else if (_i % width == center)
+                        {
+                            border = tmp;
+                            tmp.layer = LayerMask.NameToLayer("center");
                         }
                     }
                     tmp.SetActive(true);
@@ -141,7 +149,8 @@ public class MapController : MonoBehaviour {
 			{  
 				if(node.ChildNodes[i].Attributes["type"].Value == "spawn")
 				{
-					//GameObject.Find("Player").transform.position = new Vector3(int.Parse(node.ChildNodes[i].Attributes["x"].Value) / 50.0f, ((height * tileHeight) / 50.0f) - int.Parse(node.ChildNodes[i].Attributes["y"].Value) / 50.0f, 0);
+					GameObject.Find("P1").transform.position = new Vector3(int.Parse(node.ChildNodes[i].Attributes["x"].Value) / 50.0f, ((height * tileHeight) / 50.0f) - int.Parse(node.ChildNodes[i].Attributes["y"].Value) / 50.0f, 0);
+                    GameObject.Find("P1Reflexion").GetComponent<MovementReflexion>().Border = border;
 				}
 				else
 				{
@@ -153,6 +162,7 @@ public class MapController : MonoBehaviour {
 			}
         }
         Debug.Log("generé en : " + (System.DateTime.Now - beg).TotalSeconds + " seconds");
+        Camera.main.transform.position = new Vector3((width / 2 * tileWidth) / 50.0f, (height / 2 * tileHeight) / 50.0f, Camera.main.transform.position.z);
         #endregion
     }
 	
