@@ -13,7 +13,7 @@ public class Chest : MonoBehaviour {
 
 	CharacterInventory					characterInventoryLeft;
 	CharacterInventory					characterInventoryRight;
-	Dictionary<string, Texture>			items = new Dictionary<string, Texture>();
+	Dictionary<Item.ItemType, Texture>	items = new Dictionary<Item.ItemType, Texture>();
 	Dictionary<Key.KeyType, Texture>	keys = new Dictionary<Key.KeyType, Texture>();
 	
 	// Use this for initialization
@@ -33,8 +33,9 @@ public class Chest : MonoBehaviour {
 
 		characterInventoryLeft = GameObject.Find ("CharacterLeft").GetComponent<CharacterInventory> ();
 		characterInventoryRight = GameObject.Find ("CharacterRight").GetComponent<CharacterInventory> ();
-		items ["Flame"] = Resources.Load<Texture>("Flame");
-		items ["Water"] = Resources.Load<Texture>("Water");
+		items [Item.ItemType.NO_ITEM] = Resources.Load<Texture>("NoItem");
+		items [Item.ItemType.FLAME] = Resources.Load<Texture>("Flame");
+		items [Item.ItemType.WATER] = Resources.Load<Texture>("Water");
 		keys [Key.KeyType.NO_KEY] = Resources.Load<Texture>("NoKey");
 		keys [Key.KeyType.NORMAL] = Resources.Load<Texture>("NormalKey");
 		keys [Key.KeyType.SPECTRAL] = Resources.Load<Texture>("SpectralKey");
@@ -61,8 +62,10 @@ public class Chest : MonoBehaviour {
 			}
 			currentlyPressedButton = mainMenu.CheckJoystickButton();
 			if (currentlyPressedButton == 0) {
-				characterInventoryLeft.SwapItem();
-				characterInventoryRight.SwapItem();
+				Item.ItemType	tmp = characterInventoryLeft.item;
+				
+				characterInventoryLeft.item = characterInventoryRight.item;
+				characterInventoryRight.item = tmp;
 				return;
 			}
 			else if (currentlyPressedButton == 1) {

@@ -3,18 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Item : MonoBehaviour {
-	public string				side;
-
-	CharacterInventory			characterInventory;
-	SpriteRenderer				spriteRenderer;
-	Dictionary<string, Sprite>	items = new Dictionary<string, Sprite>();
+	public string					side;
+	public enum ItemType {
+		NO_ITEM,
+		WATER,
+		FLAME
+	};
+	
+	CharacterInventory				characterInventory;
+	SpriteRenderer					spriteRenderer;
+	Dictionary<ItemType, Sprite>	items = new Dictionary<ItemType, Sprite>();
 
 	// Use this for initialization
 	void Start () {
 		spriteRenderer = this.GetComponent<SpriteRenderer> ();
 		characterInventory = GameObject.Find ("Character" + side).GetComponent<CharacterInventory>();
-		items ["Flame"] = Resources.Load<Sprite>("Flame");
-		items ["Water"] = Resources.Load<Sprite>("Water");
+		items [ItemType.NO_ITEM] = Resources.Load<Sprite>("NoItem");
+		items [ItemType.FLAME] = Resources.Load<Sprite>("Flame");
+		items [ItemType.WATER] = Resources.Load<Sprite>("Water");
 	}
 	
 	// Update is called once per frame

@@ -2,14 +2,14 @@
 using System.Collections;
 
 public class CharacterInventory : MonoBehaviour {
-	public string		item;
-	public string		side;
-	public Key.KeyType	key;
+	public string			side;
+	public Item.ItemType	item;
+	public Key.KeyType		key;
 
-	MicrophoneInput		microphoneInput;
-	double				timer;
-	string				blowChar;
-	SpriteRenderer		spriteRenderer;
+	MicrophoneInput			microphoneInput;
+	double					timer;
+	string					blowChar;
+	SpriteRenderer			spriteRenderer;
 	
 	// Use this for initialization
 	void Start () {
@@ -19,13 +19,6 @@ public class CharacterInventory : MonoBehaviour {
 		timer = 0;
 	}
 
-	public void	SwapItem () {
-		if (item == "Flame")
-			item = "Water";
-		else
-			item = "Flame";
-	}
-
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetButton ("BlowCharLeft") && Input.GetButton ("BlowCharRight") && microphoneInput.loudness > 15 && timer <= 0) {
@@ -33,9 +26,9 @@ public class CharacterInventory : MonoBehaviour {
 			timer = 0.75;
 		}
 		else if (Input.GetButton(blowChar) && microphoneInput.loudness > 15 && timer <= 0) {
-			if (item == "Water")
+			if (item == Item.ItemType.WATER)
 				spriteRenderer.color = new Color32(0, 0, 255, 255);
-			else if (item == "Flame")
+			else if (item == Item.ItemType.FLAME)
 				spriteRenderer.color = new Color32(255, 0, 0, 255);
 			timer = 0.75;
 		}
