@@ -10,6 +10,7 @@ public class MovementController : MonoBehaviour
 	public float changeVelocityX = 0.8f;
 	public float maxVelocityX = 1f;
     public float jumpVelocity = 5f;
+    public bool isGUIOpen = false;
 
     [SerializeField]
     private bool isGrounded = false;
@@ -46,7 +47,7 @@ public class MovementController : MonoBehaviour
 
 		//change velocity
 
-		if (Input.GetAxis("Horizontal") < 0 &&
+		if (Input.GetAxis("Horizontal") < 0 && !isGUIOpen && 
                   Physics2D.Linecast((transform.position + Vector3.left * (MAGIC_CONSTANT + 0.01f)) + Vector3.up * MAGIC_CONSTANT,
             (transform.position + Vector3.left * (MAGIC_CONSTANT + 0.01f)) + Vector3.down * MAGIC_CONSTANT,
             (1 << 8) + (1 << 9)).transform == null)
@@ -57,7 +58,7 @@ public class MovementController : MonoBehaviour
 				x -= changeVelocityX;
             isOnLadder = false;
 		}
-		else if (Input.GetAxis("Horizontal") > 0 &&
+        else if (Input.GetAxis("Horizontal") > 0 && !isGUIOpen &&
                   Physics2D.Linecast((transform.position + Vector3.right * (MAGIC_CONSTANT + 0.01f)) + Vector3.up * MAGIC_CONSTANT,
             (transform.position + Vector3.right * (MAGIC_CONSTANT + 0.01f)) + Vector3.down * MAGIC_CONSTANT,
             (1 << 8) + (1 << 9)).transform == null)
@@ -79,7 +80,7 @@ public class MovementController : MonoBehaviour
             isGrounded = false;
 
         //jump
-        if (Input.GetButtonDown("Jump")  && isGrounded && rigidbody2D.velocity.y <= 0)
+        if (Input.GetButtonDown("Jump") && !isGUIOpen && isGrounded && rigidbody2D.velocity.y <= 0)
         {
             isGrounded = false;
             y = jumpVelocity;
@@ -90,13 +91,13 @@ public class MovementController : MonoBehaviour
         if (Input.GetAxis("Vertical") <= 0)
             isEnter = false;
         //Ladder
-        if (Input.GetAxis("Vertical") > 0 && isOnLadder)
+        if (Input.GetAxis("Vertical") > 0 && isOnLadder && !isGUIOpen)
         {
             this.rigidbody2D.gravityScale = 0;
             this.transform.position = new Vector3(ladderX.x, transform.position.y);
             y = 1;
         }
-        else if (Input.GetAxis("Vertical") < 0 && isOnLadder)
+        else if (Input.GetAxis("Vertical") < 0 && isOnLadder && !isGUIOpen)
         {
             this.rigidbody2D.gravityScale = 0;
             this.transform.position = new Vector3(ladderX.x, transform.position.y);
