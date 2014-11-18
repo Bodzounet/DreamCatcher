@@ -5,13 +5,13 @@ public class CharacterInventory : MonoBehaviour {
 	public string			side;
 	public Item.ItemType	item;
 	public Key.KeyType		key;
-    public GameObject       dreamCatcher;
 
+    float                   visibleTime;
 	MicrophoneInput			microphoneInput;
 	double					timer;
 	string					blowChar;
 	SpriteRenderer			spriteRenderer;
-    DreamCatcherHandler     dreamCatcherHandler;
+    GameObject              hiddenEntities;
 	
 	// Use this for initialization
 	void Start () {
@@ -19,13 +19,27 @@ public class CharacterInventory : MonoBehaviour {
 		spriteRenderer = this.GetComponent<SpriteRenderer>();
 		blowChar = "BlowChar" + side;
 		timer = 0;
-        dreamCatcherHandler = dreamCatcher.GetComponent<DreamCatcherHandler>();
+        if (side == "Left")
+        {
+            hiddenEntities = GameObject.Find("HiddenEntities");
+            hiddenEntities.SetActive(false);
+        }
+        visibleTime = 3;
 	}
+
+    void HideEntities() {
+        hiddenEntities.SetActive(false);
+    }
 
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetButton ("BlowCharLeft") && Input.GetButton ("BlowCharRight") && microphoneInput.loudness > 15 && timer <= 0) {
-            dreamCatcherHandler.Activate();
+            if (side == "Left")
+            {
+                hiddenEntities.SetActive(true);
+                Invoke("HideEntities", visibleTime);
+                visibleTime++;
+            }
 			timer = 0.75;
 		}
 		else if (Input.GetButton(blowChar) && microphoneInput.loudness > 15 && timer <= 0) {
@@ -35,7 +49,7 @@ public class CharacterInventory : MonoBehaviour {
 				spriteRenderer.color = new Color32(255, 0, 0, 255);
 			timer = 0.75;
 		}
-		if (timer > 0)
-			timer -= Time.deltaTime;
+        if (timer > 0)
+            timer -= Time.deltaTime;
 	}
 }
