@@ -120,6 +120,8 @@ public class MovementController : MonoBehaviour
         else
             isEnter = true;
         //Ladder
+        if (isOnLadder == true)
+            deathFall = false;
         if (Input.GetAxis("Vertical") > 0 && isOnLadder && !isGUIOpen)
         {
             this.rigidbody2D.gravityScale = 0;
