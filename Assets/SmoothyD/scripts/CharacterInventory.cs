@@ -20,6 +20,7 @@ public class CharacterInventory : MonoBehaviour {
     GameObject              hiddenEntities;
     GameObject              shownEntities;
     SpriteRenderer          dreamEye;
+    public Animator fus;
 	
 	// Use this for initialization
 	void Start () {
@@ -86,6 +87,7 @@ public class CharacterInventory : MonoBehaviour {
     private void throwWater()
     {
         //todo : jouer l'anim de l'eau
+      fus.SetTrigger("air");
         childrenBox.gameObject.tag = "Water";
         childrenBox.enabled = true;
         Invoke("stopComp", animTime);
@@ -94,6 +96,7 @@ public class CharacterInventory : MonoBehaviour {
     private void throwFire()
     {
         //todo : jouer l'anim du feu
+       fus.SetTrigger("fire");
         childrenBox.gameObject.tag = "Fire";
         childrenBox.enabled = true;
         Invoke("stopComp", animTime);
