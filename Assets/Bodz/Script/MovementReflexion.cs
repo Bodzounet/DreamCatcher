@@ -4,10 +4,12 @@ using System.Collections;
 public class MovementReflexion : MonoBehaviour {
 
     public GameObject RealPlayer;
+    private MapController mc;
 
 	// Use this for initialization
 	void Start () 
     {
+        mc = GameObject.Find("MapManager").GetComponent<MapController>();
         setPos();
 	}
 	
@@ -19,18 +21,22 @@ public class MovementReflexion : MonoBehaviour {
 
     private void setPos()
     {
-        float x = RealPlayer.transform.position.x;
-        float y = RealPlayer.transform.position.y;
+        float x;
+        float y;
 
-        //calc x pos of the mirrored player
+        //case vertical border 
         RaycastHit2D tmp = Physics2D.Raycast(RealPlayer.transform.position, Vector3.right, Mathf.Infinity, 1 << 9);
         if (tmp.transform != null)
-            x = RealPlayer.transform.position.x + 2 * Mathf.Abs(tmp.transform.position.x - x);
-
-        //calc y pos of the mirrored player
-        tmp = Physics2D.Raycast(RealPlayer.transform.position, Vector3.down, Mathf.Infinity, 1 << 9);
-        if (tmp.transform != null)
-            y = RealPlayer.transform.position.y - 2 * Mathf.Abs(tmp.transform.position.y - y);
+        {
+            x = RealPlayer.transform.position.x + 2 * Mathf.Abs(tmp.transform.position.x - RealPlayer.transform.position.x);
+            y = RealPlayer.transform.position.y;
+        }
+        //case horizontal Border
+        else
+        {
+            x = (mc.width * (mc.tileWidth - 1) / 50.0f) - RealPlayer.transform.position.x; // - XLeftBorderLevel, but always 0 so forget
+            y = RealPlayer.transform.position.y - (mc.height * (mc.tileHeight - 1) / 50.0f) / 2;
+        }
 
         transform.position = new Vector3(x, y, RealPlayer.transform.position.z);
     }

@@ -8,13 +8,14 @@ public class MapController : MonoBehaviour {
     [SerializeField]
     private string _mapName;
 	private System.Xml.XmlDocument map;
-	private int height, width, tileHeight, tileWidth, tilesetWidth, tilesetHeight;
+	public int height, width, tileHeight, tileWidth, tilesetWidth, tilesetHeight;
 	private List<GameObject> tileset;
 	private System.Xml.XmlNodeList _gidMap;
     private List<Texture2D> tilesetTextures;
     private int center;
     public PhysicsMaterial2D pmaterial;
 	private int _i = 0;
+    private bool centerH = false;
 	// Use this for initialization
 	void Start () 
 	{
@@ -27,7 +28,14 @@ public class MapController : MonoBehaviour {
 
 		node = map.GetElementsByTagName("map").Item(0);
 
-        center = int.Parse(map.GetElementsByTagName("properties").Item(0).ChildNodes.Item(0).Attributes["value"].Value);
+        System.Xml.XmlNode prop = map.GetElementsByTagName("properties").Item(0);
+        for (int n = 0; n < prop.ChildNodes.Count; n++)
+        {
+            if (prop.ChildNodes[n].Attributes["name"].Value == "center")
+                center = int.Parse(prop.ChildNodes[n].Attributes["value"].Value);
+            if (prop.ChildNodes[n].Attributes["name"].Value == "centerH")
+                centerH = true;
+        }
 		width = int.Parse(node.Attributes["width"].Value);
 		height = int.Parse(node.Attributes["height"].Value);
 		tileWidth = int.Parse(node.Attributes["tilewidth"].Value);
@@ -120,9 +128,13 @@ public class MapController : MonoBehaviour {
                             float yDown = points[0].y;
                             for (int p = 0; p < points.Length; p++)
                             {
-                                if (_i % width > center)
+                                if (!centerH && _i % width > center)
                                 {
                                        points[p] = new Vector2(points[p].x + (tileWidth * (center - _i % width)) * 2 / 50.0f, points[p].y);
+                                }
+                                else if (centerH && ((_gidMap.Count - 1) - _i) / width < center)
+                                {
+                                    points[p] = new Vector2(points[p].x + (tileWidth * ((width / 2) - _i % width)) * 2 / 50.0f, points[p].y + (center * tileHeight / 50.0f));
                                 }
 
                                 if (points[p].y <= yDown)
