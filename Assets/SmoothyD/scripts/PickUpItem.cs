@@ -12,8 +12,12 @@ public class PickUpItem : MonoBehaviour {
 	void Update () {
 	}
 
-    void OnTriggerEnter2D (Collider2D other) {
-        other.gameObject.GetComponent<CharacterInventory>().item = item;
-        Destroy(this.gameObject);
+    void OnTriggerStay2D (Collider2D other) {
+        Debug.Log(other.name);
+        if (other.gameObject.GetComponent<CharacterInventory>() != null)
+        {
+            other.gameObject.GetComponent<CharacterInventory>().item = item;
+            Destroy(this.gameObject);
+        }
     }
 }
