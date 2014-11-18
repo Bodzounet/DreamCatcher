@@ -77,6 +77,9 @@ public class CharacterInventory : MonoBehaviour {
         if (hiddenEntTimer > 0) {
             hiddenEntTimer -= Time.deltaTime;
             dreamEye.color = new Color(1, 1, 1, (float)(hiddenEntTimer / visibleTime) * 0.8f);
+            foreach (SpriteRenderer hiddenEntity in hiddenEntities.GetComponentsInChildren<SpriteRenderer> ()) {
+                hiddenEntity.color = new Color(1, 1, 1, (float)(hiddenEntTimer / visibleTime) * 0.8f);
+            }
         }
 	}
 
