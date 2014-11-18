@@ -3,7 +3,7 @@ using System.Collections;
 
 public class pathFinding : MonoBehaviour {
     
-    public float speed = 1f;
+    public float speed = 0.02f;
     private Transform trans;
 
     private float lastX;
@@ -13,7 +13,7 @@ public class pathFinding : MonoBehaviour {
     // Use this for initialization
     void Start () 
     {
-        trans = GameObject.Find("CharacterRight").GetComponent<Transform>();
+        trans = GameObject.Find("CharacterLeft").GetComponent<Transform>();
         lastX = transform.position.x;
         scaleX = transform.localScale.x;
     }

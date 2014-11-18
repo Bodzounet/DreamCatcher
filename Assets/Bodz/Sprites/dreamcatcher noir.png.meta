@@ -1,0 +1,179 @@
+fileFormatVersion: 2
+guid: 8e70f0f06a93d794bb01e5bd6fdee142
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: dreamcatcher noir_0
+    21300002: dreamcatcher noir_1
+    21300004: dreamcatcher noir_2
+    21300006: dreamcatcher noir_3
+    21300008: dreamcatcher noir_4
+    21300010: dreamcatcher noir_5
+    21300012: dreamcatcher noir_6
+    21300014: dreamcatcher noir_7
+    21300016: dreamcatcher noir_8
+    21300018: dreamcatcher noir_9
+    21300020: dreamcatcher noir_10
+    21300022: dreamcatcher noir_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: dreamcatcher noir_0
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 77
+        width: 48
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dreamcatcher noir_1
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 76
+        width: 49
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dreamcatcher noir_2
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 77
+        width: 49
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dreamcatcher noir_3
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 76
+        width: 45
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dreamcatcher noir_4
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 77
+        width: 48
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dreamcatcher noir_5
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 77
+        width: 48
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dreamcatcher noir_6
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 77
+        width: 48
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dreamcatcher noir_7
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 77
+        width: 48
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dreamcatcher noir_8
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 76
+        width: 45
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dreamcatcher noir_9
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 77
+        width: 49
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dreamcatcher noir_10
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 76
+        width: 49
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dreamcatcher noir_11
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 77
+        width: 48
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

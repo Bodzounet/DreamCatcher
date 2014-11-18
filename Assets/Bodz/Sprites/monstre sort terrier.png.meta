@@ -1,0 +1,168 @@
+fileFormatVersion: 2
+guid: 19cabccbd4a05fa4da8cd2c179eec0e3
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: monstre sort terrier_3
+    21300002: monstre sort terrier_4
+    21300004: monstre sort terrier_5
+    21300006: monstre sort terrier_6
+    21300008: monstre sort terrier_7
+    21300010: monstre sort terrier_8
+    21300012: monstre sort terrier_9
+    21300014: monstre sort terrier_10
+    21300016: monstre sort terrier_11
+    21300018: monstre sort terrier_9
+    21300020: monstre sort terrier_10
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: monstre sort terrier_3
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 109
+        width: 63
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monstre sort terrier_4
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 109
+        width: 63
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monstre sort terrier_5
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 109
+        width: 63
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monstre sort terrier_6
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 109
+        width: 63
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monstre sort terrier_7
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 109
+        width: 63
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monstre sort terrier_8
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 107
+        width: 67
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monstre sort terrier_9
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 102
+        width: 74
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monstre sort terrier_10
+      rect:
+        serializedVersion: 2
+        x: 1173
+        y: 64
+        width: 94
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monstre sort terrier_11
+      rect:
+        serializedVersion: 2
+        x: 1303
+        y: 53
+        width: 80
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monstre sort terrier_9
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 109
+        width: 175
+        height: 94
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monstre sort terrier_10
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 106
+        width: 162
+        height: 94
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
