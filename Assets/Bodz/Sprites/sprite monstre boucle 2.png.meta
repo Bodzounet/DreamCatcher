@@ -1,0 +1,201 @@
+fileFormatVersion: 2
+guid: 3583a75eeb14f5c49bc04caea913962b
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: sprite monstre boucle 2_0
+    21300002: sprite monstre boucle 2_1
+    21300004: sprite monstre boucle 2_2
+    21300006: sprite monstre boucle 2_3
+    21300008: sprite monstre boucle 2_4
+    21300010: sprite monstre boucle 2_5
+    21300012: sprite monstre boucle 2_6
+    21300014: sprite monstre boucle 2_7
+    21300016: sprite monstre boucle 2_8
+    21300018: sprite monstre boucle 2_9
+    21300020: sprite monstre boucle 2_10
+    21300022: sprite monstre boucle 2_11
+    21300024: sprite monstre boucle 2_12
+    21300026: sprite monstre boucle 2_13
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: sprite monstre boucle 2_0
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 94
+        width: 455
+        height: 444
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprite monstre boucle 2_1
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 99
+        width: 452
+        height: 428
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprite monstre boucle 2_2
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 106
+        width: 440
+        height: 409
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprite monstre boucle 2_3
+      rect:
+        serializedVersion: 2
+        x: 2072
+        y: 108
+        width: 425
+        height: 405
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprite monstre boucle 2_4
+      rect:
+        serializedVersion: 2
+        x: 2597
+        y: 114
+        width: 408
+        height: 395
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprite monstre boucle 2_5
+      rect:
+        serializedVersion: 2
+        x: 3112
+        y: 117
+        width: 396
+        height: 389
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprite monstre boucle 2_6
+      rect:
+        serializedVersion: 2
+        x: 3714
+        y: 273
+        width: 5
+        height: 10
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprite monstre boucle 2_7
+      rect:
+        serializedVersion: 2
+        x: 4107
+        y: 108
+        width: 425
+        height: 393
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprite monstre boucle 2_8
+      rect:
+        serializedVersion: 2
+        x: 4615
+        y: 106
+        width: 440
+        height: 403
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprite monstre boucle 2_9
+      rect:
+        serializedVersion: 2
+        x: 5260
+        y: 275
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprite monstre boucle 2_10
+      rect:
+        serializedVersion: 2
+        x: 5652
+        y: 98
+        width: 456
+        height: 418
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprite monstre boucle 2_11
+      rect:
+        serializedVersion: 2
+        x: 6181
+        y: 96
+        width: 456
+        height: 431
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprite monstre boucle 2_12
+      rect:
+        serializedVersion: 2
+        x: 3603
+        y: 111
+        width: 433
+        height: 412
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprite monstre boucle 2_13
+      rect:
+        serializedVersion: 2
+        x: 5125
+        y: 97
+        width: 467
+        height: 419
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
