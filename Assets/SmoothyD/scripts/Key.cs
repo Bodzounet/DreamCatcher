@@ -19,8 +19,8 @@ public class Key : MonoBehaviour {
 		spriteRenderer = this.GetComponent<SpriteRenderer> ();
 		characterInventory = GameObject.Find ("Character" + side).GetComponent<CharacterInventory>();
 		items [KeyType.NO_KEY] = Resources.Load<Sprite>("NoKey");
-		items [KeyType.NORMAL] = Resources.Load<Sprite>("NormalKey");
-		items [KeyType.SPECTRAL] = Resources.Load<Sprite>("SpectralKey");
+		items [KeyType.NORMAL] = Resources.Load<Sprite>("NormalKeySprite");
+		items [KeyType.SPECTRAL] = Resources.Load<Sprite>("SpectralKeySprite");
 	}
 	
 	// Update is called once per frame

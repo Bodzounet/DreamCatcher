@@ -1,7 +1,9 @@
 fileFormatVersion: 2
 guid: d483e0ca0f46d5d488f313af68026cb2
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: NormalKey
+    21300002: NormalKeySprite
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

@@ -38,11 +38,11 @@ public class Chest : MonoBehaviour {
 		characterInventoryLeft = GameObject.Find ("CharacterLeft").GetComponent<CharacterInventory> ();
 		characterInventoryRight = GameObject.Find ("CharacterRight").GetComponent<CharacterInventory> ();
 		items [Item.ItemType.NO_ITEM] = Resources.Load<Texture>("NoItem");
-		items [Item.ItemType.FLAME] = Resources.Load<Texture>("Flame");
-		items [Item.ItemType.WATER] = Resources.Load<Texture>("Water");
-		keys [Key.KeyType.NO_KEY] = Resources.Load<Texture>("NoKey");
-		keys [Key.KeyType.NORMAL] = Resources.Load<Texture>("NormalKey");
-		keys [Key.KeyType.SPECTRAL] = Resources.Load<Texture>("SpectralKey");
+		items [Item.ItemType.FLAME] = Resources.Load<Texture>("FlameSprite");
+		items [Item.ItemType.WATER] = Resources.Load<Texture>("WaterSprite");
+		keys [Key.KeyType.NO_KEY] = Resources.Load<Texture>("NoKeySprite");
+		keys [Key.KeyType.NORMAL] = Resources.Load<Texture>("NormalKeySprite");
+		keys [Key.KeyType.SPECTRAL] = Resources.Load<Texture>("SpectralKeySprite");
 
         player = GameObject.Find("CharacterLeft");
         movementController = player.GetComponent<MovementController>();

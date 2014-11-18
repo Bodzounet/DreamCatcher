@@ -1,7 +1,8 @@
 fileFormatVersion: 2
-guid: 75ea16c6ec74bfb478b4a716829d4318
+guid: cfdd4a4160bcb4b47b6c1e4a0ef5af1d
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: FlameSprite
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
