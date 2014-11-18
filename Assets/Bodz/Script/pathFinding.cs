@@ -2,19 +2,24 @@
 using System.Collections;
 
 public class pathFinding : MonoBehaviour {
-
-    public GameObject player;
+    
     public float speed = 1f;
-
-	// Use this for initialization
-	void Start () 
+    private Transform trans;
+    
+    // Use this for initialization
+    void Start () 
     {
-        player = GameObject.Find("Player");
-	}
+        trans = GameObject.Find("CharacterRight").GetComponent<Transform>();
+    }
 	
-	// Update is called once per frame
-	void Update () 
+    // Update is called once per frame
+    void Update () 
     {
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-	}
+        //Debug.Log("moving from : x : " + transform.position.x + " // y : " + transform.position.y);
+        //Debug.Log("moving to : x : " + player.transform.position.x + " // y : " + player.transform.position.y);
+
+        Debug.Log(trans.position);
+
+        transform.position = Vector2.MoveTowards(this.transform.position, trans.position, speed * Time.deltaTime);
+    }
 }
