@@ -24,7 +24,6 @@ public class MapController : MonoBehaviour {
         hidden = new GameObject();
         hidden.name = "HiddenEntities";
         hidden.transform.position = Vector3.zero;
-        hidden.SetActive(false);
         System.DateTime beg = System.DateTime.Now;
 		map = new System.Xml.XmlDocument();
         map.Load(File.OpenText("Smap/" + _mapName));
