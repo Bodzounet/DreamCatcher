@@ -1,7 +1,8 @@
 fileFormatVersion: 2
 guid: 775226ff35d07b34cb8d2eeb0d3ade54
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: fixe noir moulin
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

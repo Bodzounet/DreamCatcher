@@ -22,7 +22,7 @@ public class MovementController : MonoBehaviour
         NONE
     };
 
-    private static float MAGIC_CONSTANT = 0.42f;
+    private static float MAGIC_CONSTANT = 0.40f;
     private static float MAGIC_CONSTANTX = 0.17f;
 
 	public float changeVelocityX = 0.8f;
@@ -110,7 +110,7 @@ public class MovementController : MonoBehaviour
 				x = maxVelocityX;
 			else
 				x += changeVelocityX;
-            isOnLadder = false;
+            //isOnLadder = false;
 		}
 		else
 			x = 0;
