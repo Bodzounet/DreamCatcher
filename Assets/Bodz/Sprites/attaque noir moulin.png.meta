@@ -1,0 +1,212 @@
+fileFormatVersion: 2
+guid: 04ba9d1dff52b564793c744f7883f7d9
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: attaque noir moulin_0
+    21300002: attaque noir moulin_1
+    21300004: attaque noir moulin_2
+    21300006: attaque noir moulin_3
+    21300008: attaque noir moulin_4
+    21300010: attaque noir moulin_5
+    21300012: attaque noir moulin_6
+    21300014: attaque noir moulin_7
+    21300016: attaque noir moulin_8
+    21300018: attaque noir moulin_9
+    21300020: attaque noir moulin_10
+    21300022: attaque noir moulin_11
+    21300024: attaque noir moulin_12
+    21300026: attaque noir moulin_13
+    21300028: attaque noir moulin_14
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: attaque noir moulin_0
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 17
+        width: 48
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir moulin_1
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 17
+        width: 50
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir moulin_2
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 17
+        width: 50
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir moulin_3
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 17
+        width: 50
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir moulin_4
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 17
+        width: 50
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir moulin_5
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 17
+        width: 45
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir moulin_6
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 17
+        width: 47
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir moulin_7
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 16
+        width: 45
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir moulin_8
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 16
+        width: 44
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir moulin_9
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 16
+        width: 45
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir moulin_10
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 16
+        width: 44
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir moulin_11
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 16
+        width: 45
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir moulin_12
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 17
+        width: 50
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir moulin_13
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 16
+        width: 50
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir moulin_14
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 16
+        width: 48
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
