@@ -4,7 +4,6 @@ using System.Collections;
 public class MovementReflexion : MonoBehaviour {
 
     public GameObject RealPlayer;
-    private MapController mc;
     private MovementController mvtc;
 
     private Animator anim;
@@ -13,7 +12,7 @@ public class MovementReflexion : MonoBehaviour {
 	void Start () 
     {
         anim = GameObject.Find("CharacterRight").GetComponent<Animator>();
-        mc = GameObject.Find("MapManager").GetComponent<MapController>();
+
         mvtc = GameObject.Find("CharacterLeft").GetComponent<MovementController>();
         setPos();
 	}

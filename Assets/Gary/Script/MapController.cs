@@ -214,7 +214,10 @@ public class MapController : MonoBehaviour {
                         }
                     }
                     if (copie != null)
+                    {
                         newEnt.transform.parent = copie.transform;
+                        newEnt.transform.localScale = new Vector3(1, 1, 1);
+                    }
                     if (node.ChildNodes[i].ChildNodes[0] != null && node.ChildNodes[i].ChildNodes[0].ChildNodes[0].Attributes["name"].Value == "link")
                     {
                         if (copie != null)
