@@ -1,0 +1,322 @@
+fileFormatVersion: 2
+guid: 9a56b64025533944a939b5605ac16ae2
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: "ouverture coffre r\xEAve petit_0"
+    21300002: "ouverture coffre r\xEAve petit_1"
+    21300004: "ouverture coffre r\xEAve petit_2"
+    21300006: "ouverture coffre r\xEAve petit_3"
+    21300008: "ouverture coffre r\xEAve petit_4"
+    21300010: "ouverture coffre r\xEAve petit_5"
+    21300012: "ouverture coffre r\xEAve petit_6"
+    21300014: "ouverture coffre r\xEAve petit_7"
+    21300016: "ouverture coffre r\xEAve petit_8"
+    21300018: "ouverture coffre r\xEAve petit_9"
+    21300020: "ouverture coffre r\xEAve petit_10"
+    21300022: "ouverture coffre r\xEAve petit_11"
+    21300024: "ouverture coffre r\xEAve petit_12"
+    21300026: "ouverture coffre r\xEAve petit_13"
+    21300028: "ouverture coffre r\xEAve petit_14"
+    21300030: "ouverture coffre r\xEAve petit_15"
+    21300032: "ouverture coffre r\xEAve petit_16"
+    21300034: "ouverture coffre r\xEAve petit_17"
+    21300036: "ouverture coffre r\xEAve petit_18"
+    21300038: "ouverture coffre r\xEAve petit_19"
+    21300040: "ouverture coffre r\xEAve petit_20"
+    21300042: "ouverture coffre r\xEAve petit_21"
+    21300044: "ouverture coffre r\xEAve petit_22"
+    21300046: "ouverture coffre r\xEAve petit_23"
+    21300048: "ouverture coffre r\xEAve petit_24"
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: 2
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: "ouverture coffre r\xEAve petit_0"
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 0
+        width: 57
+        height: 36
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "ouverture coffre r\xEAve petit_1"
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 0
+        width: 58
+        height: 36
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "ouverture coffre r\xEAve petit_2"
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 0
+        width: 58
+        height: 36
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "ouverture coffre r\xEAve petit_3"
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 58
+        height: 37
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "ouverture coffre r\xEAve petit_4"
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 0
+        width: 58
+        height: 37
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "ouverture coffre r\xEAve petit_5"
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 0
+        width: 59
+        height: 37
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "ouverture coffre r\xEAve petit_6"
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 0
+        width: 58
+        height: 37
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "ouverture coffre r\xEAve petit_7"
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 0
+        width: 58
+        height: 37
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "ouverture coffre r\xEAve petit_8"
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 0
+        width: 58
+        height: 37
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "ouverture coffre r\xEAve petit_9"
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 0
+        width: 58
+        height: 38
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "ouverture coffre r\xEAve petit_10"
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 0
+        width: 58
+        height: 38
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "ouverture coffre r\xEAve petit_11"
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 0
+        width: 58
+        height: 38
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "ouverture coffre r\xEAve petit_12"
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 0
+        width: 58
+        height: 39
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "ouverture coffre r\xEAve petit_13"
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 0
+        width: 58
+        height: 39
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "ouverture coffre r\xEAve petit_14"
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 0
+        width: 58
+        height: 39
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "ouverture coffre r\xEAve petit_15"
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 0
+        width: 58
+        height: 39
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "ouverture coffre r\xEAve petit_16"
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 58
+        height: 39
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "ouverture coffre r\xEAve petit_17"
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 0
+        width: 58
+        height: 39
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "ouverture coffre r\xEAve petit_18"
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 0
+        width: 58
+        height: 40
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "ouverture coffre r\xEAve petit_19"
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 0
+        width: 58
+        height: 40
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "ouverture coffre r\xEAve petit_20"
+      rect:
+        serializedVersion: 2
+        x: 1278
+        y: 0
+        width: 58
+        height: 40
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "ouverture coffre r\xEAve petit_21"
+      rect:
+        serializedVersion: 2
+        x: 1341
+        y: 0
+        width: 59
+        height: 40
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "ouverture coffre r\xEAve petit_22"
+      rect:
+        serializedVersion: 2
+        x: 1405
+        y: 0
+        width: 58
+        height: 40
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "ouverture coffre r\xEAve petit_23"
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 0
+        width: 58
+        height: 40
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: "ouverture coffre r\xEAve petit_24"
+      rect:
+        serializedVersion: 2
+        x: 1532
+        y: 0
+        width: 57
+        height: 40
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
