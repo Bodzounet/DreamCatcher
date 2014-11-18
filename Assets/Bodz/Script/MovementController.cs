@@ -40,6 +40,8 @@ public class MovementController : MonoBehaviour
     public Vector3 spawnPos;
 
     public e_dir currentDir = e_dir.RIGHT;
+    bool deathFall;
+    double maximumFallVelocity;
 
     private Animator anim;
     public AnimState animState;
@@ -51,8 +53,11 @@ public class MovementController : MonoBehaviour
 	{
         spawnPos = rigidbody2D.transform.position;
 		lastVelocity = new Vector2(rigidbody2D.velocity.x, -jumpVelocity);
+
         anim = GameObject.Find("CharacterLeft").GetComponent<Animator>();
         inventory = GameObject.Find("CharacterLeft").GetComponent<CharacterInventory>();
+        deathFall = false;
+        maximumFallVelocity = 4.7;
 	}
 	
 	// Update is called once per frame
@@ -67,6 +72,8 @@ public class MovementController : MonoBehaviour
 
 		float x = lastVelocity.x;
 		float y = lastVelocity.y;
+        if (Mathf.Abs(y) > maximumFallVelocity)
+            deathFall = true;
 
 		//change velocity
 
@@ -109,7 +116,11 @@ public class MovementController : MonoBehaviour
         //grounded ?
         if (Physics2D.Linecast(transform.position + Vector3.right * (MAGIC_CONSTANTX - 0.02f), transform.position - Vector3.up * (MAGIC_CONSTANT * 1.1f) + Vector3.right * (MAGIC_CONSTANTX - 0.02f), (1 << 8) + (1 << 9)).transform != null ||
             Physics2D.Linecast(transform.position + Vector3.left * (MAGIC_CONSTANTX - 0.02f), transform.position - Vector3.up * (MAGIC_CONSTANT * 1.1f) + Vector3.left * (MAGIC_CONSTANTX - 0.02f), (1 << 8) + (1 << 9)).transform != null)
+        {
+            if (deathFall == true)
+                dead = true;
             isGrounded = true;
+        }
         else
             isGrounded = false;
 
@@ -157,13 +168,12 @@ public class MovementController : MonoBehaviour
         transform.position = spawnPos;
         rigidbody2D.velocity = new Vector2(0, -jumpVelocity);
         currentDir = e_dir.LEFT;
+        deathFall = false;
         dead = false;
     }
 
     private void animCharacter()
     {
-        Debug.Log(rigidbody2D.velocity);
-
         animState.jumpOver = false;
         if (Mathf.Abs(rigidbody2D.velocity.x) > maxVelocityX / 10)
             animState.isMoving = true;

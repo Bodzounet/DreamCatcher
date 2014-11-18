@@ -40,8 +40,8 @@ public class MovementReflexion : MonoBehaviour {
         //case horizontal Border
         else
         {
-            x = (mc.width * (mc.tileWidth - 1) / 50.0f) - RealPlayer.transform.position.x; // - XLeftBorderLevel, but always 0 so forget
-            y = RealPlayer.transform.position.y - (mc.height * (mc.tileHeight - 1) / 50.0f) / 2;
+            x = 19.20f - RealPlayer.transform.position.x; // - XLeftBorderLevel, but always 0 so forget
+            y = RealPlayer.transform.position.y - 9.0f;
         }
 
 

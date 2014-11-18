@@ -19,7 +19,7 @@ public class Door : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D c)
     {
-        if (c.gameObject.name == "CharacterLeft" && Input.GetAxis("Vertical") > 0 && !c.GetComponent<MovementController>().isEnter)
+        if (c.gameObject.name == "CharacterLeft" && Input.GetAxis("Vertical") > 0.05 && !c.GetComponent<MovementController>().isEnter)
         {
             c.transform.position = other.position;
             c.transform.position += Vector3.down * 0.42f;

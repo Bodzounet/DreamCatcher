@@ -1,8 +1,7 @@
 fileFormatVersion: 2
-guid: 312cfdac4d52d384e803020cbda9a4b2
+guid: 8d73e978519003f46b255bcac8dd9855
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: torchLit
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -22,7 +21,7 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -3
+  textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1

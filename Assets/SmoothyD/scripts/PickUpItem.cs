@@ -13,7 +13,6 @@ public class PickUpItem : MonoBehaviour {
 	}
 
     void OnTriggerStay2D (Collider2D other) {
-        Debug.Log(other.name);
         if (other.gameObject.GetComponent<CharacterInventory>() != null)
         {
             other.gameObject.GetComponent<CharacterInventory>().item = item;

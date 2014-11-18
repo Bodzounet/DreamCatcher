@@ -5,6 +5,7 @@ public class CharacterInventory : MonoBehaviour {
 	public string			side;
 	public Item.ItemType	item;
 	public Key.KeyType		key;
+    public bool             dreamCatcher = false;
 
     float                   visibleTime;
 	MicrophoneInput			microphoneInput;
@@ -17,6 +18,7 @@ public class CharacterInventory : MonoBehaviour {
     private float           animTime = 2f;
 
     GameObject              hiddenEntities;
+    GameObject              shownEntities;
     SpriteRenderer          dreamEye;
 	
 	// Use this for initialization
@@ -31,6 +33,7 @@ public class CharacterInventory : MonoBehaviour {
         if (side == "Left")
         {
             hiddenEntities = GameObject.Find("HiddenEntities");
+            shownEntities = GameObject.Find("ShownEntities");
             hiddenEntities.SetActive(false);
         }
         visibleTime = 3;
@@ -40,32 +43,32 @@ public class CharacterInventory : MonoBehaviour {
 
     void HideEntities() {
         hiddenEntities.SetActive(false);
+        shownEntities.SetActive(true);
     }
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButton ("BlowCharLeft") && Input.GetButton ("BlowCharRight") && microphoneInput.loudness > 15 && hiddenEntTimer <= 0) {
+		if (dreamCatcher == true && Input.GetButton ("BlowCharLeft") && Input.GetButton ("BlowCharRight") && hiddenEntTimer <= 0) {
             if (side == "Left")
             {
                 dreamEye.color = new Color(1, 1, 1, 0.75f);
                 hiddenEntities.SetActive(true);
+                shownEntities.SetActive(false);
                 Invoke("HideEntities", visibleTime);
                 visibleTime++;
                 hiddenEntTimer = visibleTime;
             }
 			timer = 0.75;
 		}
-		else if (Input.GetButton(blowChar) && microphoneInput.loudness > 15 && timer <= 0) 
+		else if (microphoneInput.loudness > 15 && timer <= 0) 
         {
             if (item == Item.ItemType.WATER)
             {
                 throwWater();
-                spriteRenderer.color = new Color32(0, 0, 255, 255);
             }
             else if (item == Item.ItemType.FLAME)
             {
                 throwFire();
-                spriteRenderer.color = new Color32(255, 0, 0, 255);
             }
 			timer = 0.75;
 		}
@@ -74,6 +77,9 @@ public class CharacterInventory : MonoBehaviour {
         if (hiddenEntTimer > 0) {
             hiddenEntTimer -= Time.deltaTime;
             dreamEye.color = new Color(1, 1, 1, (float)(hiddenEntTimer / visibleTime) * 0.8f);
+            foreach (SpriteRenderer hiddenEntity in hiddenEntities.GetComponentsInChildren<SpriteRenderer> ()) {
+                hiddenEntity.color = new Color(1, 1, 1, (float)(hiddenEntTimer / visibleTime) * 0.8f);
+            }
         }
 	}
 
