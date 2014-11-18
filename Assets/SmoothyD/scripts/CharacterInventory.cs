@@ -6,13 +6,18 @@ public class CharacterInventory : MonoBehaviour {
 	public Item.ItemType	item;
 	public Key.KeyType		key;
 
+    float                   visibleTime;
 	MicrophoneInput			microphoneInput;
 	double					timer;
 	string					blowChar;
 	SpriteRenderer			spriteRenderer;
+<<<<<<< HEAD
 
     private BoxCollider2D   childrenBox;
     private float           animTime = 2f;
+=======
+    GameObject              hiddenEntities;
+>>>>>>> 81313355c139abeba8633755740a531aed9073b5
 	
 	// Use this for initialization
 	void Start () {
@@ -20,15 +25,33 @@ public class CharacterInventory : MonoBehaviour {
 		spriteRenderer = this.GetComponent<SpriteRenderer>();
 		blowChar = "BlowChar" + side;
 		timer = 0;
+<<<<<<< HEAD
 
         childrenBox = GetComponentInChildren<BoxCollider2D>();
         childrenBox.enabled = false;
+=======
+        if (side == "Left")
+        {
+            hiddenEntities = GameObject.Find("HiddenEntities");
+            hiddenEntities.SetActive(false);
+        }
+        visibleTime = 3;
+>>>>>>> 81313355c139abeba8633755740a531aed9073b5
 	}
+
+    void HideEntities() {
+        hiddenEntities.SetActive(false);
+    }
 
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetButton ("BlowCharLeft") && Input.GetButton ("BlowCharRight") && microphoneInput.loudness > 15 && timer <= 0) {
-			spriteRenderer.color = new Color32(0, 255, 0, 255);
+            if (side == "Left")
+            {
+                hiddenEntities.SetActive(true);
+                Invoke("HideEntities", visibleTime);
+                visibleTime++;
+            }
 			timer = 0.75;
 		}
 		else if (Input.GetButton(blowChar) && microphoneInput.loudness > 15 && timer <= 0) 
@@ -45,8 +68,8 @@ public class CharacterInventory : MonoBehaviour {
             }
 			timer = 0.75;
 		}
-		if (timer > 0)
-			timer -= Time.deltaTime;
+        if (timer > 0)
+            timer -= Time.deltaTime;
 	}
 
     private void throwWater()

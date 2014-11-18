@@ -5,18 +5,20 @@ using System.Collections.Generic;
 public class Chest : MonoBehaviour {
 	public GUISkin						mySkin;
 	public float						delayBetweenFocusChanges = .5f;
+    public bool                         isOpen;
 	
 	private JoystickButtonMenu			mainMenu;
 	private Rect[]						myRects = new Rect[4];
 	private string[]					mainMenuLabels = new string[4];
 	private int							currentlyPressedButton = -1;
     private bool                        canBeOpenend = false;
-    private GameObject             player;
-	CharacterInventory				characterInventoryLeft;
-	CharacterInventory				characterInventoryRight;
+    private GameObject                  player;
+	CharacterInventory				    characterInventoryLeft;
+	CharacterInventory				    characterInventoryRight;
 	Dictionary<Item.ItemType, Texture>	items = new Dictionary<Item.ItemType, Texture>();
-	Dictionary<Key.KeyType, Texture>	 keys = new Dictionary<Key.KeyType, Texture>();
-	// Use this for initialization
+	Dictionary<Key.KeyType, Texture>	keys = new Dictionary<Key.KeyType, Texture>();
+    MovementController                  movementController;
+
 	void Start () {
 		myRects[0] = new Rect(Screen.width / 2 - 150, Screen.height / 2 - 25, 50, 50);
 		myRects[1] = new Rect(Screen.width / 2 - 90, Screen.height / 2 - 25, 50, 50);
@@ -28,19 +30,22 @@ public class Chest : MonoBehaviour {
 		mainMenuLabels[2] = "";
 		mainMenuLabels[3] = "";
 
-		mainMenu = new JoystickButtonMenu(4, myRects, mainMenuLabels, "Validate", JoystickButtonMenu.JoyAxis.Horizontal);
+		mainMenu = new JoystickButtonMenu(4, myRects, mainMenuLabels, "Jump", JoystickButtonMenu.JoyAxis.Horizontal);
 		mainMenu.enabled = false;
+
+        isOpen = false;
 
 		characterInventoryLeft = GameObject.Find ("CharacterLeft").GetComponent<CharacterInventory> ();
 		characterInventoryRight = GameObject.Find ("CharacterRight").GetComponent<CharacterInventory> ();
 		items [Item.ItemType.NO_ITEM] = Resources.Load<Texture>("NoItem");
-		items [Item.ItemType.FLAME] = Resources.Load<Texture>("Flame");
-		items [Item.ItemType.WATER] = Resources.Load<Texture>("Water");
-		keys [Key.KeyType.NO_KEY] = Resources.Load<Texture>("NoKey");
-		keys [Key.KeyType.NORMAL] = Resources.Load<Texture>("NormalKey");
-		keys [Key.KeyType.SPECTRAL] = Resources.Load<Texture>("SpectralKey");
+		items [Item.ItemType.FLAME] = Resources.Load<Texture>("FlameSprite");
+		items [Item.ItemType.WATER] = Resources.Load<Texture>("WaterSprite");
+		keys [Key.KeyType.NO_KEY] = Resources.Load<Texture>("NoKeySprite");
+		keys [Key.KeyType.NORMAL] = Resources.Load<Texture>("NormalKeySprite");
+		keys [Key.KeyType.SPECTRAL] = Resources.Load<Texture>("SpectralKeySprite");
 
         player = GameObject.Find("CharacterLeft");
+        movementController = player.GetComponent<MovementController>();
 	}
 	
 	void	OnGUI() {
@@ -56,7 +61,6 @@ public class Chest : MonoBehaviour {
 		} 
 	}
 
-	// Update is called once per frame
 	void Update () {
 		if(mainMenu.enabled) {
 			if(mainMenu.CheckJoystickAxis()){
@@ -77,14 +81,16 @@ public class Chest : MonoBehaviour {
 				characterInventoryRight.key = tmp;
 				return;
 			}
-			if (Input.GetButtonDown ("Cancel") || (mainMenu.enabled &&  !canBeOpenend)) {
+			if (Input.GetButtonDown ("Validate") || !canBeOpenend) {
 				mainMenu.currentFocus = 0;
 				mainMenu.SetFocus(0);
 				mainMenu.enabled = false;
+                movementController.isGUIOpen = false;
 			}
 		}
 		else if (Input.GetButtonDown("Validate") && canBeOpenend) {
 			mainMenu.enabled = true;
+            movementController.isGUIOpen = true;
 		}
 	}
 

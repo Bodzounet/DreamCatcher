@@ -1,8 +1,7 @@
 fileFormatVersion: 2
-guid: 980dd14f358f77442974cd996988cb9c
+guid: 312cfdac4d52d384e803020cbda9a4b2
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: ladder
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -22,10 +21,10 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 1024
   textureSettings:
-    filterMode: 0
+    filterMode: -1
     aniso: 1
     mipBias: -1
     wrapMode: 1
@@ -38,7 +37,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 50
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
