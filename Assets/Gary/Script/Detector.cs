@@ -4,10 +4,11 @@ using System.Collections;
 public class Detector : MonoBehaviour {
 
     public Key.KeyType type;
+    private GameObject j2;
 	// Use this for initialization
 	void Start () 
     {
-	        
+        j2 = GameObject.Find("CharacterRight");
 	}
 	
 	// Update is called once per frame
@@ -18,7 +19,7 @@ public class Detector : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D c)
     {
-        if (c.GetComponent<CharacterInventory>() != null && c.GetComponent<CharacterInventory>().key == type)
+        if (c.GetComponent<CharacterInventory>() != null && (c.GetComponent<CharacterInventory>().key == type))
         {
             this.transform.parent.collider2D.enabled = false;
             this.collider2D.enabled = false;

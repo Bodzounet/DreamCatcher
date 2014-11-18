@@ -46,6 +46,11 @@ public class Chest : MonoBehaviour {
 
         player = GameObject.Find("CharacterLeft");
         movementController = player.GetComponent<MovementController>();
+        GameObject che = new GameObject();
+        che.AddComponent<SpriteRenderer>().sprite = this.GetComponent<SpriteRenderer>().sprite;
+        float center = GameObject.Find("MapManager").GetComponent<MapController>().center * 0.32f;
+        che.transform.position = new Vector3(-(this.transform.position.x - center) + center, transform.position.y);
+        che.name = "DarkChest";
 	}
 	
 	void	OnGUI() {

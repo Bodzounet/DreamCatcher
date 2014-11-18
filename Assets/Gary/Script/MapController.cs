@@ -12,7 +12,7 @@ public class MapController : MonoBehaviour {
 	private List<GameObject> tileset;
 	private System.Xml.XmlNodeList _gidMap;
     private List<Texture2D> tilesetTextures;
-    private int center;
+    public int center;
     public PhysicsMaterial2D pmaterial;
     public float pixelToUnit = 100;
 	private int _i = 0;
@@ -174,6 +174,7 @@ public class MapController : MonoBehaviour {
 
         #region Couche Object
 		node = map.GetElementsByTagName("objectgroup").Item(0);
+        Dictionary<string, GameObject> torches = new Dictionary<string, GameObject>();
 		if (node != null)
 		{
 			for (i= 0; i < node.ChildNodes.Count ; i++)
@@ -187,31 +188,93 @@ public class MapController : MonoBehaviour {
 				{
 					GameObject newEnt = Instantiate(Resources.Load(node.ChildNodes[i].Attributes["type"].Value, typeof(GameObject) )) as GameObject;
 					newEnt.transform.position = new Vector3(int.Parse(node.ChildNodes[i].Attributes["x"].Value) / pixelToUnit, ((height * tileHeight) / pixelToUnit) - int.Parse(node.ChildNodes[i].Attributes["y"].Value) / pixelToUnit, 0);
+                    GameObject copie = null;
+
+                    if (!centerH && int.Parse(node.ChildNodes[i].Attributes["x"].Value) / tileWidth > center)
+                    {
+                        copie = Instantiate(newEnt) as GameObject;
+                        copie.name = node.ChildNodes[i].Attributes["name"].Value; 
+                        copie.transform.position = new Vector3(((center * tileWidth) - (int.Parse(node.ChildNodes[i].Attributes["x"].Value) - (center * tileWidth))) / pixelToUnit, newEnt.transform.position.y, 0);
+                        copie.transform.position -= new Vector3(0, ((int.Parse(node.ChildNodes[i].Attributes["height"].Value) / 2) * 1.25f) / pixelToUnit, 0);
+                        copie.renderer.enabled = false;
+  
+                    }
+                    else
+                        newEnt.name = node.ChildNodes[i].Attributes["name"].Value; 
                     newEnt.transform.position -= new Vector3(0, ((int.Parse(node.ChildNodes[i].Attributes["height"].Value) / 2) * 1.25f) / pixelToUnit, 0);
                     if (node.ChildNodes[i].ChildNodes[0] != null && node.ChildNodes[i].ChildNodes[0].ChildNodes[0].Attributes["name"].Value == "scale")
+                    {
                         newEnt.transform.localScale = new Vector3(int.Parse(node.ChildNodes[i].Attributes["width"].Value) / tileWidth, (int.Parse(node.ChildNodes[i].Attributes["height"].Value) / tileHeight));
+                        newEnt.transform.position += Vector3.right * (int.Parse(node.ChildNodes[i].Attributes["width"].Value)  / 4 / pixelToUnit);
+                        if (copie != null)
+                        {
+                            copie.transform.localScale = new Vector3(int.Parse(node.ChildNodes[i].Attributes["width"].Value) / tileWidth, (int.Parse(node.ChildNodes[i].Attributes["height"].Value) / tileHeight));
+                            copie.transform.position += Vector3.left * (int.Parse(node.ChildNodes[i].Attributes["width"].Value) / 4 / pixelToUnit);
+                            newEnt.transform.localScale = new Vector3(1, 1, 1);
+                        }
+                    }
+                    if (copie != null)
+                        newEnt.transform.parent = copie.transform;
+                    if (node.ChildNodes[i].ChildNodes[0] != null && node.ChildNodes[i].ChildNodes[0].ChildNodes[0].Attributes["name"].Value == "link")
+                    {
+                        if (copie != null)
+                        {
+                            newEnt.transform.parent = null;
+                            Destroy(copie);
+                        }
+                        torches[node.ChildNodes[i].ChildNodes[0].ChildNodes[0].Attributes["value"].Value] = newEnt;
+
+
+                        if (node.ChildNodes[i].ChildNodes[0].ChildNodes[1].Attributes["name"].Value == "on")
+                        {
+                            if (node.ChildNodes[i].ChildNodes[0].ChildNodes[1].Attributes["value"].Value == "true")
+                                newEnt.GetComponent<switchTorchMode>().Invert();
+                        }
+                    }
                     if (node.ChildNodes[i].ChildNodes[0] != null && node.ChildNodes[i].ChildNodes[0].ChildNodes[0].Attributes["name"].Value == "id")
                     {
-                        newEnt.GetComponent<Door>().id = int.Parse(node.ChildNodes[i].ChildNodes[0].ChildNodes[0].Attributes["value"].Value);
                         GameObject doorId = GameObject.Find("Door" + node.ChildNodes[i].ChildNodes[0].ChildNodes[0].Attributes["value"].Value);
                         if (doorId == null)
                         {
                             doorId = new GameObject();
                             doorId.transform.position = Vector3.zero;
                             doorId.name = "Door" + node.ChildNodes[i].ChildNodes[0].ChildNodes[0].Attributes["value"].Value;
-                            newEnt.transform.parent = doorId.transform;
+                            if (copie != null)
+                            {
+                                copie.transform.parent = doorId.transform;
+                                copie.GetComponent<Door>().id = int.Parse(node.ChildNodes[i].ChildNodes[0].ChildNodes[0].Attributes["value"].Value);
+                            }
+                            else
+                            {
+                                newEnt.transform.parent = doorId.transform;
+                                newEnt.GetComponent<Door>().id = int.Parse(node.ChildNodes[i].ChildNodes[0].ChildNodes[0].Attributes["value"].Value);
+                            }
                         }
                         else
                         {
-                            newEnt.GetComponent<Door>().other = doorId.transform.GetChild(0);
-                            doorId.transform.GetChild(0).GetComponent<Door>().other = newEnt.transform;
-                            newEnt.transform.parent = doorId.transform;
+                           
+                            if (copie != null)
+                            {
+                                copie.GetComponent<Door>().other = doorId.transform.GetChild(0);
+                                doorId.transform.GetChild(0).GetComponent<Door>().other = copie.transform;
+                            }
+                            else
+                            {
+                                newEnt.GetComponent<Door>().other = doorId.transform.GetChild(0);
+                                doorId.transform.GetChild(0).GetComponent<Door>().other = newEnt.transform;
+                            }
+                            doorId.transform.GetChild(0).parent = null;
+                            Destroy(doorId);
                         }
                     }
 					//entities.Add(node.ChildNodes[i].Attributes["name"].Value, newEnt);
 				}
 
 			}
+            foreach (KeyValuePair<string, GameObject> torc in torches)
+            {
+                torc.Value.GetComponent<switchTorchMode>().link = GameObject.Find(torc.Key);
+            }
         }
         Debug.Log("generé en : " + (System.DateTime.Now - beg).TotalSeconds + " seconds");
         Camera.main.transform.position = new Vector3((width / 2 * tileWidth) / pixelToUnit, (height / 2 * tileHeight) / pixelToUnit, Camera.main.transform.position.z);
