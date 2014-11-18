@@ -5,10 +5,12 @@ public class Door : MonoBehaviour {
 
     public int id;
     public Transform other;
+    public bool isActive;
+
 	// Use this for initialization
 	void Start () 
     {
-	
+        isActive = true;
 	}
 	
 	// Update is called once per frame
@@ -17,9 +19,19 @@ public class Door : MonoBehaviour {
 	
 	}
 
+    public void Activate ()
+    {
+        isActive = true;
+    }
+
+    public void Desactivate()
+    {
+        isActive = false;
+    }
+
     void OnTriggerStay2D(Collider2D c)
     {
-        if (c.gameObject.name == "CharacterLeft" && Input.GetAxis("Vertical") > 0.05 && !c.GetComponent<MovementController>().isEnter)
+        if (isActive && c.gameObject.name == "CharacterLeft" && Input.GetAxis("Vertical") > 0.05 && !c.GetComponent<MovementController>().isEnter)
         {
             c.transform.position = other.position;
             c.transform.position += Vector3.down * 0.42f;
