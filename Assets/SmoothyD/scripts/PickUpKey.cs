@@ -12,8 +12,12 @@ public class PickUpKey : MonoBehaviour {
 	void Update () {
 	}
 
-    void OnTriggerEnter2D (Collider2D other) {
-        other.gameObject.GetComponent<CharacterInventory>().key = key;
-        Destroy(this.gameObject);
+    void OnTriggerStay2D (Collider2D other)
+    {
+        if (other.gameObject.GetComponent<CharacterInventory>() != null && other.gameObject.GetComponent<CharacterInventory>().key == Key.KeyType.NO_KEY)
+        {
+            other.gameObject.GetComponent<CharacterInventory>().key = key;
+            Destroy(this.gameObject);
+        }
     }
 }

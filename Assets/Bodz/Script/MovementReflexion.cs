@@ -38,8 +38,8 @@ public class MovementReflexion : MonoBehaviour {
             y = RealPlayer.transform.position.y - (mc.height * (mc.tileHeight - 1) / 50.0f) / 2;
         }
 
-        transform.position = new Vector3(x, y, RealPlayer.transform.position.z);
-        Debug.Log(transform.position);
+
+        transform.position = new Vector3(x, y, 0);
         transform.localScale = new Vector3(RealPlayer.transform.localScale.x * -1, RealPlayer.transform.localScale.y, RealPlayer.transform.localScale.z);
     }
 

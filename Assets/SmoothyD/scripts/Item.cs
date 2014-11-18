@@ -19,8 +19,8 @@ public class Item : MonoBehaviour {
 		spriteRenderer = this.GetComponent<SpriteRenderer> ();
 		characterInventory = GameObject.Find ("Character" + side).GetComponent<CharacterInventory>();
 		items [ItemType.NO_ITEM] = Resources.Load<Sprite>("NoItem");
-		items [ItemType.FLAME] = Resources.Load<Sprite>("Flame");
-		items [ItemType.WATER] = Resources.Load<Sprite>("Water");
+		items [ItemType.FLAME] = Resources.Load<Sprite>("FlameSprite");
+		items [ItemType.WATER] = Resources.Load<Sprite>("WaterSprite");
 	}
 	
 	// Update is called once per frame
