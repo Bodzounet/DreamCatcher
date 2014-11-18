@@ -37,6 +37,7 @@ public class MovementReflexion : MonoBehaviour {
             y = RealPlayer.transform.position.y - 9.0f;
         }
 
+
         transform.position = new Vector3(x, y, 0);
         transform.localScale = new Vector3(RealPlayer.transform.localScale.x * -1, RealPlayer.transform.localScale.y, RealPlayer.transform.localScale.z);
     }

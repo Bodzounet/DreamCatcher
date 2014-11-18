@@ -3,10 +3,11 @@ using System.Collections;
 
 public class MovementController : MonoBehaviour 
 {
-     public enum e_dir
+    public enum e_dir
     {
         LEFT,
-        RIGHT
+        RIGHT,
+        NONE
     };
 
     private static float MAGIC_CONSTANT = 0.23f;
