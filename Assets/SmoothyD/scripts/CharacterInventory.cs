@@ -24,7 +24,7 @@ public class CharacterInventory : MonoBehaviour {
 		blowChar = "BlowChar" + side;
 		timer = 0;
 
-        childrenBox = GetComponentInChildren<BoxCollider2D>();
+        childrenBox = transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>();
         childrenBox.enabled = false;
         if (side == "Left")
         {
