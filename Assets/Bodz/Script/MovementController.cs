@@ -20,7 +20,7 @@ public class MovementController : MonoBehaviour
         NONE
     };
 
-    private static float MAGIC_CONSTANT = 0.23f;
+    private static float MAGIC_CONSTANT = 0.42f;
     private static float MAGIC_CONSTANTX = 0.17f;
 
 	public float changeVelocityX = 0.8f;
@@ -224,9 +224,9 @@ public class MovementController : MonoBehaviour
         anim.SetBool("holdWindMill", animState.wind);
     }
 
-   /* void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position + Vector3.right * (MAGIC_CONSTANT - 0.02f), transform.position - Vector3.up * (MAGIC_CONSTANT * 1.1f) + Vector3.right * (MAGIC_CONSTANT - 0.02f));
-    }*/
+     void OnDrawGizmos()
+     {
+         Gizmos.color = Color.yellow;
+         Gizmos.DrawLine(transform.position + Vector3.right * (MAGIC_CONSTANTX - 0.02f), transform.position - Vector3.up * (MAGIC_CONSTANT * 1.1f) + Vector3.right * (MAGIC_CONSTANTX - 0.02f));
+     }
 }
