@@ -47,7 +47,7 @@ public class MovementController : MonoBehaviour
 
     private Animator anim;
     public AnimState animState;
-
+    public GameObject eye;
     private CharacterInventory inventory;
 
 	// Use this for initialization
@@ -169,11 +169,19 @@ public class MovementController : MonoBehaviour
     //some private fcts to make the update() readable...
     private void onDeath()
     {
-        transform.position = spawnPos;
+        if (!eye.GetComponent<Animator>().GetBool("dead"))
+            eye.GetComponent<Animator>().SetBool("dead", true);
+        if (eye.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("close"))
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
+        //transform.position = spawnPos;
         rigidbody2D.velocity = new Vector2(0, -jumpVelocity);
         currentDir = e_dir.LEFT;
         deathFall = false;
-        dead = false;
+        //dead = false;
+
+
     }
 
     private void animCharacter()
