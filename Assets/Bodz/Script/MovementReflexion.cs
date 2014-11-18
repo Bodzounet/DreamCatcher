@@ -39,8 +39,8 @@ public class MovementReflexion : MonoBehaviour {
         //case horizontal Border
         else
         {
-            x = 19.20f - RealPlayer.transform.position.x; // - XLeftBorderLevel, but always 0 so forget
-            y = RealPlayer.transform.position.y - 9.0f;
+            x = 18.60f - RealPlayer.transform.position.x; // - XLeftBorderLevel, but always 0 so forget
+            y = RealPlayer.transform.position.y - (17.0f * 32.0f / 100.0f) ;
         }
 
 
