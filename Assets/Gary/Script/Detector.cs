@@ -22,6 +22,7 @@ public class Detector : MonoBehaviour {
         if (c.GetComponent<CharacterInventory>() != null && (c.GetComponent<CharacterInventory>().key == type))
         {
             this.transform.parent.collider2D.enabled = false;
+            this.GetComponentInParent<SpriteRenderer>().enabled = false;
             this.collider2D.enabled = false;
         }
     }

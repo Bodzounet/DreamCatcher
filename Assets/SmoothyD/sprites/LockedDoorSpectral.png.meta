@@ -1,8 +1,7 @@
 fileFormatVersion: 2
-guid: a90a53f0bb848684295a2e16fd90fceb
+guid: dad4d2687c4b6574caea37653ab661dc
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: fixe noir allumette
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -22,8 +21,8 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -3
-  maxTextureSize: 4096
+  textureFormat: -1
+  maxTextureSize: 1024
   textureSettings:
     filterMode: -1
     aniso: 1
