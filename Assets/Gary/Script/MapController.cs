@@ -14,6 +14,7 @@ public class MapController : MonoBehaviour {
     private List<Texture2D> tilesetTextures;
     private int center;
     public PhysicsMaterial2D pmaterial;
+    public float pixelToUnit = 100;
 	private int _i = 0;
     private bool centerH = false;
 	// Use this for initialization
@@ -80,7 +81,7 @@ public class MapController : MonoBehaviour {
 
                     tmp.AddComponent("SpriteRenderer");
 
-                    tmp.GetComponent<SpriteRenderer>().sprite = Sprite.Create(tilesetTextures[t], new Rect(x, y - tileHeight, tileWidth, tileHeight), new Vector2(0.5f, 0.5f), 50.0f);
+                    tmp.GetComponent<SpriteRenderer>().sprite = Sprite.Create(tilesetTextures[t], new Rect(x, y - tileHeight, tileWidth, tileHeight), new Vector2(0.5f, 0.5f), pixelToUnit);
                     /* tmp.AddComponent<MeshFilter>().mesh = GameObject.Find("Player").GetComponent<MeshFilter>().mesh;
                      Texture2D textureTmp = new Texture2D(tilesetWidth / tileWidth, tilesetHeight / tileHeight, TextureFormat.RGBA32, false);
                      textureTmp.SetPixels(0, 0, tilesetWidth / tileWidth, tilesetHeight / tileHeight, tilesetTextures.GetPixels(x,y - tileHeight,tileWidth, tileHeight));
@@ -115,7 +116,7 @@ public class MapController : MonoBehaviour {
                 {
                     GameObject tmp;
                     tmp = Instantiate(tileset[int.Parse(_gidMap[_i].Attributes["gid"].Value) - 1]) as GameObject;
-                    tmp.transform.position = new Vector3((((_i) % width) * tileWidth) / 50.0f, (((_gidMap.Count - 1) - _i) / width * tileHeight) / 50.0f, 0);
+                    tmp.transform.position = new Vector3((((_i) % width) * tileWidth) / pixelToUnit, (((_gidMap.Count - 1) - _i) / width * tileHeight) / pixelToUnit, 0);
                     tmp.name = "Block_" + _i;
                     tmp.transform.parent = this.transform;
                     tmp.GetComponent<SpriteRenderer>().sortingOrder = l - map.GetElementsByTagName("data").Count + 1;
@@ -130,11 +131,11 @@ public class MapController : MonoBehaviour {
                             {
                                 if (!centerH && _i % width > center)
                                 {
-                                       points[p] = new Vector2(points[p].x + (tileWidth * (center - _i % width)) * 2 / 50.0f, points[p].y);
+                                    points[p] = new Vector2(points[p].x + (tileWidth * (center - _i % width)) * 2 / pixelToUnit, points[p].y);
                                 }
                                 else if (centerH && ((_gidMap.Count - 1) - _i) / width < center)
                                 {
-                                    points[p] = new Vector2(points[p].x + (tileWidth * ((width / 2) - _i % width)) * 2 / 50.0f, points[p].y + (center * tileHeight / 50.0f));
+                                    points[p] = new Vector2(points[p].x + (tileWidth * ((width / 2) - _i % width)) * 2 / pixelToUnit, points[p].y + (center * tileHeight / pixelToUnit));
                                 }
 
                                 if (points[p].y <= yDown)
@@ -168,14 +169,14 @@ public class MapController : MonoBehaviour {
 			{  
 				if(node.ChildNodes[i].Attributes["type"].Value == "spawn")
 				{
-					GameObject.Find("CharacterLeft").transform.position = new Vector3(int.Parse(node.ChildNodes[i].Attributes["x"].Value) / 50.0f, ((height * tileHeight) / 50.0f) - int.Parse(node.ChildNodes[i].Attributes["y"].Value) / 50.0f, 0);
+					GameObject.Find("CharacterLeft").transform.position = new Vector3(int.Parse(node.ChildNodes[i].Attributes["x"].Value) / pixelToUnit, ((height * tileHeight) / pixelToUnit) - int.Parse(node.ChildNodes[i].Attributes["y"].Value) / pixelToUnit, 0);
                     GameObject.Find("CharacterLeft").GetComponent<MovementController>().spawnPos = GameObject.Find("CharacterLeft").transform.position;
 				}
 				else
 				{
 					GameObject newEnt = Instantiate(Resources.Load(node.ChildNodes[i].Attributes["type"].Value, typeof(GameObject) )) as GameObject;
-					newEnt.transform.position = new Vector3(int.Parse(node.ChildNodes[i].Attributes["x"].Value) / 50.0f, ((height * tileHeight) / 50.0f) - int.Parse(node.ChildNodes[i].Attributes["y"].Value) / 50.0f, 0);
-                    newEnt.transform.position -= new Vector3(0, (int.Parse(node.ChildNodes[i].Attributes["height"].Value) / tileHeight) / 2 * tileHeight / 50.0f + tileHeight / 100.0f, 0);
+					newEnt.transform.position = new Vector3(int.Parse(node.ChildNodes[i].Attributes["x"].Value) / pixelToUnit, ((height * tileHeight) / pixelToUnit) - int.Parse(node.ChildNodes[i].Attributes["y"].Value) / pixelToUnit, 0);
+                    newEnt.transform.position -= new Vector3(0, (int.Parse(node.ChildNodes[i].Attributes["height"].Value) / tileHeight) / 2 * tileHeight / pixelToUnit + tileHeight / 100.0f, 0);
                     if (node.ChildNodes[i].ChildNodes[0] != null && node.ChildNodes[i].ChildNodes[0].ChildNodes[0].Attributes["name"].Value == "scale")
                         newEnt.transform.localScale = new Vector3(int.Parse(node.ChildNodes[i].Attributes["width"].Value) / tileWidth, (int.Parse(node.ChildNodes[i].Attributes["height"].Value) / tileHeight));
                     if (node.ChildNodes[i].ChildNodes[0] != null && node.ChildNodes[i].ChildNodes[0].ChildNodes[0].Attributes["name"].Value == "id")
@@ -202,7 +203,7 @@ public class MapController : MonoBehaviour {
 			}
         }
         Debug.Log("generé en : " + (System.DateTime.Now - beg).TotalSeconds + " seconds");
-        Camera.main.transform.position = new Vector3((width / 2 * tileWidth) / 50.0f, (height / 2 * tileHeight) / 50.0f, Camera.main.transform.position.z);
+        Camera.main.transform.position = new Vector3((width / 2 * tileWidth) / pixelToUnit, (height / 2 * tileHeight) / pixelToUnit, Camera.main.transform.position.z);
         while (tileset.Count > 0)
         {
             Destroy(tileset[0]);
@@ -221,7 +222,7 @@ public class MapController : MonoBehaviour {
     //        {
     //            GameObject tmp;
     //            tmp = Instantiate(tileset[int.Parse(_gidMap[_i].Attributes["gid"].Value) - 1]) as GameObject;
-    //            tmp.transform.position = new Vector3(((( _i) % width) * tileWidth) / 50.0f, (((_gidMap.Count - 1) - _i) / width  * tileHeight) / 50.0f, 0);
+    //            tmp.transform.position = new Vector3(((( _i) % width) * tileWidth) / pixelToUnit, (((_gidMap.Count - 1) - _i) / width  * tileHeight) / pixelToUnit, 0);
             
     //            tmp.name = "Block_" + _i;
     //        }
