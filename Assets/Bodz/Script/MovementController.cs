@@ -11,6 +11,7 @@ public class MovementController : MonoBehaviour
         public bool isJumping;
         public bool jumpOver;
         public bool isFalling;
+        public bool attack;
     }
 
     public enum e_dir
@@ -212,6 +213,10 @@ public class MovementController : MonoBehaviour
             animState.fire = false;
             animState.wind = false;
         }
+
+        animState.attack = false;
+        if (inventory.attack)
+            animState.attack = true;
     }
 
     private void setAnim()
@@ -222,6 +227,7 @@ public class MovementController : MonoBehaviour
         anim.SetBool("jumpOver", animState.jumpOver);
         anim.SetBool("holdMatch", animState.fire);
         anim.SetBool("holdWindMill", animState.wind);
+        anim.SetBool("isAttacking", animState.attack);
     }
 
    /* void OnDrawGizmos()

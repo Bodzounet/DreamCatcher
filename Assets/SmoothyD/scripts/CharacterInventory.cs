@@ -15,11 +15,15 @@ public class CharacterInventory : MonoBehaviour {
 	SpriteRenderer			spriteRenderer;
 
     private BoxCollider2D   childrenBox;
-    private float           animTime = 2f;
+    private float           animTime = 1f;
 
     GameObject              hiddenEntities;
     GameObject              shownEntities;
     SpriteRenderer          dreamEye;
+
+    public bool             attack = false;
+
+    public Animator fus;
 	
 	// Use this for initialization
 	void Start () {
@@ -85,7 +89,8 @@ public class CharacterInventory : MonoBehaviour {
 
     private void throwWater()
     {
-        //todo : jouer l'anim de l'eau
+        attack = true;
+        fus.SetTrigger("air");
         childrenBox.gameObject.tag = "Water";
         childrenBox.enabled = true;
         Invoke("stopComp", animTime);
@@ -93,7 +98,8 @@ public class CharacterInventory : MonoBehaviour {
 
     private void throwFire()
     {
-        //todo : jouer l'anim du feu
+        attack = true;
+        fus.SetTrigger("fire");
         childrenBox.gameObject.tag = "Fire";
         childrenBox.enabled = true;
         Invoke("stopComp", animTime);
@@ -101,6 +107,7 @@ public class CharacterInventory : MonoBehaviour {
 
     private void stopComp()
     {
+        attack = false;
         childrenBox.gameObject.tag = "Untagged";
         childrenBox.enabled = false;
     }
