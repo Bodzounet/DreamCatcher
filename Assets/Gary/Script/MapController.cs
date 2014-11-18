@@ -131,7 +131,7 @@ public class MapController : MonoBehaviour {
                     else
                         tmp.transform.parent = this.transform;
                     tmp.GetComponent<SpriteRenderer>().sortingOrder = l - map.GetElementsByTagName("data").Count + 1;
-                    if (l == map.GetElementsByTagName("data").Count - 1)
+                    if (l == map.GetElementsByTagName("data").Count - 1 || hide)
                     {
                         tmp.AddComponent<PolygonCollider2D>();
                         tmp.layer = LayerMask.NameToLayer("ground");
