@@ -5,10 +5,16 @@ public class MovementReflexion : MonoBehaviour {
 
     public GameObject RealPlayer;
     private MapController mc;
+    private MovementController mvtc;
+
+    private Animator anim;
 
 	// Use this for initialization
 	void Start () 
     {
+        anim = GameObject.Find("CharacterRight").GetComponent<Animator>();
+        mc = GameObject.Find("MapManager").GetComponent<MapController>();
+        mvtc = GameObject.Find("CharacterLeft").GetComponent<MovementController>();
         setPos();
 	}
 	
@@ -16,6 +22,7 @@ public class MovementReflexion : MonoBehaviour {
 	void Update () 
     {
         setPos();
+        setAnim();
 	}
 
     private void setPos()
@@ -42,4 +49,13 @@ public class MovementReflexion : MonoBehaviour {
         transform.localScale = new Vector3(RealPlayer.transform.localScale.x * -1, RealPlayer.transform.localScale.y, RealPlayer.transform.localScale.z);
     }
 
+    private void setAnim()
+    {
+        anim.SetBool("isMoving", mvtc.animState.isMoving);
+        anim.SetBool("isJumping", mvtc.animState.isJumping);
+        anim.SetBool("isFalling", mvtc.animState.isFalling);
+        anim.SetBool("jumpOver", mvtc.animState.jumpOver);
+        anim.SetBool("holdMatch", mvtc.animState.wind);
+        anim.SetBool("holdWindMill", mvtc.animState.fire);
+    }
 }

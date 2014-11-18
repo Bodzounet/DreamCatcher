@@ -3,6 +3,16 @@ using System.Collections;
 
 public class MovementController : MonoBehaviour 
 {
+    public struct AnimState
+    {
+        public bool isMoving;
+        public bool fire;
+        public bool wind;
+        public bool isJumping;
+        public bool jumpOver;
+        public bool isFalling;
+    }
+
     public enum e_dir
     {
         LEFT,
@@ -33,11 +43,19 @@ public class MovementController : MonoBehaviour
     bool deathFall;
     double maximumFallVelocity;
 
+    private Animator anim;
+    public AnimState animState;
+
+    private CharacterInventory inventory;
+
 	// Use this for initialization
 	void Start () 
 	{
         spawnPos = rigidbody2D.transform.position;
 		lastVelocity = new Vector2(rigidbody2D.velocity.x, -jumpVelocity);
+
+        anim = GameObject.Find("CharacterLeft").GetComponent<Animator>();
+        inventory = GameObject.Find("CharacterLeft").GetComponent<CharacterInventory>();
         deathFall = false;
         maximumFallVelocity = 4.7;
 	}
@@ -139,6 +157,9 @@ public class MovementController : MonoBehaviour
 
 		lastVelocity = new Vector2 (x, y);
 		rigidbody2D.velocity = lastVelocity;
+
+        animCharacter();
+        setAnim();
 	}
 
     //some private fcts to make the update() readable...
@@ -149,6 +170,56 @@ public class MovementController : MonoBehaviour
         currentDir = e_dir.LEFT;
         deathFall = false;
         dead = false;
+    }
+
+    private void animCharacter()
+    {
+        animState.jumpOver = false;
+        if (Mathf.Abs(rigidbody2D.velocity.x) > maxVelocityX / 10)
+            animState.isMoving = true;
+        else
+            animState.isMoving = false;
+
+        if (rigidbody2D.velocity.y > 1f)
+            animState.isJumping = true;
+
+        if (rigidbody2D.velocity.y < -1f)
+        {
+            animState.isJumping = false;
+            animState.isFalling = true;
+        }
+
+        if (isGrounded)
+        {
+            animState.isFalling = false;
+            animState.jumpOver = true;
+        }
+
+        if (inventory.item == Item.ItemType.FLAME)
+        {
+            animState.fire = true;
+            animState.wind = false;
+        }
+        else if (inventory.item == Item.ItemType.WATER)
+        {
+            animState.fire = false;
+            animState.wind = true;
+        }
+        else
+        {
+            animState.fire = false;
+            animState.wind = false;
+        }
+    }
+
+    private void setAnim()
+    {
+        anim.SetBool("isMoving", animState.isMoving);
+        anim.SetBool("isJumping", animState.isJumping);
+        anim.SetBool("isFalling", animState.isFalling);
+        anim.SetBool("jumpOver", animState.jumpOver);
+        anim.SetBool("holdMatch", animState.fire);
+        anim.SetBool("holdWindMill", animState.wind);
     }
 
    /* void OnDrawGizmos()
