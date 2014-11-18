@@ -19,7 +19,7 @@ public class CharacterInventory : MonoBehaviour {
 		spriteRenderer = this.GetComponent<SpriteRenderer>();
 		blowChar = "BlowChar" + side;
 		timer = 0;
-        if (side == "Left")
+        if (side == "left")
         {
             hiddenEntities = GameObject.Find("HiddenEntities");
             hiddenEntities.SetActive(false);
@@ -34,7 +34,7 @@ public class CharacterInventory : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetButton ("BlowCharLeft") && Input.GetButton ("BlowCharRight") && microphoneInput.loudness > 15 && timer <= 0) {
-            if (side == "Left")
+            if (side == "left")
             {
                 hiddenEntities.SetActive(true);
                 Invoke("HideEntities", visibleTime);
