@@ -16,10 +16,15 @@ public class MapController : MonoBehaviour {
     public PhysicsMaterial2D pmaterial;
     public float pixelToUnit = 100;
 	private int _i = 0;
+    private GameObject hidden;
     private bool centerH = false;
 	// Use this for initialization
 	void Start () 
 	{
+        hidden = new GameObject();
+        hidden.name = "HiddenEntities";
+        hidden.transform.position = Vector3.zero;
+        hidden.SetActive(false);
         System.DateTime beg = System.DateTime.Now;
 		map = new System.Xml.XmlDocument();
         map.Load(File.OpenText("Smap/" + _mapName));
@@ -104,6 +109,10 @@ public class MapController : MonoBehaviour {
 
         for (int l = 0; l < map.GetElementsByTagName("data").Count; l++)
         {
+            node = map.GetElementsByTagName("layer").Item(l);
+            bool hide = false;
+            if (node.Attributes["name"].Value == "Hidden")
+                hide = true;
             node = map.GetElementsByTagName("data").Item(l);
             _gidMap = node.ChildNodes;
             _i = 0;
@@ -111,14 +120,17 @@ public class MapController : MonoBehaviour {
             while (_i < max)
             {
 
-
                 if (_gidMap[_i].Attributes["gid"].Value != "0")
                 {
                     GameObject tmp;
                     tmp = Instantiate(tileset[int.Parse(_gidMap[_i].Attributes["gid"].Value) - 1]) as GameObject;
                     tmp.transform.position = new Vector3((((_i) % width) * tileWidth) / pixelToUnit, (((_gidMap.Count - 1) - _i) / width * tileHeight) / pixelToUnit, 0);
                     tmp.name = "Block_" + _i;
-                    tmp.transform.parent = this.transform;
+
+                    if (hide)
+                        tmp.transform.parent = hidden.transform;
+                    else
+                        tmp.transform.parent = this.transform;
                     tmp.GetComponent<SpriteRenderer>().sortingOrder = l - map.GetElementsByTagName("data").Count + 1;
                     if (l == map.GetElementsByTagName("data").Count - 1)
                     {
