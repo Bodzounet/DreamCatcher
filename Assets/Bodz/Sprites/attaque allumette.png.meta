@@ -1,0 +1,212 @@
+fileFormatVersion: 2
+guid: 4f7b4d3be0cbd2d43a33cdb32636935a
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: attaque allumette_0
+    21300002: attaque allumette_1
+    21300004: attaque allumette_2
+    21300006: attaque allumette_3
+    21300008: attaque allumette_4
+    21300010: attaque allumette_5
+    21300012: attaque allumette_6
+    21300014: attaque allumette_7
+    21300016: attaque allumette_8
+    21300018: attaque allumette_9
+    21300020: attaque allumette_10
+    21300022: attaque allumette_11
+    21300024: attaque allumette_12
+    21300026: attaque allumette_13
+    21300028: attaque allumette_14
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: attaque allumette_0
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 17
+        width: 48
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque allumette_1
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 16
+        width: 50
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque allumette_2
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 17
+        width: 50
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque allumette_3
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 17
+        width: 46
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque allumette_4
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 17
+        width: 47
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque allumette_5
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 17
+        width: 45
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque allumette_6
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 17
+        width: 49
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque allumette_7
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 16
+        width: 49
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque allumette_8
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 16
+        width: 50
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque allumette_9
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 16
+        width: 53
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque allumette_10
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 16
+        width: 51
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque allumette_11
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 16
+        width: 47
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque allumette_12
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 17
+        width: 47
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque allumette_13
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 17
+        width: 50
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque allumette_14
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 17
+        width: 48
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

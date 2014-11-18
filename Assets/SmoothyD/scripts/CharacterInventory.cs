@@ -15,11 +15,15 @@ public class CharacterInventory : MonoBehaviour {
 	SpriteRenderer			spriteRenderer;
 
     private BoxCollider2D   childrenBox;
-    private float           animTime = 2f;
+    private float           animTime = 1f;
 
     GameObject              hiddenEntities;
     GameObject              shownEntities;
     SpriteRenderer          dreamEye;
+
+    public bool             attack = false;
+    public bool             dream = false;
+
     public Animator fus;
 	
 	// Use this for initialization
@@ -52,6 +56,8 @@ public class CharacterInventory : MonoBehaviour {
 		if (dreamCatcher == true && Input.GetButton ("BlowCharLeft") && Input.GetButton ("BlowCharRight") && hiddenEntTimer <= 0) {
             if (side == "Left")
             {
+                dream = true;
+                Invoke("resetDream", 1);
                 dreamEye.color = new Color(1, 1, 1, 0.75f);
                 hiddenEntities.SetActive(true);
                 shownEntities.SetActive(false);
@@ -75,6 +81,7 @@ public class CharacterInventory : MonoBehaviour {
 		}
         if (timer > 0)
             timer -= Time.deltaTime;
+
         if (hiddenEntTimer > 0) {
             hiddenEntTimer -= Time.deltaTime;
             dreamEye.color = new Color(1, 1, 1, (float)(hiddenEntTimer / visibleTime) * 0.8f);
@@ -86,8 +93,8 @@ public class CharacterInventory : MonoBehaviour {
 
     private void throwWater()
     {
-        //todo : jouer l'anim de l'eau
-      fus.SetTrigger("air");
+        attack = true;
+        fus.SetTrigger("air");
         childrenBox.gameObject.tag = "Water";
         childrenBox.enabled = true;
         Invoke("stopComp", animTime);
@@ -95,8 +102,8 @@ public class CharacterInventory : MonoBehaviour {
 
     private void throwFire()
     {
-        //todo : jouer l'anim du feu
-       fus.SetTrigger("fire");
+        attack = true;
+        fus.SetTrigger("fire");
         childrenBox.gameObject.tag = "Fire";
         childrenBox.enabled = true;
         Invoke("stopComp", animTime);
@@ -104,7 +111,13 @@ public class CharacterInventory : MonoBehaviour {
 
     private void stopComp()
     {
+        attack = false;
         childrenBox.gameObject.tag = "Untagged";
         childrenBox.enabled = false;
+    }
+
+    private void resetDream()
+    {
+        dream = false;
     }
 }

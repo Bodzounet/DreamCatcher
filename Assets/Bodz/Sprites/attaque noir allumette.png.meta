@@ -1,0 +1,212 @@
+fileFormatVersion: 2
+guid: 2249ec808335f5c4fa9d1f591734a42d
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: attaque noir allumette_0
+    21300002: attaque noir allumette_1
+    21300004: attaque noir allumette_2
+    21300006: attaque noir allumette_3
+    21300008: attaque noir allumette_4
+    21300010: attaque noir allumette_5
+    21300012: attaque noir allumette_6
+    21300014: attaque noir allumette_7
+    21300016: attaque noir allumette_8
+    21300018: attaque noir allumette_9
+    21300020: attaque noir allumette_10
+    21300022: attaque noir allumette_11
+    21300024: attaque noir allumette_12
+    21300026: attaque noir allumette_13
+    21300028: attaque noir allumette_14
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: attaque noir allumette_0
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 17
+        width: 48
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir allumette_1
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 17
+        width: 50
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir allumette_2
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 17
+        width: 50
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir allumette_3
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 17
+        width: 46
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir allumette_4
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 17
+        width: 47
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir allumette_5
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 17
+        width: 45
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir allumette_6
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 17
+        width: 49
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir allumette_7
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 16
+        width: 49
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir allumette_8
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 16
+        width: 50
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir allumette_9
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 16
+        width: 53
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir allumette_10
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 16
+        width: 51
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir allumette_11
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 16
+        width: 47
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir allumette_12
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 17
+        width: 47
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir allumette_13
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 16
+        width: 50
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: attaque noir allumette_14
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 16
+        width: 48
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
