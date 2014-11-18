@@ -1,7 +1,8 @@
 fileFormatVersion: 2
 guid: 6b2552c24dfd0b74f91411134a1d2453
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: WaterSprite
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

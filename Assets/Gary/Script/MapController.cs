@@ -176,7 +176,7 @@ public class MapController : MonoBehaviour {
 				{
 					GameObject newEnt = Instantiate(Resources.Load(node.ChildNodes[i].Attributes["type"].Value, typeof(GameObject) )) as GameObject;
 					newEnt.transform.position = new Vector3(int.Parse(node.ChildNodes[i].Attributes["x"].Value) / pixelToUnit, ((height * tileHeight) / pixelToUnit) - int.Parse(node.ChildNodes[i].Attributes["y"].Value) / pixelToUnit, 0);
-                    newEnt.transform.position -= new Vector3(0, (int.Parse(node.ChildNodes[i].Attributes["height"].Value) / tileHeight) / 2 * tileHeight / pixelToUnit + tileHeight / 100.0f, 0);
+                    newEnt.transform.position -= new Vector3(0, ((int.Parse(node.ChildNodes[i].Attributes["height"].Value) / 2) * 1.25f) / pixelToUnit, 0);
                     if (node.ChildNodes[i].ChildNodes[0] != null && node.ChildNodes[i].ChildNodes[0].ChildNodes[0].Attributes["name"].Value == "scale")
                         newEnt.transform.localScale = new Vector3(int.Parse(node.ChildNodes[i].Attributes["width"].Value) / tileWidth, (int.Parse(node.ChildNodes[i].Attributes["height"].Value) / tileHeight));
                     if (node.ChildNodes[i].ChildNodes[0] != null && node.ChildNodes[i].ChildNodes[0].ChildNodes[0].Attributes["name"].Value == "id")

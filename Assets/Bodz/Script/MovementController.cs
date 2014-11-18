@@ -4,8 +4,8 @@ using System.Collections;
 
 public class MovementController : MonoBehaviour 
 {
-    private static float MAGIC_CONSTANT = 0.3f;
-
+    private static float MAGIC_CONSTANT = 0.23f;
+    private static float MAGIC_CONSTANTX = 0.17f;
 
 	public float changeVelocityX = 0.8f;
 	public float maxVelocityX = 1f;
@@ -47,9 +47,9 @@ public class MovementController : MonoBehaviour
 
 		//change velocity
 
-		if (Input.GetAxis("Horizontal") < 0 && !isGUIOpen && 
-                  Physics2D.Linecast((transform.position + Vector3.left * (MAGIC_CONSTANT + 0.01f)) + Vector3.up * MAGIC_CONSTANT,
-            (transform.position + Vector3.left * (MAGIC_CONSTANT + 0.01f)) + Vector3.down * MAGIC_CONSTANT,
+		if (Input.GetAxis("Horizontal") < 0 && !isGUIOpen &&
+                  Physics2D.Linecast((transform.position + Vector3.left * (MAGIC_CONSTANTX + 0.02f)) + Vector3.up * MAGIC_CONSTANT,
+            (transform.position + Vector3.left * (MAGIC_CONSTANTX + 0.03f)) + Vector3.down * MAGIC_CONSTANT,
             (1 << 8) + (1 << 9)).transform == null)
 		{
 			if (x < -maxVelocityX)
@@ -59,8 +59,8 @@ public class MovementController : MonoBehaviour
             isOnLadder = false;
 		}
         else if (Input.GetAxis("Horizontal") > 0 && !isGUIOpen &&
-                  Physics2D.Linecast((transform.position + Vector3.right * (MAGIC_CONSTANT + 0.01f)) + Vector3.up * MAGIC_CONSTANT,
-            (transform.position + Vector3.right * (MAGIC_CONSTANT + 0.01f)) + Vector3.down * MAGIC_CONSTANT,
+                  Physics2D.Linecast((transform.position + Vector3.right * (MAGIC_CONSTANTX + 0.02f)) + Vector3.up * MAGIC_CONSTANT,
+            (transform.position + Vector3.right * (MAGIC_CONSTANTX + 0.03f)) + Vector3.down * MAGIC_CONSTANT,
             (1 << 8) + (1 << 9)).transform == null)
 		{
 			if (x > maxVelocityX)
@@ -73,8 +73,8 @@ public class MovementController : MonoBehaviour
 			x = 0;
 
         //grounded ?
-        if (Physics2D.Linecast(transform.position + Vector3.right * (MAGIC_CONSTANT - 0.02f), transform.position - Vector3.up * (MAGIC_CONSTANT * 1.1f) + Vector3.right * (MAGIC_CONSTANT - 0.02f), (1 << 8) + (1 << 9)).transform != null ||
-            Physics2D.Linecast(transform.position + Vector3.left * (MAGIC_CONSTANT - 0.02f), transform.position - Vector3.up * (MAGIC_CONSTANT * 1.1f) + Vector3.left * (MAGIC_CONSTANT - 0.02f), (1 << 8) + (1 << 9)).transform != null)
+        if (Physics2D.Linecast(transform.position + Vector3.right * (MAGIC_CONSTANTX - 0.02f), transform.position - Vector3.up * (MAGIC_CONSTANT * 1.1f) + Vector3.right * (MAGIC_CONSTANTX - 0.02f), (1 << 8) + (1 << 9)).transform != null ||
+            Physics2D.Linecast(transform.position + Vector3.left * (MAGIC_CONSTANTX - 0.02f), transform.position - Vector3.up * (MAGIC_CONSTANT * 1.1f) + Vector3.left * (MAGIC_CONSTANTX - 0.02f), (1 << 8) + (1 << 9)).transform != null)
             isGrounded = true;
         else
             isGrounded = false;

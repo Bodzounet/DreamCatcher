@@ -1,7 +1,9 @@
 fileFormatVersion: 2
-guid: cfdd4a4160bcb4b47b6c1e4a0ef5af1d
+guid: 75ea16c6ec74bfb478b4a716829d4318
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: SpectralKey
+    21300002: SpectralKeySprite
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -24,7 +26,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: 1
     mipBias: -1
     wrapMode: 1
