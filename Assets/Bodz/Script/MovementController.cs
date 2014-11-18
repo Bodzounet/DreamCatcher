@@ -236,9 +236,9 @@ public class MovementController : MonoBehaviour
         anim.SetBool("dream", animState.dream);
     }
 
-     void OnDrawGizmos()
+    /* void OnDrawGizmos()
      {
          Gizmos.color = Color.yellow;
          Gizmos.DrawLine(transform.position + Vector3.right * (MAGIC_CONSTANTX - 0.02f), transform.position - Vector3.up * (MAGIC_CONSTANT * 1.1f) + Vector3.right * (MAGIC_CONSTANTX - 0.02f));
-     }
+     }*/
 }
