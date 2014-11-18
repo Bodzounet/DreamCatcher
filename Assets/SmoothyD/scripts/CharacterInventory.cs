@@ -11,13 +11,11 @@ public class CharacterInventory : MonoBehaviour {
 	double					timer;
 	string					blowChar;
 	SpriteRenderer			spriteRenderer;
-<<<<<<< HEAD
 
     private BoxCollider2D   childrenBox;
     private float           animTime = 2f;
-=======
+
     GameObject              hiddenEntities;
->>>>>>> 81313355c139abeba8633755740a531aed9073b5
 	
 	// Use this for initialization
 	void Start () {
@@ -25,18 +23,15 @@ public class CharacterInventory : MonoBehaviour {
 		spriteRenderer = this.GetComponent<SpriteRenderer>();
 		blowChar = "BlowChar" + side;
 		timer = 0;
-<<<<<<< HEAD
 
         childrenBox = GetComponentInChildren<BoxCollider2D>();
         childrenBox.enabled = false;
-=======
         if (side == "Left")
         {
             hiddenEntities = GameObject.Find("HiddenEntities");
             hiddenEntities.SetActive(false);
         }
         visibleTime = 3;
->>>>>>> 81313355c139abeba8633755740a531aed9073b5
 	}
 
     void HideEntities() {

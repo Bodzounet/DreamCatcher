@@ -1,31 +1,14 @@
-<<<<<<< HEAD
-﻿
 using UnityEngine;
 using System.Collections;
 
 public class MovementController : MonoBehaviour 
 {
-    private static float MAGIC_CONSTANT = 0.3f;
-
-    public enum e_dir
+     public enum e_dir
     {
         LEFT,
         RIGHT
     };
 
-	public float changeVelocityX = 0.8f;
-	public float maxVelocityX = 1f;
-    public float jumpVelocity = 5f;
-
-    [SerializeField]
-    private bool isGrounded = false;
-=======
-﻿
-using UnityEngine;
-using System.Collections;
-
-public class MovementController : MonoBehaviour 
-{
     private static float MAGIC_CONSTANT = 0.23f;
     private static float MAGIC_CONSTANTX = 0.17f;
 
@@ -36,7 +19,6 @@ public class MovementController : MonoBehaviour
 
     [SerializeField]
     private bool isGrounded = false;
->>>>>>> 81313355c139abeba8633755740a531aed9073b5
     public bool isOnLadder = false;
     public bool dead = false;
     public bool isEnter = false;
@@ -46,15 +28,10 @@ public class MovementController : MonoBehaviour
 
     public Vector3 spawnPos;
 
-<<<<<<< HEAD
     public e_dir currentDir = e_dir.RIGHT;
 
 	// Use this for initialization
 	void Start () 
-=======
-	// Use this for initialization
-	void Start () 
->>>>>>> 81313355c139abeba8633755740a531aed9073b5
 	{
         spawnPos = rigidbody2D.transform.position;
 		lastVelocity = new Vector2(rigidbody2D.velocity.x, -jumpVelocity);
