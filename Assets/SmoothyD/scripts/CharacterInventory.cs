@@ -22,6 +22,7 @@ public class CharacterInventory : MonoBehaviour {
     SpriteRenderer          dreamEye;
 
     public bool             attack = false;
+    public bool             dream = false;
 
     public Animator fus;
 	
@@ -55,6 +56,8 @@ public class CharacterInventory : MonoBehaviour {
 		if (dreamCatcher == true && Input.GetButton ("BlowCharLeft") && Input.GetButton ("BlowCharRight") && hiddenEntTimer <= 0) {
             if (side == "Left")
             {
+                dream = true;
+                Invoke("resetDream", 1);
                 dreamEye.color = new Color(1, 1, 1, 0.75f);
                 hiddenEntities.SetActive(true);
                 shownEntities.SetActive(false);
@@ -78,6 +81,7 @@ public class CharacterInventory : MonoBehaviour {
 		}
         if (timer > 0)
             timer -= Time.deltaTime;
+
         if (hiddenEntTimer > 0) {
             hiddenEntTimer -= Time.deltaTime;
             dreamEye.color = new Color(1, 1, 1, (float)(hiddenEntTimer / visibleTime) * 0.8f);
@@ -110,5 +114,10 @@ public class CharacterInventory : MonoBehaviour {
         attack = false;
         childrenBox.gameObject.tag = "Untagged";
         childrenBox.enabled = false;
+    }
+
+    private void resetDream()
+    {
+        dream = false;
     }
 }

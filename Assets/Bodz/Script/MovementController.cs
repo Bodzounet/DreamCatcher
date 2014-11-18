@@ -12,6 +12,7 @@ public class MovementController : MonoBehaviour
         public bool jumpOver;
         public bool isFalling;
         public bool attack;
+        public bool dream;
     }
 
     public enum e_dir
@@ -217,6 +218,10 @@ public class MovementController : MonoBehaviour
         animState.attack = false;
         if (inventory.attack)
             animState.attack = true;
+
+        animState.dream = false;
+        if (inventory.dream)
+            animState.dream = true;
     }
 
     private void setAnim()
@@ -228,6 +233,7 @@ public class MovementController : MonoBehaviour
         anim.SetBool("holdMatch", animState.fire);
         anim.SetBool("holdWindMill", animState.wind);
         anim.SetBool("isAttacking", animState.attack);
+        anim.SetBool("dream", animState.dream);
     }
 
    /* void OnDrawGizmos()
