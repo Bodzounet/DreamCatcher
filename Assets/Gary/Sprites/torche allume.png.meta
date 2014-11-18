@@ -1,0 +1,150 @@
+fileFormatVersion: 2
+guid: 4882ace174e26db49943798ffc507201
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: torche allume_5
+    21300002: torche allume_1
+    21300004: torche allume_2
+    21300006: torche allume_4
+    21300008: torche allume_4
+    21300010: torche allume_5
+    21300012: torche allume_8
+    21300014: torche allume_0
+    21300016: torche allume_1
+    21300018: torche allume_2
+    21300020: torche allume_3
+    21300022: torche allume_6
+    21300024: torche allume_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 2
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: torche allume_5
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 4
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: torche allume_4
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 4
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: torche allume_8
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 4
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: torche allume_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 4
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: torche allume_1
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 4
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: torche allume_2
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 4
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: torche allume_3
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 4
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: torche allume_6
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 4
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: torche allume_7
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 4
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

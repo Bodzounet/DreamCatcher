@@ -1,0 +1,166 @@
+fileFormatVersion: 2
+guid: d0e4f0cd33052854dba961b9a2e2ad6c
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: torche eteint_5
+    21300002: torche eteint_1
+    21300004: torche eteint_2
+    21300006: torche eteint_3
+    21300008: torche eteint_4
+    21300010: torche eteint_5
+    21300012: torche eteint_9
+    21300014: torche eteint_0
+    21300016: torche eteint_1
+    21300018: torche eteint_2
+    21300020: torche eteint_3
+    21300022: torche eteint_4
+    21300024: torche eteint_12
+    21300026: torche eteint_7
+    21300028: torche eteint_14
+    21300030: torche eteint_15
+    21300032: torche eteint_16
+    21300034: torche eteint_8
+    21300036: torche eteint_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 2
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: torche eteint_5
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 4
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: torche eteint_9
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 4
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: torche eteint_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 4
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: torche eteint_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 4
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: torche eteint_2
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 4
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: torche eteint_3
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 4
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: torche eteint_4
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 4
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: torche eteint_7
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 4
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: torche eteint_8
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 4
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: torche eteint_6
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 4
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

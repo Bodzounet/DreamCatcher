@@ -4,7 +4,7 @@
   <property name="center" value="29"/>
  </properties>
  <tileset firstgid="1" source="tileset.tsx"/>
- <layer name="Hidden" width="59" height="33">
+ <layer name="Hidden" width="59" height="33" visible="0">
   <data>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -1955,7 +1955,7 @@
    <tile gid="0"/>
   </data>
  </layer>
- <objectgroup name="Calque d'objets 1">
+ <objectgroup name="Calque d'objets 1" visible="0">
   <object name="spawn" type="spawn" x="192" y="944" width="32" height="48"/>
   <object name="DoorT1" type="door" x="640" y="672" width="64" height="128">
    <properties>
