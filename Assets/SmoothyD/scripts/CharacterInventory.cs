@@ -5,6 +5,7 @@ public class CharacterInventory : MonoBehaviour {
 	public string			side;
 	public Item.ItemType	item;
 	public Key.KeyType		key;
+    public bool             dreamCatcher = false;
 
     float                   visibleTime;
 	MicrophoneInput			microphoneInput;
@@ -17,6 +18,7 @@ public class CharacterInventory : MonoBehaviour {
     private float           animTime = 2f;
 
     GameObject              hiddenEntities;
+    GameObject              shownEntities;
     SpriteRenderer          dreamEye;
 	
 	// Use this for initialization
@@ -31,6 +33,7 @@ public class CharacterInventory : MonoBehaviour {
         if (side == "Left")
         {
             hiddenEntities = GameObject.Find("HiddenEntities");
+            shownEntities = GameObject.Find("ShownEntities");
             hiddenEntities.SetActive(false);
         }
         visibleTime = 3;
@@ -40,15 +43,17 @@ public class CharacterInventory : MonoBehaviour {
 
     void HideEntities() {
         hiddenEntities.SetActive(false);
+        shownEntities.SetActive(true);
     }
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButton ("BlowCharLeft") && Input.GetButton ("BlowCharRight") && hiddenEntTimer <= 0) {
+		if (dreamCatcher == true && Input.GetButton ("BlowCharLeft") && Input.GetButton ("BlowCharRight") && hiddenEntTimer <= 0) {
             if (side == "Left")
             {
                 dreamEye.color = new Color(1, 1, 1, 0.75f);
                 hiddenEntities.SetActive(true);
+                shownEntities.SetActive(false);
                 Invoke("HideEntities", visibleTime);
                 visibleTime++;
                 hiddenEntTimer = visibleTime;
