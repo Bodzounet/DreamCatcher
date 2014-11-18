@@ -16,14 +16,14 @@ public class MapController : MonoBehaviour {
     public PhysicsMaterial2D pmaterial;
     public float pixelToUnit = 100;
 	private int _i = 0;
-    private GameObject hidden;
-    private bool centerH = false;
+    public GameObject hidden;
+    public bool centerH = false;
 	// Use this for initialization
 	void Start () 
 	{
-        hidden = new GameObject();
-        hidden.name = "HiddenEntities";
-        hidden.transform.position = Vector3.zero;
+        if (hidden == null)
+            hidden = GameObject.Find("HiddenEntities");
+
         System.DateTime beg = System.DateTime.Now;
 		map = new System.Xml.XmlDocument();
         map.Load(File.OpenText("Smap/" + _mapName));
@@ -146,7 +146,7 @@ public class MapController : MonoBehaviour {
                                 }
                                 else if (centerH && ((_gidMap.Count - 1) - _i) / width < center)
                                 {
-                                    points[p] = new Vector2(points[p].x + (tileWidth * ((width / 2) - _i % width)) * 2 / pixelToUnit, points[p].y + (center * tileHeight / pixelToUnit));
+                                    points[p] = new Vector2(points[p].x + (tileWidth * ((width / 2) - _i % width)) * 2 / pixelToUnit, points[p].y + ((center + 1) * tileHeight / pixelToUnit));
                                 }
 
                                 if (points[p].y <= yDown)
@@ -158,10 +158,14 @@ public class MapController : MonoBehaviour {
                             }
                             tmp.GetComponent<PolygonCollider2D>().points = points;
                         
-                     if (_i % width == center)
+                     if (!centerH && _i % width == center)
                         {
                             tmp.layer = LayerMask.NameToLayer("center");
-                        }
+                          }
+                     else if (centerH && ((_gidMap.Count - 1) - _i) == center)
+                         {
+                             tmp.layer = LayerMask.NameToLayer("center");
+                         }
                     }
                     tmp.SetActive(true);
                 }
@@ -198,6 +202,14 @@ public class MapController : MonoBehaviour {
                         copie.transform.position -= new Vector3(0, ((int.Parse(node.ChildNodes[i].Attributes["height"].Value) / 2) * 1.25f) / pixelToUnit, 0);
                         copie.renderer.enabled = false;
   
+                    }
+                    else if (centerH && int.Parse(node.ChildNodes[i].Attributes["y"].Value) / tileWidth > center)
+                    {
+                        copie = Instantiate(newEnt) as GameObject;
+                        copie.name = node.ChildNodes[i].Attributes["name"].Value;
+                        copie.transform.position = new Vector3(((width / 2 * tileWidth) - (int.Parse(node.ChildNodes[i].Attributes["x"].Value) - (width / 2 * tileWidth))) / pixelToUnit, newEnt.transform.position.y + (center * tileHeight / pixelToUnit), 0);
+                        copie.transform.position -= new Vector3(0, ((int.Parse(node.ChildNodes[i].Attributes["height"].Value) / 2) * 0.8f) / pixelToUnit, 0);
+                        copie.renderer.enabled = false;
                     }
                     else
                         newEnt.name = node.ChildNodes[i].Attributes["name"].Value; 

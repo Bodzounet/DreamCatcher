@@ -20,6 +20,7 @@ public class Chest : MonoBehaviour {
     MovementController                  movementController;
     public GameObject                     realChest;
     public GameObject centre;
+    public bool centerH;
     GameObject che;
 	void Start () {
 		myRects[0] = new Rect(Screen.width / 2 - 150, Screen.height / 2 - 25, 50, 50);
@@ -54,7 +55,12 @@ public class Chest : MonoBehaviour {
             center = centre.transform.position.x;
         else
          center = GameObject.Find("MapManager").GetComponent<MapController>().center * 0.32f;
-        che.transform.position = new Vector3(-(this.transform.position.x - center) + center, transform.position.y);
+        if (GameObject.Find("MapManager"))
+            centerH = GameObject.Find("MapManager").GetComponent<MapController>().centerH;
+        if (!centerH)
+            che.transform.position = new Vector3(-(this.transform.position.x - center) + center, transform.position.y);
+        else
+            che.transform.position = new Vector3(18.60f - this.transform.position.x, transform.position.y - (17.0f * 32.0f / 100.0f));
         che.name = "DarkChest";
 	}
 	
