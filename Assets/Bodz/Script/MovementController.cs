@@ -6,6 +6,11 @@ public class MovementController : MonoBehaviour
 {
     private static float MAGIC_CONSTANT = 0.3f;
 
+    public enum e_dir
+    {
+        LEFT,
+        RIGHT
+    };
 
 	public float changeVelocityX = 0.8f;
 	public float maxVelocityX = 1f;
@@ -22,6 +27,8 @@ public class MovementController : MonoBehaviour
 
     public Vector3 spawnPos;
 
+    public e_dir currentDir = e_dir.RIGHT;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -35,9 +42,7 @@ public class MovementController : MonoBehaviour
         //death
         if (dead)
         {
-            transform.position = spawnPos;
-            rigidbody2D.velocity = new Vector2(0, -jumpVelocity);
-            dead = false;
+            onDeath();
             return;
         }
 
@@ -51,6 +56,11 @@ public class MovementController : MonoBehaviour
             (transform.position + Vector3.left * (MAGIC_CONSTANT + 0.01f)) + Vector3.down * MAGIC_CONSTANT,
             (1 << 8) + (1 << 9)).transform == null)
 		{
+            //setting good direction
+            if (currentDir != e_dir.LEFT)
+                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+            currentDir = e_dir.LEFT;
+
 			if (x < -maxVelocityX)
 				x = -maxVelocityX;
 			else
@@ -62,6 +72,12 @@ public class MovementController : MonoBehaviour
             (transform.position + Vector3.right * (MAGIC_CONSTANT + 0.01f)) + Vector3.down * MAGIC_CONSTANT,
             (1 << 8) + (1 << 9)).transform == null)
 		{
+            //setting good direction
+            if (currentDir != e_dir.RIGHT)
+                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+            currentDir = e_dir.RIGHT;
+
+
 			if (x > maxVelocityX)
 				x = maxVelocityX;
 			else
@@ -110,6 +126,15 @@ public class MovementController : MonoBehaviour
 		lastVelocity = new Vector2 (x, y);
 		rigidbody2D.velocity = lastVelocity;
 	}
+
+    //some private fcts to make the update() readable...
+    private void onDeath()
+    {
+        transform.position = spawnPos;
+        rigidbody2D.velocity = new Vector2(0, -jumpVelocity);
+        currentDir = e_dir.LEFT;
+        dead = false;
+    }
 
    /* void OnDrawGizmos()
     {
