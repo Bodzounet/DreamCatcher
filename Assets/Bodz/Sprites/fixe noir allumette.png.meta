@@ -1,7 +1,8 @@
 fileFormatVersion: 2
 guid: a90a53f0bb848684295a2e16fd90fceb
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: fixe noir allumette
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
