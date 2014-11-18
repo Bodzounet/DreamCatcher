@@ -44,6 +44,7 @@ public class Ladder : MonoBehaviour
     public void Desactivate()
     {
         isActive = false;
+        if (spriteRenderer != null)
         spriteRenderer.color = new Color(1, 1, 1, 0);
         timer = 0;
         this.GetComponent<BoxCollider2D>().enabled = false;
