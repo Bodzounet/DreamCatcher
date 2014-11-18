@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 312cfdac4d52d384e803020cbda9a4b2
+guid: 801ad1b2a5201704abf094faba69180e
 TextureImporter:
   fileIDToRecycleName:
-    21300000: torchLit
+    21300000: "ouverture coffre r\xEAve"
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -25,7 +25,7 @@ TextureImporter:
   textureFormat: -3
   maxTextureSize: 1024
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: 1
     mipBias: -1
     wrapMode: 1
