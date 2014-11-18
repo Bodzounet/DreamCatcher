@@ -106,6 +106,8 @@ public class MovementController : MonoBehaviour
 
         if (Input.GetAxis("Vertical") <= 0)
             isEnter = false;
+        else
+            isEnter = true;
         //Ladder
         if (Input.GetAxis("Vertical") > 0 && isOnLadder && !isGUIOpen)
         {

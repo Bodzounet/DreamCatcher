@@ -22,6 +22,7 @@ public class Door : MonoBehaviour {
         if (c.gameObject.name == "CharacterLeft" && Input.GetAxis("Vertical") > 0 && !c.GetComponent<MovementController>().isEnter)
         {
             c.transform.position = other.position;
+            c.transform.position += Vector3.down * 0.42f;
             c.GetComponent<MovementController>().isEnter = true;
         }
     }
