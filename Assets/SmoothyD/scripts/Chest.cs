@@ -19,6 +19,7 @@ public class Chest : MonoBehaviour {
 	Dictionary<Key.KeyType, Texture>	keys = new Dictionary<Key.KeyType, Texture>();
     MovementController                  movementController;
     public GameObject                     realChest;
+    public GameObject centre;
     GameObject che;
 	void Start () {
 		myRects[0] = new Rect(Screen.width / 2 - 150, Screen.height / 2 - 25, 50, 50);
@@ -48,7 +49,11 @@ public class Chest : MonoBehaviour {
         player = GameObject.Find("CharacterLeft");
         movementController = player.GetComponent<MovementController>();
         che = Instantiate(realChest) as GameObject;
-        float center = GameObject.Find("MapManager").GetComponent<MapController>().center * 0.32f;
+          float center = 0;
+        if (centre != null)
+            center = centre.transform.position.x;
+        else
+         center = GameObject.Find("MapManager").GetComponent<MapController>().center * 0.32f;
         che.transform.position = new Vector3(-(this.transform.position.x - center) + center, transform.position.y);
         che.name = "DarkChest";
 	}
@@ -92,7 +97,7 @@ public class Chest : MonoBehaviour {
 				mainMenu.enabled = false;
                 movementController.isGUIOpen = false;
                 this.GetComponent<Animator>().SetBool("open", false);
-                che.GetComponentInChildren<Animator>().SetBool("open", true);
+                che.GetComponentInChildren<Animator>().SetBool("open", false);
 			}
 		}
 		else if (Input.GetButtonDown("Validate") && canBeOpenend) {
