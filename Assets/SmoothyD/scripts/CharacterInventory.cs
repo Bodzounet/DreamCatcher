@@ -10,7 +10,7 @@ public class CharacterInventory : MonoBehaviour {
     float                   visibleTime;
 	MicrophoneInput			microphoneInput;
 	double					timer;
-    double                  hiddenEntTimer;
+    public double           hiddenEntTimer;
 	string					blowChar;
 	SpriteRenderer			spriteRenderer;
 
