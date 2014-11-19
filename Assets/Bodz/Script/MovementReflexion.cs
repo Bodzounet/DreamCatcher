@@ -58,5 +58,6 @@ public class MovementReflexion : MonoBehaviour {
         anim.SetBool("holdWindMill", mvtc.animState.fire);
         anim.SetBool("isAttacking", mvtc.animState.attack);
         anim.SetBool("dream", mvtc.animState.dream);
+        anim.SetBool("isClimbing", mvtc.animState.isClimbing);
     }
 }

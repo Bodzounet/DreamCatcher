@@ -7,10 +7,14 @@ public class Door : MonoBehaviour {
     public Transform other;
     public bool isActive;
 
+    Animator animator;
+    Collider2D collider;
+
 	// Use this for initialization
 	void Start () 
     {
         isActive = true;
+        animator = this.GetComponentInChildren<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -28,14 +32,21 @@ public class Door : MonoBehaviour {
     {
         isActive = false;
     }
+    
+    void delayedTP()
+    {
+        collider.transform.position = other.position;
+        collider.transform.position += Vector3.down * 0.42f;
+        collider.GetComponent<MovementController>().isEnter = true;
+    }
 
     void OnTriggerStay2D(Collider2D c)
     {
         if (isActive && c.gameObject.name == "CharacterLeft" && Input.GetAxis("Vertical") > 0.05 && !c.GetComponent<MovementController>().isEnter)
         {
-            c.transform.position = other.position;
-            c.transform.position += Vector3.down * 0.42f;
-            c.GetComponent<MovementController>().isEnter = true;
+            animator.Play("OpenDoor");
+            collider = c;
+            Invoke("delayedTP", 0.35f);
         }
     }
 }
