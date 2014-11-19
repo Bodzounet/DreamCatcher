@@ -35,4 +35,12 @@ public class pathFinding : MonoBehaviour {
         else
             transform.localScale = new Vector3(scaleX, transform.localScale.y, transform.localScale.z);
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "Target")
+        {
+            col.GetComponent<MovementController>().onDeath();
+        }
+    }
 }
