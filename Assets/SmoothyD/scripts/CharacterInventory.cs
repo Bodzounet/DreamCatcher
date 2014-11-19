@@ -25,6 +25,7 @@ public class CharacterInventory : MonoBehaviour {
     public bool             dream = false;
     public AudioClip        yogaFlame;
     public AudioClip        yogaSouffle;
+    public AudioClip        dreamCatch;
     public Animator fus;
 	
 	// Use this for initialization
@@ -57,6 +58,11 @@ public class CharacterInventory : MonoBehaviour {
 		if (dreamCatcher == true && Input.GetButton ("BlowCharLeft") && Input.GetButton ("BlowCharRight") && hiddenEntTimer <= 0) {
             if (side == "Left")
             {
+                if (dreamCatch != null)
+                {
+                    dreamEye.gameObject.audio.clip = dreamCatch;
+                    dreamEye.audio.Play();
+                }
                 dream = true;
                 Invoke("resetDream", 1);
                 dreamEye.color = new Color(1, 1, 1, 0.75f);

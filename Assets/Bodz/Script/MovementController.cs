@@ -52,6 +52,7 @@ public class MovementController : MonoBehaviour
     private CharacterInventory inventory;
 
     public AudioClip[] JumpSounds;
+    public AudioClip walk;
     public AudioClip death;
 	// Use this for initialization
 	void Start () 
@@ -168,6 +169,11 @@ public class MovementController : MonoBehaviour
         else
             this.rigidbody2D.gravityScale = 1;
 
+        if (x != 0 && walk != null && !this.audio.isPlaying && isGrounded)
+        {
+            this.audio.clip = walk;
+            this.audio.Play();
+        }
 		lastVelocity = new Vector2 (x, y);
 		rigidbody2D.velocity = lastVelocity;
 

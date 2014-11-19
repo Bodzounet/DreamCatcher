@@ -6,7 +6,7 @@ public class Door : MonoBehaviour {
     public int id;
     public Transform other;
     public bool isActive;
-
+    public AudioClip sound;
     Animator animator;
     Collider2D collider;
 
@@ -36,7 +36,8 @@ public class Door : MonoBehaviour {
     void delayedTP()
     {
         collider.transform.position = other.position;
-        collider.transform.position += Vector3.down * 0.42f;
+
+        //collider.transform.position += Vector3.down * 0.42f;
         collider.GetComponent<MovementController>().isEnter = true;
     }
 
@@ -46,6 +47,11 @@ public class Door : MonoBehaviour {
         {
             animator.Play("OpenDoor");
             collider = c;
+            if (sound != null)
+            {
+                this.audio.clip = sound;
+                this.audio.Play();
+            }
             Invoke("delayedTP", 0.35f);
         }
     }
