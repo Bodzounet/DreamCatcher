@@ -21,6 +21,7 @@ public class Chest : MonoBehaviour {
     public GameObject                     realChest;
     public GameObject centre;
     public bool centerH;
+    public AudioClip[] sounds;
     GameObject che;
 	void Start () {
 		myRects[0] = new Rect(Screen.width / 2 - 150, Screen.height / 2 - 25, 50, 50);
@@ -72,8 +73,8 @@ public class Chest : MonoBehaviour {
 			mainMenu.DisplayButtons ();
 			GUI.Label (new Rect (Screen.width / 2 - 145, Screen.height / 2 - 20, 40, 40), items[characterInventoryLeft.item]);
 			GUI.Label (new Rect (Screen.width / 2 + 155, Screen.height / 2 - 20, 40, 40), items[characterInventoryRight.item]);
-			GUI.Label (new Rect (Screen.width / 2 - 80, Screen.height / 2 - 20, 30, 40), keys[characterInventoryLeft.key]);
-			GUI.Label (new Rect (Screen.width / 2 + 100, Screen.height / 2 - 20, 30, 40), keys[characterInventoryRight.key]);
+			GUI.Label (new Rect (Screen.width / 2 - 85, Screen.height / 2 - 20, 40, 40), keys[characterInventoryLeft.key]);
+			GUI.Label (new Rect (Screen.width / 2 + 95, Screen.height / 2 - 20, 40, 40), keys[characterInventoryRight.key]);
 		} 
 	}
 
@@ -82,7 +83,13 @@ public class Chest : MonoBehaviour {
 			if(mainMenu.CheckJoystickAxis()){
 				Invoke("Delay",delayBetweenFocusChanges);
 			}
-			currentlyPressedButton = mainMenu.CheckJoystickButton();
+            int newButton = mainMenu.CheckJoystickButton();
+            if (sounds.Length > 2  && newButton != currentlyPressedButton)
+            {
+                this.audio.clip = sounds[2];
+                this.audio.Play();
+            }
+			currentlyPressedButton = newButton;
 			if (currentlyPressedButton == 0) {
 				Item.ItemType	tmp = characterInventoryLeft.item;
 				
@@ -98,6 +105,11 @@ public class Chest : MonoBehaviour {
 				return;
 			}
 			if (Input.GetButtonDown ("Validate") || !canBeOpenend) {
+                if (sounds.Length > 1)
+                {
+                    this.audio.clip = sounds[1];
+                    this.audio.Play();
+                }
 				mainMenu.currentFocus = 0;
 				mainMenu.SetFocus(0);
 				mainMenu.enabled = false;
@@ -107,6 +119,11 @@ public class Chest : MonoBehaviour {
 			}
 		}
 		else if (Input.GetButtonDown("Validate") && canBeOpenend) {
+            if (sounds.Length > 0 )
+            {
+                this.audio.clip = sounds[0];
+                this.audio.Play();
+            }
 			mainMenu.enabled = true;
             movementController.isGUIOpen = true;
             this.GetComponent<Animator>().SetBool("open", true);

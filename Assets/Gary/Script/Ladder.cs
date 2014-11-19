@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 
 public class Ladder : MonoBehaviour 
 {
     public bool isActive;
     private MovementController player;
-    SpriteRenderer spriteRenderer;
+    public List<SpriteRenderer> spriteRenderer = new List<SpriteRenderer>();
+    public Sprite[] chip;
     float timer;
 
 	// Use this for initialization
@@ -14,22 +15,44 @@ public class Ladder : MonoBehaviour
     {
         isActive = true;
         player = GameObject.Find("CharacterLeft").GetComponent<MovementController>();
-        spriteRenderer = this.GetComponent<SpriteRenderer>();
         this.GetComponent<BoxCollider2D>().enabled = false;
-        if (this.transform.childCount > 0)
+        if (this.transform.childCount > 0 && this.transform.GetChild(0).GetComponent<Ladder>() != null)
         {
-            spriteRenderer = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+            spriteRenderer = this.transform.GetChild(0).GetComponent<Ladder>().spriteRenderer;
+            this.GetComponent<BoxCollider2D>().size = new Vector2(0.32f, this.transform.GetChild(0).GetComponent<BoxCollider2D>().size.y);
             Destroy(this.transform.GetChild(0).GetComponent<Ladder>());
         }
         timer = 1;
 	}
 	
+    public void setHeight(int height)
+    {
+        for (int i =  -height / 2 - 1; i < height / 2; i++)
+        {
+            GameObject child = new GameObject();
+            child.transform.parent = this.transform;
+            if (i ==  -height / 2 - 1)
+                child.AddComponent<SpriteRenderer>().sprite = chip[0];
+            else if (i == height / 2 - 1)
+                child.AddComponent<SpriteRenderer>().sprite = chip[2];
+            else
+                child.AddComponent<SpriteRenderer>().sprite = chip[1];
+            child.transform.localPosition = new Vector3(0, -i * 0.32f, 0);
+            child.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+            spriteRenderer.Add(child.GetComponent<SpriteRenderer>());
+        }
+        if (this.transform.parent == null)
+            this.GetComponent<BoxCollider2D>().size = new Vector2(0.32f, 0.32f * height);
+        else
+            this.transform.parent.GetComponent<BoxCollider2D>().size = new Vector2(0.32f, 0.32f * height);
+    }
 	// Update is called once per frame
 	void Update () 
     {
         if (isActive)
         {
-            spriteRenderer.color = new Color(1, 1, 1, timer);
+            foreach (SpriteRenderer s in spriteRenderer)
+                s.color = new Color(1, 1, 1, timer);
             timer += Time.deltaTime;
         }
 	}
@@ -45,7 +68,10 @@ public class Ladder : MonoBehaviour
     {
         isActive = false;
         if (spriteRenderer != null)
-        spriteRenderer.color = new Color(1, 1, 1, 0);
+        {
+            foreach (SpriteRenderer s in spriteRenderer)
+            s.color = new Color(1, 1, 1, 0);
+        }
         timer = 0;
         this.GetComponent<BoxCollider2D>().enabled = false;
     }

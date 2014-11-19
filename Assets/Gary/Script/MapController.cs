@@ -18,6 +18,7 @@ public class MapController : MonoBehaviour {
 	private int _i = 0;
     public GameObject hidden;
     public bool centerH = false;
+    public bool print = true;
 	// Use this for initialization
 	void Start () 
 	{
@@ -131,6 +132,8 @@ public class MapController : MonoBehaviour {
                     else
                         tmp.transform.parent = this.transform;
                     tmp.GetComponent<SpriteRenderer>().sortingOrder = l - map.GetElementsByTagName("data").Count + 1;
+                    if (!print)
+                        tmp.GetComponent<SpriteRenderer>().enabled = false;
                     if (l == map.GetElementsByTagName("data").Count - 1 || hide)
                     {
                         tmp.AddComponent<PolygonCollider2D>();
@@ -200,8 +203,10 @@ public class MapController : MonoBehaviour {
                         copie.name = node.ChildNodes[i].Attributes["name"].Value; 
                         copie.transform.position = new Vector3(((center * tileWidth) - (int.Parse(node.ChildNodes[i].Attributes["x"].Value) - (center * tileWidth))) / pixelToUnit, newEnt.transform.position.y, 0);
                         copie.transform.position -= new Vector3(0, ((int.Parse(node.ChildNodes[i].Attributes["height"].Value) / 2) * 1.25f) / pixelToUnit, 0);
-                        copie.renderer.enabled = false;
-  
+                        if (copie.renderer != null)
+                            copie.renderer.enabled = false;
+                        else if (copie.transform.GetChild(0).renderer != null)
+                            copie.transform.GetChild(0).renderer.enabled = false;
                     }
                     else if (centerH && int.Parse(node.ChildNodes[i].Attributes["y"].Value) / tileWidth > center)
                     {
@@ -209,21 +214,25 @@ public class MapController : MonoBehaviour {
                         copie.name = node.ChildNodes[i].Attributes["name"].Value;
                         copie.transform.position = new Vector3(((width / 2 * tileWidth) - (int.Parse(node.ChildNodes[i].Attributes["x"].Value) - (width / 2 * tileWidth))) / pixelToUnit, newEnt.transform.position.y + (center * tileHeight / pixelToUnit), 0);
                         copie.transform.position -= new Vector3(0, ((int.Parse(node.ChildNodes[i].Attributes["height"].Value) / 2) * 0.8f) / pixelToUnit, 0);
-                        copie.renderer.enabled = false;
+                        if (copie.renderer != null)
+                            copie.renderer.enabled = false;
+                        else if (copie.transform.GetChild(0).renderer != null)
+                            copie.transform.GetChild(0).renderer.enabled = false;
                     }
                     else
                         newEnt.name = node.ChildNodes[i].Attributes["name"].Value; 
                     newEnt.transform.position -= new Vector3(0, ((int.Parse(node.ChildNodes[i].Attributes["height"].Value) / 2) * 1.25f) / pixelToUnit, 0);
                     if (node.ChildNodes[i].ChildNodes[0] != null && node.ChildNodes[i].ChildNodes[0].ChildNodes[0].Attributes["name"].Value == "scale")
                     {
-                        newEnt.transform.localScale = new Vector3(int.Parse(node.ChildNodes[i].Attributes["width"].Value) / tileWidth, (int.Parse(node.ChildNodes[i].Attributes["height"].Value) / tileHeight));
+                        newEnt.GetComponent<Ladder>().setHeight(int.Parse(node.ChildNodes[i].Attributes["height"].Value) / 32);
+                        /*newEnt.transform.localScale = new Vector3(int.Parse(node.ChildNodes[i].Attributes["width"].Value) / tileWidth, (int.Parse(node.ChildNodes[i].Attributes["height"].Value) / tileHeight));
                         newEnt.transform.position += Vector3.right * (int.Parse(node.ChildNodes[i].Attributes["width"].Value)  / 4 / pixelToUnit);
                         if (copie != null)
                         {
                             copie.transform.localScale = new Vector3(int.Parse(node.ChildNodes[i].Attributes["width"].Value) / tileWidth, (int.Parse(node.ChildNodes[i].Attributes["height"].Value) / tileHeight));
                             copie.transform.position += Vector3.left * (int.Parse(node.ChildNodes[i].Attributes["width"].Value) / 4 / pixelToUnit);
                             newEnt.transform.localScale = new Vector3(1, 1, 1);
-                        }
+                        }*/
                     }
                     if (copie != null)
                     {
