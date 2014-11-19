@@ -11,6 +11,7 @@ public class pathFinding : MonoBehaviour {
     private float scaleX;
 
     private Animator anim;
+    public AudioClip[] sounds;
     
     // Use this for initialization
     void Start () 
@@ -40,9 +41,24 @@ public class pathFinding : MonoBehaviour {
             transform.localScale = new Vector3(scaleX, transform.localScale.y, transform.localScale.z);
 
         if (Vector2.Distance(trans.position, transform.position) > 2f)
+        {
             anim.SetBool("mustAttack", false);
+            if (sounds.Length > 0 && sounds[0] != null && !this.audio.isPlaying)
+            {
+                this.audio.clip = sounds[0];
+                this.audio.Play();
+                this.transform.GetChild(0).audio.Stop();
+            }
+        }
         else
+        {
             anim.SetBool("mustAttack", true);
+            if (sounds.Length > 1 && sounds[1] != null && !this.transform.GetChild(0).audio.isPlaying )
+            {
+                this.transform.GetChild(0).audio.clip = sounds[1];
+                this.transform.GetChild(0).audio.Play();
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)

@@ -15,9 +15,10 @@ public class Ladder : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-        isActive = true;
+        //isActive = true;
         player = GameObject.Find("CharacterLeft").GetComponent<MovementController>();
-        this.GetComponent<BoxCollider2D>().enabled = false;
+        if (!isActive)
+            this.GetComponent<BoxCollider2D>().enabled = false;
 
         if (this.transform.childCount > 0 && this.transform.GetChild(0).GetComponent<Ladder>() != null)
         {
@@ -48,7 +49,7 @@ public class Ladder : MonoBehaviour
             child.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
             spriteRenderer.Add(child.GetComponent<SpriteRenderer>());
         }
-        if (this.transform.parent == null)
+        if (this.transform.parent == null || this.transform.parent.name != "hiddenEntities")
             this.GetComponent<BoxCollider2D>().size = new Vector2(0.32f, 0.32f * height);
         else
             this.transform.parent.GetComponent<BoxCollider2D>().size = new Vector2(0.32f, 0.32f * height);
