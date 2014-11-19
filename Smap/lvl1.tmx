@@ -2020,7 +2020,7 @@
     <property name="scale" value="true"/>
    </properties>
   </object>
-  <object name="LadderT3" type="ladder" x="1536" y="320" width="32" height="256">
+  <object name="LadderT3" type="ladder" x="1536" y="288" width="32" height="288">
    <properties>
     <property name="scale" value="true"/>
    </properties>
@@ -2793,7 +2793,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>

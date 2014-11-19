@@ -1,7 +1,8 @@
 fileFormatVersion: 2
 guid: d6828e7456258e4459ec0613206d9f82
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: EN_Tuto Clefs Portes
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
