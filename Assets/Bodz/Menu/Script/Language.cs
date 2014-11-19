@@ -14,12 +14,14 @@ public class Language : MonoBehaviour {
             fr = false;
             txt1.text = "Language";
             txt2.text = "English";
+            PlayerPrefs.SetInt("fr", 0);
         }
         else
         {
             fr = true;
             txt1.text = "Langue";
             txt2.text = "Francais";
+            PlayerPrefs.SetInt("fr", 1);
         }
     }
 }

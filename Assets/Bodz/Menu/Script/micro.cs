@@ -12,11 +12,13 @@ public class micro : MonoBehaviour {
         {
             onOff = false;
             txt.text = "Off";
+            PlayerPrefs.SetInt("micro", 0);
         }
         else
         {
             onOff = true;
             txt.text = "On";
+            PlayerPrefs.SetInt("micro", 1);
         }
     }
 }
