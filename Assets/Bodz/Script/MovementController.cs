@@ -214,6 +214,7 @@ public class MovementController : MonoBehaviour
             deathAnim = false;
             anim.Play("Death");
         }
+        
         if (!eye.GetComponent<Animator>().GetBool("dead"))
             eye.GetComponent<Animator>().SetBool("dead", true);
         if (eye.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("close"))
