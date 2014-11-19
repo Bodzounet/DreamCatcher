@@ -2027,8 +2027,8 @@
     <property name="on" value="true"/>
    </properties>
   </object>
-  <object name="lockedDoor" type="LockedDoorSpectral" x="768" y="-32" width="64" height="128"/>
-  <object name="lockedDoor" type="LockedDoorNormal" x="1632" y="256" width="64" height="128"/>
+  <object name="LockedDoor" type="LockedDoorSpectral" x="768" y="-32" width="64" height="128"/>
+  <object name="LockedDoor" type="LockedDoorNormal" x="1632" y="256" width="64" height="128"/>
  </objectgroup>
  <layer name="Calque 1" width="59" height="33">
   <data>
