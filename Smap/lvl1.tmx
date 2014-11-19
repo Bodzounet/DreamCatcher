@@ -1986,7 +1986,11 @@
   <object name="NormalKey" type="NormalKey" x="864" y="320" width="32" height="32"/>
   <object name="SpectralKey" type="SpectralKey" x="1632" y="96" width="32" height="32"/>
   <object name="chest" type="chest" x="416" y="544" width="64" height="32"/>
-  <object name="chest" type="chest" x="704" y="64" width="64" height="32"/>
+  <object name="chest" type="chest" x="704" y="64" width="64" height="32">
+   <properties>
+    <property name="hidden" value="true"/>
+   </properties>
+  </object>
   <object name="torch" type="torch" x="576" y="770" width="32" height="42">
    <properties>
     <property name="link" value="DoorT1"/>

@@ -33,7 +33,10 @@ public class Detector : MonoBehaviour {
             this.GetComponentInParent<SpriteRenderer>().enabled = false;
             this.collider2D.enabled = false;
             c.GetComponent<CharacterInventory>().key = Key.KeyType.NO_KEY;
-            Destroy(this.transform.parent.gameObject);
+            if (this.transform.parent.parent != null)
+                Destroy(this.transform.parent.parent.gameObject);
+            else
+                Destroy(this.transform.parent.gameObject);
         }
     }
 }

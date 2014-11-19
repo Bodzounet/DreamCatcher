@@ -15,7 +15,7 @@ public class Ladder : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-        isActive = true;
+        //isActive = true;
         player = GameObject.Find("CharacterLeft").GetComponent<MovementController>();
         this.GetComponent<BoxCollider2D>().enabled = false;
 
