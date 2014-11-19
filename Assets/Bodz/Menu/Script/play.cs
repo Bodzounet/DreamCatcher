@@ -15,6 +15,9 @@ public class play : MonoBehaviour
     public Color c1;
     public Color c2;
 
+    public GameObject Eye;
+    public AudioClip darkness;
+
     void Update()
     {
         if (lerpDark)
