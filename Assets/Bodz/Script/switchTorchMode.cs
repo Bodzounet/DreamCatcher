@@ -8,12 +8,20 @@ public class switchTorchMode : MonoBehaviour
     public Animator anim;
     public GameObject link;
     public bool invert = false;
+<<<<<<< HEAD
     public AudioClip[] sounds;
+=======
+    public bool isTuto = false;
+    public Texture tutoSprite;
+>>>>>>> 9cc2cee3562f698c3a513d278a0f0b9c38914e12
 
     Ladder linkScriptLadder;
     Door linkScriptDoor;
 
     bool lastState;
+    GameObject other;
+    bool showTuto;
+    float timer;
 
 	// Use this for initialization
 	void Start () 
@@ -22,6 +30,8 @@ public class switchTorchMode : MonoBehaviour
         linkScriptLadder = link.GetComponent<Ladder>();
         linkScriptDoor = link.GetComponent<Door>();
         lastState = !isActive;
+        showTuto = false;
+        timer = 5;
 	}
 	
 	// Update is called once per frame
@@ -46,6 +56,16 @@ public class switchTorchMode : MonoBehaviour
         }
         anim.SetBool("isActive", isActive);
         lastState = isActive;
+        if (showTuto == true && Input.GetButtonDown("Jump"))
+            timer = 0;
+        if (showTuto == true && timer > 0)
+            timer -= Time.deltaTime;
+        else if (showTuto == true)
+        {
+            other.GetComponent<MovementController>().isGUIOpen = false;
+            isTuto = false;
+            showTuto = false;
+        }
 	}
 
     public void Invert()
@@ -53,6 +73,12 @@ public class switchTorchMode : MonoBehaviour
         isActive = true;
         invert = true;
         anim.SetBool("isActive", true);
+    }
+
+    void OnGUI()
+    {
+        if (showTuto == true)
+            GUI.Label(new Rect(Screen.width / 2 - tutoSprite.width / 2, Screen.height / 2 - tutoSprite.height / 2, tutoSprite.width, tutoSprite.height), tutoSprite);
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -75,5 +101,12 @@ public class switchTorchMode : MonoBehaviour
                 this.audio.Play();
             }
         }
+        else if (isTuto == true && col.gameObject.GetComponent<CharacterInventory>() != null && col.gameObject.GetComponent<CharacterInventory>().key == Key.KeyType.NO_KEY)
+        {
+            other = GameObject.Find("CharacterLeft");
+            other.GetComponent<MovementController>().isGUIOpen = true;
+            showTuto = true;
+        }
+
     }
 }
