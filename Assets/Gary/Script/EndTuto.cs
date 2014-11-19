@@ -5,6 +5,8 @@ public class EndTuto : MonoBehaviour {
 
     public GameObject eye;
     private bool ending = false;
+    public int nextScene;
+    public string anim;
 	// Use this for initialization
 	void Start () {
 	
@@ -15,7 +17,7 @@ public class EndTuto : MonoBehaviour {
     {
         if (ending == true && eye.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("close"))
         {
-            Application.LoadLevel(2);
+            Application.LoadLevel(nextScene);
         }
 	}
 
@@ -24,7 +26,7 @@ public class EndTuto : MonoBehaviour {
         if (c.GetComponent<MovementController>() != null)
         {
             c.GetComponent<MovementController>().stop = true;
-            eye.GetComponent<Animator>().SetBool("tuto", true);
+            eye.GetComponent<Animator>().SetBool(anim, true);
             ending = true;
         }
     }
