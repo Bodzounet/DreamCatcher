@@ -1,7 +1,8 @@
 fileFormatVersion: 2
 guid: 22aaabe914878f24e9ab275a58d806ea
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: "tuto Moulin \xE0 vent"
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

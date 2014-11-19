@@ -1,7 +1,8 @@
 fileFormatVersion: 2
 guid: ebcb46816fc36c842b46e8dd4afef22f
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Tuto Coffres
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

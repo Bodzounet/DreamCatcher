@@ -8,12 +8,9 @@ public class switchTorchMode : MonoBehaviour
     public Animator anim;
     public GameObject link;
     public bool invert = false;
-<<<<<<< HEAD
     public AudioClip[] sounds;
-=======
     public bool isTuto = false;
     public Texture tutoSprite;
->>>>>>> 9cc2cee3562f698c3a513d278a0f0b9c38914e12
 
     Ladder linkScriptLadder;
     Door linkScriptDoor;

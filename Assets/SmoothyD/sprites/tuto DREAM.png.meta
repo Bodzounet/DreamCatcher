@@ -1,7 +1,8 @@
 fileFormatVersion: 2
 guid: 8938ee31d03ec6f4485dcca729ae6b6d
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: tuto DREAM
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

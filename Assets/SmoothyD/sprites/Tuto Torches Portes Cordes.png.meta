@@ -1,7 +1,8 @@
 fileFormatVersion: 2
 guid: dec36fc5cf631544286b34f56cb10c78
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Tuto Torches Portes Cordes
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
