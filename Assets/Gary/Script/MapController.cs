@@ -19,6 +19,8 @@ public class MapController : MonoBehaviour {
     public GameObject hidden;
     public bool centerH = false;
     public bool print = true;
+    public GameObject lightPoint;
+    public Sprite hideBlock;
 	// Use this for initialization
 	void Start () 
 	{
@@ -127,12 +129,9 @@ public class MapController : MonoBehaviour {
                     tmp.transform.position = new Vector3((((_i) % width) * tileWidth) / pixelToUnit, (((_gidMap.Count - 1) - _i) / width * tileHeight) / pixelToUnit, 0);
                     tmp.name = "Block_" + _i;
 
-                    if (hide)
-                        tmp.transform.parent = hidden.transform;
-                    else
-                        tmp.transform.parent = this.transform;
+
                     tmp.GetComponent<SpriteRenderer>().sortingOrder = l - map.GetElementsByTagName("data").Count + 1;
-                    if (!print)
+                    if (!print && !hide)
                         tmp.GetComponent<SpriteRenderer>().enabled = false;
                     if (l == map.GetElementsByTagName("data").Count - 1 || hide)
                     {
@@ -170,6 +169,17 @@ public class MapController : MonoBehaviour {
                              tmp.layer = LayerMask.NameToLayer("center");
                          }
                     }
+                    if (hide)
+                    {
+                        tmp.transform.parent = hidden.transform;
+                        GameObject newLight = Instantiate(lightPoint) as GameObject;
+                        newLight.transform.position = tmp.transform.position;
+                        newLight.transform.parent = GameObject.Find("ShownEntities").transform;
+                        tmp.GetComponent<SpriteRenderer>().sprite = hideBlock;
+                        tmp.GetComponent<SpriteRenderer>().sortingOrder = 3;
+                    }
+                    else
+                        tmp.transform.parent = this.transform;
                     tmp.SetActive(true);
                 }
                 _i++;
