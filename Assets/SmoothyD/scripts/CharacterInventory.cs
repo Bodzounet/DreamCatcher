@@ -55,7 +55,7 @@ public class CharacterInventory : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (dreamCatcher == true && Input.GetButton ("BlowCharLeft") && Input.GetButton ("BlowCharRight") && hiddenEntTimer <= 0) {
+		if (dreamCatcher == true && ((Input.GetButton ("BlowCharLeft") && Input.GetButton ("BlowCharRight")) || Input.GetKeyDown(KeyCode.LeftControl)) && hiddenEntTimer <= 0) {
             if (side == "Left")
             {
                 if (dreamCatch != null)
