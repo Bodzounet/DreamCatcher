@@ -9,6 +9,7 @@ public class PickUpItem : MonoBehaviour {
     public Texture tutoSprite1_en;
     public Texture tutoSprite2_en;
     GameObject other;
+    public AudioClip pickS;
 
     bool showTuto;
     float timer;
@@ -55,6 +56,11 @@ public class PickUpItem : MonoBehaviour {
     void OnTriggerStay2D (Collider2D c) {
         if (c.gameObject.GetComponent<CharacterInventory>() != null)
         {
+            if (pickS != null)
+            {
+                GameObject.Find("DreamEye").audio.clip = pickS;
+                GameObject.Find("DreamEye").audio.Play();
+            }
             if (isTuto == true)
             {
 

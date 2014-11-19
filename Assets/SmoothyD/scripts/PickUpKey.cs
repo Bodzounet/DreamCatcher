@@ -7,6 +7,7 @@ public class PickUpKey : MonoBehaviour {
     public Texture tutoSprite_fr;
     public Texture tutoSprite_en;
     GameObject other;
+    public AudioClip pickS;
 
     bool showTuto;
     float timer;
@@ -47,6 +48,11 @@ public class PickUpKey : MonoBehaviour {
     {
         if (c.gameObject.GetComponent<CharacterInventory>() != null && c.gameObject.GetComponent<CharacterInventory>().key == Key.KeyType.NO_KEY)
         {
+            if (pickS != null)
+            {
+                GameObject.Find("DreamEye").audio.clip = pickS;
+                GameObject.Find("DreamEye").audio.Play();
+            }
             if (isTuto == true)
             {
                 other = GameObject.Find("CharacterLeft");
