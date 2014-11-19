@@ -4,7 +4,7 @@
   <property name="center" value="29"/>
  </properties>
  <tileset firstgid="1" source="tileset.tsx"/>
- <layer name="Hidden" width="59" height="33" visible="0">
+ <layer name="Hidden" width="59" height="33">
   <data>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -1986,7 +1986,7 @@
   <object name="NormalKey" type="NormalKey" x="864" y="320" width="32" height="32"/>
   <object name="SpectralKey" type="SpectralKey" x="1632" y="96" width="32" height="32"/>
   <object name="chest" type="chest" x="416" y="544" width="64" height="32"/>
-  <object name="chest" type="chest" x="736" y="64" width="64" height="32"/>
+  <object name="chest" type="chest" x="704" y="64" width="64" height="32"/>
   <object name="torch" type="torch" x="576" y="770" width="32" height="42">
    <properties>
     <property name="link" value="DoorT1"/>
@@ -2027,10 +2027,9 @@
     <property name="on" value="true"/>
    </properties>
   </object>
+  <object name="lockedDoor" type="LockedDoorSpectral" x="768" y="-32" width="64" height="128"/>
+  <object name="lockedDoor" type="LockedDoorNormal" x="1632" y="256" width="64" height="128"/>
  </objectgroup>
- <imagelayer name="Calque d'image 1">
-  <image source="level1AVANT2.png"/>
- </imagelayer>
  <layer name="Calque 1" width="59" height="33">
   <data>
    <tile gid="0"/>
