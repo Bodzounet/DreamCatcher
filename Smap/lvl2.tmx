@@ -2015,6 +2015,7 @@
     <property name="scale" value="true"/>
    </properties>
   </object>
+  <object name="lockedDoor" type="LockedDoorSpectral" x="1536" y="320" width="64" height="128"/>
  </objectgroup>
  <layer name="Calque 1" width="59" height="33">
   <data>
@@ -3967,7 +3968,4 @@
    <tile gid="1"/>
   </data>
  </layer>
- <imagelayer name="Calque d'image 1" visible="0">
-  <image source="level2-AVANT2.png"/>
- </imagelayer>
 </map>
