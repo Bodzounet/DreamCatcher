@@ -1,0 +1,157 @@
+fileFormatVersion: 2
+guid: f388315712ebfe846a74809834393d1f
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: perso noir corde_0
+    21300002: perso noir corde_1
+    21300004: perso noir corde_2
+    21300006: perso noir corde_3
+    21300008: perso noir corde_4
+    21300010: perso noir corde_5
+    21300012: perso noir corde_6
+    21300014: perso noir corde_7
+    21300016: perso noir corde_8
+    21300018: perso noir corde_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: perso noir corde_0
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 76
+        width: 43
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: perso noir corde_1
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 83
+        width: 44
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: perso noir corde_2
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 87
+        width: 47
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: perso noir corde_3
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 90
+        width: 48
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: perso noir corde_4
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 90
+        width: 54
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: perso noir corde_5
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 90
+        width: 56
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: perso noir corde_6
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 90
+        width: 47
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: perso noir corde_7
+      rect:
+        serializedVersion: 2
+        x: 1213
+        y: 87
+        width: 46
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: perso noir corde_8
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 83
+        width: 46
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: perso noir corde_9
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 76
+        width: 43
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
