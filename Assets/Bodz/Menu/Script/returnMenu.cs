@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class returnMenu : MonoBehaviour {
@@ -10,3 +10,4 @@ public class returnMenu : MonoBehaviour {
         go.SetActive(false);
     }
 }
+

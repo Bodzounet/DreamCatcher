@@ -24,6 +24,7 @@ public class controlXBox : MonoBehaviour {
     private bool onOff = false;
     public Sprite[] spirtes;
 
+
     private bool fr = true;
 
 	// Use this for initialization
@@ -31,6 +32,7 @@ public class controlXBox : MonoBehaviour {
     {
         current = transform.GetChild(childId).gameObject;
         current.GetComponent<TextMesh>().color = c2;
+
 	}
 	
 	// Update is called once per frame

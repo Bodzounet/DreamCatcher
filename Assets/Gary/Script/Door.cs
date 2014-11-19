@@ -44,7 +44,7 @@ public class Door : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D c)
     {
-        if (isActive && c.gameObject.name == "CharacterLeft" && Input.GetAxis("Vertical") > 0.05 && !c.GetComponent<MovementController>().isEnter)
+        if (isActive && c.gameObject.name == "CharacterLeft" && Input.GetAxis("Vertical") > 0.05f && !c.GetComponent<MovementController>().isEnter)
         {
             if (this.transform.childCount > 1)
                 this.transform.GetChild(1).GetChild(0).GetComponent<Animator>().Play("OpenDoor");

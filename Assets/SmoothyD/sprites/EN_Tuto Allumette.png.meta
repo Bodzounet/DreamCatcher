@@ -1,7 +1,8 @@
 fileFormatVersion: 2
 guid: e080b333f18e6c14ab48319fb45ae5c9
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: EN_Tuto Allumette
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
