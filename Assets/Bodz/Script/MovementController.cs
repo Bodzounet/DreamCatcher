@@ -202,7 +202,7 @@ public class MovementController : MonoBehaviour
 	}
 
     //some private fcts to make the update() readable...
-    private void onDeath()
+    public void onDeath()
     {
         if (!eye.GetComponent<Animator>().GetBool("dead"))
             eye.GetComponent<Animator>().SetBool("dead", true);
