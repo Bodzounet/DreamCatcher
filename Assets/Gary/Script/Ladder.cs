@@ -62,6 +62,11 @@ public class Ladder : MonoBehaviour
                 s.color = new Color(1, 1, 1, timer);
             timer += Time.deltaTime;
         }
+        else
+        {
+            foreach (SpriteRenderer s in spriteRenderer)
+                s.color = new Color(1, 1, 1, 0);
+        }
 	}
 
     public void Activate ()

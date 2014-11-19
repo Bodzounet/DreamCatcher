@@ -55,7 +55,7 @@ public class MovementController : MonoBehaviour
     public AudioClip walk;
     public AudioClip death;
 
-    private bool stop = true;
+    public bool stop = true;
 
      IEnumerator lolilol()
     {

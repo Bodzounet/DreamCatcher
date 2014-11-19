@@ -1993,7 +1993,7 @@
     <property name="on" value="false"/>
    </properties>
   </object>
-  <object name="torch" type="torch" x="640" y="356" width="32" height="42">
+  <object name="torch" type="torch" x="640" y="352" width="32" height="42">
    <properties>
     <property name="link" value="LadderT2"/>
     <property name="on" value="true"/>
