@@ -40,7 +40,7 @@ public class pathFinding : MonoBehaviour {
     {
         if (col.tag == "Target")
         {
-            col.GetComponent<MovementController>().onDeath();
+            col.GetComponent<MovementController>().dead = true;
         }
     }
 }
