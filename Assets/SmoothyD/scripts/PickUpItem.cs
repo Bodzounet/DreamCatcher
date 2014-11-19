@@ -4,7 +4,8 @@ using System.Collections;
 public class PickUpItem : MonoBehaviour {
     public Item.ItemType item;
     public bool isTuto = false;
-    public Texture tutoSprite;
+    public Texture tutoSprite1;
+    public Texture tutoSprite2;
     GameObject other;
 
     bool showTuto;
@@ -34,8 +35,8 @@ public class PickUpItem : MonoBehaviour {
     {
         if (showTuto == true)
         {
-            Debug.Log(tutoSprite.width + " " + tutoSprite.height);
-            GUI.Label(new Rect(Screen.width / 2 - tutoSprite.width / 2, Screen.height / 2 - tutoSprite.height / 2, tutoSprite.width, tutoSprite.height), tutoSprite);
+            GUI.Label(new Rect(Screen.width / 4 - tutoSprite1.width / 2, Screen.height / 2 - tutoSprite1.height / 2, tutoSprite1.width, tutoSprite1.height), tutoSprite1);
+            GUI.Label(new Rect(Screen.width / 4*3 - tutoSprite2.width / 2, Screen.height / 2 - tutoSprite2.height / 2, tutoSprite2.width, tutoSprite2.height), tutoSprite2);
         }
     }
 
