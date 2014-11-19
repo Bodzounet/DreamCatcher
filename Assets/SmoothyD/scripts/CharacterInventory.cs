@@ -74,7 +74,7 @@ public class CharacterInventory : MonoBehaviour {
             }
 			timer = 0.75;
 		}
-		else if (microphoneInput.loudness > 15 && timer <= 0) 
+        else if (((microphoneInput.loudness > 15 && PlayerPrefs.GetInt("micro") == 1) || (Input.GetButtonDown("Blow") && PlayerPrefs.GetInt("micro") == 0)) && timer <= 0) 
         {
             if (item == Item.ItemType.WATER)
             {
