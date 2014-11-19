@@ -23,7 +23,8 @@ public class CharacterInventory : MonoBehaviour {
 
     public bool             attack = false;
     public bool             dream = false;
-
+    public AudioClip        yogaFlame;
+    public AudioClip        yogaSouffle;
     public Animator fus;
 	
 	// Use this for initialization
@@ -93,6 +94,11 @@ public class CharacterInventory : MonoBehaviour {
 
     private void throwWater()
     {
+        if (yogaSouffle != null)
+        {
+            this.transform.GetChild(0).audio.clip = yogaSouffle;
+            this.transform.GetChild(0).audio.Play();
+        }
         attack = true;
         fus.SetTrigger("air");
         childrenBox.gameObject.tag = "Water";
@@ -102,6 +108,11 @@ public class CharacterInventory : MonoBehaviour {
 
     private void throwFire()
     {
+        if (yogaFlame != null)
+        {
+            this.transform.GetChild(0).audio.clip = yogaFlame;
+            this.transform.GetChild(0).audio.Play();
+        }
         attack = true;
         fus.SetTrigger("fire");
         childrenBox.gameObject.tag = "Fire";

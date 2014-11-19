@@ -50,6 +50,8 @@ public class MovementController : MonoBehaviour
     public GameObject eye;
     private CharacterInventory inventory;
 
+    public AudioClip[] JumpSounds;
+    public AudioClip death;
 	// Use this for initialization
 	void Start () 
 	{
@@ -129,6 +131,11 @@ public class MovementController : MonoBehaviour
         //jump
         if (Input.GetButtonDown("Jump") && !isGUIOpen && isGrounded && rigidbody2D.velocity.y <= 0)
         {
+            if (JumpSounds.Length > 0)
+            {
+                this.audio.clip = JumpSounds[Random.Range(0, JumpSounds.Length )];
+                this.audio.Play();
+            }
             isGrounded = false;
             y = jumpVelocity;
         }
@@ -174,6 +181,11 @@ public class MovementController : MonoBehaviour
         if (eye.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("close"))
         {
             Application.LoadLevel(Application.loadedLevel);
+        }
+        if (death != null && this.audio.clip != death)
+        {
+            this.audio.clip = death;
+            this.audio.Play();
         }
         //transform.position = spawnPos;
         rigidbody2D.velocity = new Vector2(0, -jumpVelocity);
