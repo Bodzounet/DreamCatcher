@@ -11,7 +11,7 @@ public class Ladder : MonoBehaviour
     public bool isStatic = false;
     public int height;
     float timer;
-
+    bool IamTheChosenOne = false;
 	// Use this for initialization
 	void Start () 
     {
@@ -95,6 +95,7 @@ public class Ladder : MonoBehaviour
         {
             player.ladderX = this.transform.position;
             player.isOnLadder = true;
+            IamTheChosenOne = true;
         }
     }
 
@@ -103,6 +104,16 @@ public class Ladder : MonoBehaviour
         if (c.gameObject == player.gameObject)
         {
             player.isOnLadder = false;
+            IamTheChosenOne = false;
+        }
+    }
+
+    void OnDisable()
+    {
+        if (IamTheChosenOne)
+        {
+            player.isOnLadder = false;
+            IamTheChosenOne = false;
         }
     }
 }

@@ -1956,7 +1956,7 @@
   </data>
  </layer>
  <objectgroup name="Calque d'objets 1">
-  <object name="spawn" type="spawn" x="192" y="944" width="32" height="48"/>
+  <object name="spawn" type="spawn" x="207" y="942" width="32" height="48"/>
   <object name="DoorT1" type="SpectralDoor" x="640" y="736" width="64" height="64">
    <properties>
     <property name="id" value="1"/>

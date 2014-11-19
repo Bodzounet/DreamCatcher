@@ -75,7 +75,7 @@ public class MovementController : MonoBehaviour
 
         inventory = GameObject.Find("CharacterLeft").GetComponent<CharacterInventory>();
         deathFall = false;
-        maximumFallVelocity = 4.7;
+        maximumFallVelocity = 5;
 	}
 	
 	// Update is called once per frame
