@@ -73,8 +73,8 @@ public class Chest : MonoBehaviour {
 			mainMenu.DisplayButtons ();
 			GUI.Label (new Rect (Screen.width / 2 - 145, Screen.height / 2 - 20, 40, 40), items[characterInventoryLeft.item]);
 			GUI.Label (new Rect (Screen.width / 2 + 155, Screen.height / 2 - 20, 40, 40), items[characterInventoryRight.item]);
-			GUI.Label (new Rect (Screen.width / 2 - 80, Screen.height / 2 - 20, 30, 40), keys[characterInventoryLeft.key]);
-			GUI.Label (new Rect (Screen.width / 2 + 100, Screen.height / 2 - 20, 30, 40), keys[characterInventoryRight.key]);
+			GUI.Label (new Rect (Screen.width / 2 - 85, Screen.height / 2 - 20, 40, 40), keys[characterInventoryLeft.key]);
+			GUI.Label (new Rect (Screen.width / 2 + 95, Screen.height / 2 - 20, 40, 40), keys[characterInventoryRight.key]);
 		} 
 	}
 
