@@ -54,13 +54,25 @@ public class MovementController : MonoBehaviour
     public AudioClip[] JumpSounds;
     public AudioClip walk;
     public AudioClip death;
+
+    private bool stop = true;
+
+     IEnumerator lolilol()
+    {
+        yield return new WaitForSeconds(2.4f);
+        stop = false;
+    }
+
 	// Use this for initialization
 	void Start () 
 	{
+        anim = GameObject.Find("CharacterLeft").GetComponent<Animator>();
+        anim.Play("awake");
+        StartCoroutine(lolilol());
+
         spawnPos = rigidbody2D.transform.position;
 		lastVelocity = new Vector2(rigidbody2D.velocity.x, -jumpVelocity);
 
-        anim = GameObject.Find("CharacterLeft").GetComponent<Animator>();
         inventory = GameObject.Find("CharacterLeft").GetComponent<CharacterInventory>();
         deathFall = false;
         maximumFallVelocity = 4.7;
@@ -69,6 +81,9 @@ public class MovementController : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+        if (stop)
+            return;
+
         //death
         if (dead)
         {

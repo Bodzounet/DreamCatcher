@@ -8,11 +8,15 @@ public class MovementReflexion : MonoBehaviour {
 
     private Animator anim;
 
+    void Awake()
+    {
+        anim = GameObject.Find("CharacterRight").GetComponent<Animator>();
+        anim.Play("awake");
+    }
+
 	// Use this for initialization
 	void Start () 
     {
-        anim = GameObject.Find("CharacterRight").GetComponent<Animator>();
-
         mvtc = GameObject.Find("CharacterLeft").GetComponent<MovementController>();
         setPos();
 	}
