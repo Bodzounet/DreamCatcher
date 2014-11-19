@@ -56,16 +56,17 @@ public class PickUpItem : MonoBehaviour {
     void OnTriggerStay2D (Collider2D c) {
         if (c.gameObject.GetComponent<CharacterInventory>() != null)
         {
-            if (pickS != null)
-            {
-                GameObject.Find("DreamEye").audio.clip = pickS;
-                GameObject.Find("DreamEye").audio.Play();
-            }
+
             if (isTuto == true)
             {
 
                 other = GameObject.Find("CharacterLeft");
                 other.GetComponent<MovementController>().isGUIOpen = true;
+                if (pickS != null && !showTuto)
+                {
+                    GameObject.Find("DreamEye").audio.clip = pickS;
+                    GameObject.Find("DreamEye").audio.Play();
+                }
                 showTuto = true;
             }
             else
