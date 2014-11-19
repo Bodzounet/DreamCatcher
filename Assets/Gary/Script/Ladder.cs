@@ -48,7 +48,7 @@ public class Ladder : MonoBehaviour
             child.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
             spriteRenderer.Add(child.GetComponent<SpriteRenderer>());
         }
-        if (this.transform.parent == null)
+        if (this.transform.parent == null || this.transform.parent.name != "HiddenEntities")
             this.GetComponent<BoxCollider2D>().size = new Vector2(0.32f, 0.32f * height);
         else
             this.transform.parent.GetComponent<BoxCollider2D>().size = new Vector2(0.32f, 0.32f * height);
