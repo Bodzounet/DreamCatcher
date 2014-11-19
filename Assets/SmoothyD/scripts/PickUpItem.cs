@@ -12,23 +12,17 @@ public class PickUpItem : MonoBehaviour {
     public AudioClip pickS;
 
     bool showTuto;
-    float timer;
     int fr;
 
 	// Use this for initialization
 	void Start () {
         showTuto = false;
-        timer = 5;
         fr = PlayerPrefs.GetInt("fr", 0);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (showTuto == true && Input.GetButtonDown("Jump"))
-            timer = 0;
-        if (showTuto == true && timer > 0)
-            timer -= Time.deltaTime;
-        else if (showTuto == true)
+        if (showTuto == true && Input.GetButtonDown("Validate"))
         {
             other.GetComponent<CharacterInventory>().item = item;
             other.GetComponent<MovementController>().isGUIOpen = false;
