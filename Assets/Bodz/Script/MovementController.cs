@@ -93,6 +93,8 @@ public class MovementController : MonoBehaviour
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
             currentDir = e_dir.LEFT;
 
+            if (!isGrounded && x < -maxVelocityX / 2.5f)
+                x = -maxVelocityX / 2.5f;
 			if (x < -maxVelocityX)
 				x = -maxVelocityX;
 			else
@@ -110,6 +112,8 @@ public class MovementController : MonoBehaviour
             currentDir = e_dir.RIGHT;
 
 
+            if (!isGrounded && x > maxVelocityX / 2.5f)
+                x = maxVelocityX / 2.5f;
 			if (x > maxVelocityX)
 				x = maxVelocityX;
 			else
@@ -154,18 +158,19 @@ public class MovementController : MonoBehaviour
             deathFall = false;
         if (Input.GetAxis("Vertical") > 0 && isOnLadder && !isGUIOpen)
         {
-            this.rigidbody2D.gravityScale = 0;
+           
             this.transform.position = new Vector3(ladderX.x, transform.position.y);
             y = 1;
         }
         else if (Input.GetAxis("Vertical") < 0 && isOnLadder && !isGUIOpen)
         {
-            this.rigidbody2D.gravityScale = 0;
             this.transform.position = new Vector3(ladderX.x, transform.position.y);
             y = -1;
         }
         else if (isOnLadder && this.rigidbody2D.gravityScale == 0)
             y = 0;
+        else if (isOnLadder)
+            this.rigidbody2D.gravityScale = 0;
         else
             this.rigidbody2D.gravityScale = 1;
 

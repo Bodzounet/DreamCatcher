@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: d9a33ddd4ceced84b8d1d9174d20acf4
+guid: 151bb5f488b25ac49aa7fe6dd16a3007
 TextureImporter:
   fileIDToRecycleName:
-    21300000: TUTO_FIN_00003
+    21300000: level2-FOND2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -22,8 +22,8 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -1
-  maxTextureSize: 1024
+  textureFormat: -3
+  maxTextureSize: 4096
   textureSettings:
     filterMode: 0
     aniso: 1
