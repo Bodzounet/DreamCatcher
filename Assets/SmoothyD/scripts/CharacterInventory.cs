@@ -11,8 +11,6 @@ public class CharacterInventory : MonoBehaviour {
 	MicrophoneInput			microphoneInput;
 	double					timer;
     public double           hiddenEntTimer;
-	string					blowChar;
-	SpriteRenderer			spriteRenderer;
 
     private BoxCollider2D   childrenBox;
     private float           animTime = 1f;
@@ -31,8 +29,6 @@ public class CharacterInventory : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		microphoneInput = GameObject.Find("MicrophoneInput").GetComponent<MicrophoneInput>();
-		spriteRenderer = this.GetComponent<SpriteRenderer>();
-		blowChar = "BlowChar" + side;
 		timer = 0;
         hiddenEntTimer = 0;
         childrenBox = transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>();

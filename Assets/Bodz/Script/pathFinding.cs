@@ -6,8 +6,6 @@ public class pathFinding : MonoBehaviour {
     public float speed = 0.02f;
     private Transform trans;
 
-    private float lastX;
-    private MovementController.e_dir lastDir = MovementController.e_dir.RIGHT;
     private float scaleX;
 
     private Animator anim;
@@ -17,7 +15,6 @@ public class pathFinding : MonoBehaviour {
     void Start () 
     {
         trans = GameObject.Find("CharacterLeft").GetComponent<Transform>();
-        lastX = transform.position.x;
         scaleX = transform.localScale.x;
 
         anim = this.GetComponent<Animator>();
@@ -33,7 +30,6 @@ public class pathFinding : MonoBehaviour {
             dir = MovementController.e_dir.LEFT;
         else if (trans.position.x > transform.position.x)
             dir = MovementController.e_dir.RIGHT;
-        lastX = transform.position.x;
 
         if (dir == MovementController.e_dir.LEFT)
             transform.localScale = new Vector3(-scaleX, transform.localScale.y, transform.localScale.z);

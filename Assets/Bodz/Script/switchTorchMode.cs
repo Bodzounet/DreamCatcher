@@ -19,7 +19,6 @@ public class switchTorchMode : MonoBehaviour
     bool lastState;
     GameObject other;
     bool showTuto;
-    float timer;
     int fr;
 
 	// Use this for initialization
@@ -30,7 +29,6 @@ public class switchTorchMode : MonoBehaviour
         linkScriptDoor = link.GetComponent<Door>();
         lastState = !isActive;
         showTuto = false;
-        timer = 5;
         fr = PlayerPrefs.GetInt("fr", 0);
 	}
 	
@@ -56,11 +54,7 @@ public class switchTorchMode : MonoBehaviour
         }
         anim.SetBool("isActive", isActive);
         lastState = isActive;
-        if (showTuto == true && Input.GetButtonDown("Jump"))
-            timer = 0;
-        if (showTuto == true && timer > 0)
-            timer -= Time.deltaTime;
-        else if (showTuto == true)
+        if (showTuto == true && Input.GetButtonDown("Validate"))
         {
             other.GetComponent<MovementController>().isGUIOpen = false;
             isTuto = false;
