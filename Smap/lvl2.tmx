@@ -1968,12 +1968,6 @@
     <property name="id" value="1"/>
    </properties>
   </object>
-  <object name="chest" type="chest" x="1504" y="928" width="64" height="32"/>
-  <object name="ladder" type="ladder" x="1440" y="800" width="32" height="160">
-   <properties>
-    <property name="scale" value="true"/>
-   </properties>
-  </object>
   <object name="DoorT4" type="door" x="1728" y="320" width="64" height="128">
    <properties>
     <property name="id" value="3"/>
@@ -1987,7 +1981,7 @@
   <object name="SpectralKey" type="SpectralKey" x="1024" y="736" width="32" height="32"/>
   <object name="chest" type="chest" x="1664" y="416" width="64" height="32"/>
   <object name="chest" type="chest" x="320" y="384" width="64" height="32"/>
-  <object name="torch" type="torch" x="768" y="736" width="32" height="64">
+  <object name="torch" type="torch" x="736" y="736" width="32" height="64">
    <properties>
     <property name="link" value="DoorT1"/>
     <property name="on" value="false"/>
@@ -2010,7 +2004,17 @@
     <property name="scale" value="true"/>
    </properties>
   </object>
-  <object name="chest" type="chest" x="160" y="960" width="64" height="32"/>
+  <object name="torch" type="torch" x="1472" y="896" width="32" height="64">
+   <properties>
+    <property name="link" value="LadderT1"/>
+    <property name="on" value="true"/>
+   </properties>
+  </object>
+  <object name="LadderT1" type="ladder" x="1440" y="800" width="32" height="160">
+   <properties>
+    <property name="scale" value="true"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer name="Calque 1" width="59" height="33">
   <data>
@@ -3259,7 +3263,6 @@
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
-   <tile gid="1"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -3312,13 +3315,14 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="1"/>
+   <tile gid="0"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -3612,8 +3616,8 @@
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -3669,8 +3673,8 @@
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -3727,7 +3731,7 @@
    <tile gid="0"/>
    <tile gid="1"/>
    <tile gid="1"/>
-   <tile gid="1"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -3785,7 +3789,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="1"/>
-   <tile gid="1"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>

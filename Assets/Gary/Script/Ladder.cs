@@ -16,6 +16,11 @@ public class Ladder : MonoBehaviour
         player = GameObject.Find("CharacterLeft").GetComponent<MovementController>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         this.GetComponent<BoxCollider2D>().enabled = false;
+        if (this.transform.childCount > 0)
+        {
+            spriteRenderer = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+            Destroy(this.transform.GetChild(0).GetComponent<Ladder>());
+        }
         timer = 1;
 	}
 	
@@ -39,6 +44,7 @@ public class Ladder : MonoBehaviour
     public void Desactivate()
     {
         isActive = false;
+        if (spriteRenderer != null)
         spriteRenderer.color = new Color(1, 1, 1, 0);
         timer = 0;
         this.GetComponent<BoxCollider2D>().enabled = false;

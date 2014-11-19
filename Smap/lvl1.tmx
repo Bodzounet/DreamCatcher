@@ -1955,7 +1955,7 @@
    <tile gid="0"/>
   </data>
  </layer>
- <objectgroup name="Calque d'objets 1" visible="0">
+ <objectgroup name="Calque d'objets 1">
   <object name="spawn" type="spawn" x="192" y="944" width="32" height="48"/>
   <object name="DoorT1" type="door" x="640" y="672" width="64" height="128">
    <properties>
@@ -1968,7 +1968,7 @@
    </properties>
   </object>
   <object name="chest" type="chest" x="480" y="768" width="64" height="32"/>
-  <object name="ladder" type="ladder" x="1472" y="768" width="64" height="288">
+  <object name="LadderT5" type="ladder" x="1472" y="768" width="64" height="288">
    <properties>
     <property name="scale" value="true"/>
    </properties>
@@ -1999,10 +1999,10 @@
     <property name="on" value="true"/>
    </properties>
   </object>
-  <object name="torch" type="torch" x="1472" y="512" width="32" height="64">
+  <object name="torch" type="torch" x="1632" y="928" width="32" height="64">
    <properties>
-    <property name="link" value="LadderT3"/>
-    <property name="on" value="true"/>
+    <property name="link" value="LadderT5"/>
+    <property name="on" value="false"/>
    </properties>
   </object>
   <object name="torch" type="torch" x="1728" y="320" width="32" height="64">
@@ -2019,6 +2019,12 @@
   <object name="LadderT3" type="ladder" x="1536" y="352" width="64" height="224">
    <properties>
     <property name="scale" value="true"/>
+   </properties>
+  </object>
+  <object name="torch" type="torch" x="1477" y="510" width="32" height="64">
+   <properties>
+    <property name="link" value="LadderT3"/>
+    <property name="on" value="true"/>
    </properties>
   </object>
  </objectgroup>
