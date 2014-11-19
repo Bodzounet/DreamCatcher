@@ -8,10 +8,15 @@ public class MovementReflexion : MonoBehaviour {
 
     private Animator anim;
 
+    private bool deathAnim = true;
+
     void Awake()
     {
-        anim = GameObject.Find("CharacterRight").GetComponent<Animator>();
-        anim.Play("awake");
+        if (Application.loadedLevel == 1)
+        {
+            anim = GameObject.Find("CharacterRight").GetComponent<Animator>();
+            anim.Play("awake");
+        }
     }
 
 	// Use this for initialization
@@ -26,6 +31,12 @@ public class MovementReflexion : MonoBehaviour {
     {
         setPos();
         setAnim();
+
+        if(!mvtc.deathAnim && deathAnim)
+        {
+            deathAnim = false;
+            anim.Play("Death");
+        }
 	}
 
     private void setPos()

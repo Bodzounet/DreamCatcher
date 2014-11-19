@@ -57,6 +57,8 @@ public class MovementController : MonoBehaviour
 
     public bool stop = true;
 
+    public bool deathAnim = true;
+
      IEnumerator lolilol()
     {
         yield return new WaitForSeconds(2.4f);
@@ -66,9 +68,12 @@ public class MovementController : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-        anim = GameObject.Find("CharacterLeft").GetComponent<Animator>();
-        anim.Play("awake");
-        StartCoroutine(lolilol());
+        if (Application.loadedLevel == 1)
+        {
+            anim = GameObject.Find("CharacterLeft").GetComponent<Animator>();
+            anim.Play("awake");
+            StartCoroutine(lolilol());
+        }
 
         spawnPos = rigidbody2D.transform.position;
 		lastVelocity = new Vector2(rigidbody2D.velocity.x, -jumpVelocity);
@@ -204,6 +209,11 @@ public class MovementController : MonoBehaviour
     //some private fcts to make the update() readable...
     public void onDeath()
     {
+        if (deathAnim)
+        {
+            deathAnim = false;
+            anim.Play("Death");
+        }
         if (!eye.GetComponent<Animator>().GetBool("dead"))
             eye.GetComponent<Animator>().SetBool("dead", true);
         if (eye.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("close"))
