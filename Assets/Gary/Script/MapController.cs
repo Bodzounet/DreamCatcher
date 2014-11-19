@@ -232,7 +232,33 @@ public class MapController : MonoBehaviour {
                     else
                         newEnt.name = node.ChildNodes[i].Attributes["name"].Value; 
                     newEnt.transform.position -= new Vector3(0, ((int.Parse(node.ChildNodes[i].Attributes["height"].Value) / 2) * 1.25f) / pixelToUnit, 0);
-                    if (node.ChildNodes[i].ChildNodes[0] != null && node.ChildNodes[i].ChildNodes[0].ChildNodes[0].Attributes["name"].Value == "scale")
+
+
+                    if (node.ChildNodes[i].ChildNodes.Count > 0 && 
+                        ((node.ChildNodes[i].ChildNodes[0] != null && 
+                        node.ChildNodes[i].ChildNodes[0].ChildNodes[0].Attributes["name"].Value == "hidden") || 
+                        (node.ChildNodes[i].ChildNodes[0].ChildNodes[1] != null && node.ChildNodes[i].ChildNodes[0].ChildNodes[1].Attributes["name"].Value == "hidden")))
+                    {
+                        if (copie != null)
+                            copie.transform.parent = hidden.transform;
+                        else
+                            newEnt.transform.parent = hidden.transform;
+                        GameObject newLight = Instantiate(lightPoint) as GameObject;
+                        newLight.transform.position = newEnt.transform.position;
+                        newLight.transform.parent = GameObject.Find("ShownEntities").transform;
+                    }
+
+                    if (node.ChildNodes[i].ChildNodes.Count > 0 &&
+    ((node.ChildNodes[i].ChildNodes[0] != null &&
+    node.ChildNodes[i].ChildNodes[0].ChildNodes[0].Attributes["name"].Value == "isActive") ||
+    (node.ChildNodes[i].ChildNodes[0].ChildNodes[1] != null && node.ChildNodes[i].ChildNodes[0].ChildNodes[1].Attributes["name"].Value == "isActive")))
+                    {
+                        if (copie != null)
+                            copie.GetComponent<Ladder>().isActive = true;
+                        else
+                            newEnt.GetComponent<Ladder>().isActive = true;
+                    }
+                    if (node.ChildNodes[i].Attributes["type"].Value == "ladder")
                     {
                         newEnt.GetComponent<Ladder>().setHeight(int.Parse(node.ChildNodes[i].Attributes["height"].Value) / 32);
                         /*newEnt.transform.localScale = new Vector3(int.Parse(node.ChildNodes[i].Attributes["width"].Value) / tileWidth, (int.Parse(node.ChildNodes[i].Attributes["height"].Value) / tileHeight));

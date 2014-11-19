@@ -63,6 +63,7 @@ public class Chest : MonoBehaviour {
         else
             che.transform.position = new Vector3(18.60f - this.transform.position.x, transform.position.y - (17.0f * 32.0f / 100.0f));
         che.name = "DarkChest";
+        che.transform.parent = this.transform.parent;
 	}
 	
 	void	OnGUI() {
@@ -143,6 +144,24 @@ public class Chest : MonoBehaviour {
         }
     }
 
+    void OnDisable()
+    {
+        if (canBeOpenend == true)
+        {
+            canBeOpenend = false;
+            if (sounds.Length > 1)
+            {
+                this.audio.clip = sounds[1];
+                this.audio.Play();
+            }
+            mainMenu.currentFocus = 0;
+            mainMenu.SetFocus(0);
+            mainMenu.enabled = false;
+            movementController.isGUIOpen = false;
+            this.GetComponent<Animator>().SetBool("open", false);
+            che.GetComponentInChildren<Animator>().SetBool("open", false);
+        }
+    }
     void OnTriggerExit2D(Collider2D c)
     {
         if (c.gameObject == player)
