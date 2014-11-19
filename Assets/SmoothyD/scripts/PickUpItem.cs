@@ -4,17 +4,21 @@ using System.Collections;
 public class PickUpItem : MonoBehaviour {
     public Item.ItemType item;
     public bool isTuto = false;
-    public Texture tutoSprite1;
-    public Texture tutoSprite2;
+    public Texture tutoSprite1_fr;
+    public Texture tutoSprite2_fr;
+    public Texture tutoSprite1_en;
+    public Texture tutoSprite2_en;
     GameObject other;
 
     bool showTuto;
     float timer;
+    int fr;
 
 	// Use this for initialization
 	void Start () {
         showTuto = false;
         timer = 5;
+        fr = PlayerPrefs.GetInt("fr", 0);
 	}
 	
 	// Update is called once per frame
@@ -35,8 +39,16 @@ public class PickUpItem : MonoBehaviour {
     {
         if (showTuto == true)
         {
-            GUI.Label(new Rect(Screen.width / 4 - tutoSprite1.width / 2, Screen.height / 2 - tutoSprite1.height / 2, tutoSprite1.width, tutoSprite1.height), tutoSprite1);
-            GUI.Label(new Rect(Screen.width / 4*3 - tutoSprite2.width / 2, Screen.height / 2 - tutoSprite2.height / 2, tutoSprite2.width, tutoSprite2.height), tutoSprite2);
+            if (fr == 1)
+            {
+                GUI.Label(new Rect(Screen.width / 4 - tutoSprite1_fr.width / 2, Screen.height / 2 - tutoSprite1_fr.height / 2, tutoSprite1_fr.width, tutoSprite1_fr.height), tutoSprite1_fr);
+                GUI.Label(new Rect(Screen.width / 4 * 3 - tutoSprite2_fr.width / 2, Screen.height / 2 - tutoSprite2_fr.height / 2, tutoSprite2_fr.width, tutoSprite2_fr.height), tutoSprite2_fr);
+            }
+            else
+            {
+                GUI.Label(new Rect(Screen.width / 4 - tutoSprite1_en.width / 2, Screen.height / 2 - tutoSprite1_en.height / 2, tutoSprite1_en.width, tutoSprite1_en.height), tutoSprite1_en);
+                GUI.Label(new Rect(Screen.width / 4 * 3 - tutoSprite2_en.width / 2, Screen.height / 2 - tutoSprite2_en.height / 2, tutoSprite2_en.width, tutoSprite2_en.height), tutoSprite2_en);
+            }
         }
     }
 

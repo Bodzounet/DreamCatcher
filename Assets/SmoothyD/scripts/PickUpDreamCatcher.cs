@@ -3,17 +3,20 @@ using System.Collections;
 
 public class PickUpDreamCatcher : MonoBehaviour {
     public bool isTuto = false;
-    public Texture tutoSprite;
+    public Texture tutoSprite_fr;
+    public Texture tutoSprite_en;
     GameObject other;
 
     bool showTuto;
     float timer;
+    int fr;
 
     // Use this for initialization
     void Start()
     {
         showTuto = false;
         timer = 5;
+        fr = PlayerPrefs.GetInt("fr", 0);
     }
 
     // Update is called once per frame
@@ -33,7 +36,12 @@ public class PickUpDreamCatcher : MonoBehaviour {
     void OnGUI()
     {
         if (showTuto == true)
-            GUI.Label(new Rect(Screen.width / 2 - tutoSprite.width / 2, Screen.height / 2 - tutoSprite.height / 2, tutoSprite.width, tutoSprite.height), tutoSprite);
+        {
+            if (fr == 1)
+                GUI.Label(new Rect(Screen.width / 2 - tutoSprite_fr.width / 2, Screen.height / 2 - tutoSprite_fr.height / 2, tutoSprite_fr.width, tutoSprite_fr.height), tutoSprite_fr);
+            else
+                GUI.Label(new Rect(Screen.width / 2 - tutoSprite_en.width / 2, Screen.height / 2 - tutoSprite_en.height / 2, tutoSprite_en.width, tutoSprite_en.height), tutoSprite_en);
+        }
     }
 
     void OnTriggerStay2D(Collider2D c)
