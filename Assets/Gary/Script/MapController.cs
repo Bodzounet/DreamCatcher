@@ -207,7 +207,7 @@ public class MapController : MonoBehaviour {
 					newEnt.transform.position = new Vector3(int.Parse(node.ChildNodes[i].Attributes["x"].Value) / pixelToUnit, ((height * tileHeight) / pixelToUnit) - int.Parse(node.ChildNodes[i].Attributes["y"].Value) / pixelToUnit, 0);
                     GameObject copie = null;
 
-                    if (!node.ChildNodes[i].Attributes["name"].Value.Contains("Key") && !centerH && int.Parse(node.ChildNodes[i].Attributes["x"].Value) / tileWidth > center)
+                    if (!node.ChildNodes[i].Attributes["name"].Value.Contains("Key") && !node.ChildNodes[i].Attributes["name"].Value.Contains("Locked") && && !centerH && int.Parse(node.ChildNodes[i].Attributes["x"].Value) / tileWidth > center)
                     {
                         copie = Instantiate(newEnt) as GameObject;
                         copie.name = node.ChildNodes[i].Attributes["name"].Value; 
@@ -218,7 +218,7 @@ public class MapController : MonoBehaviour {
                         else if (copie.transform.GetChild(0).renderer != null)
                             copie.transform.GetChild(0).renderer.enabled = false;
                     }
-                    else if (!node.ChildNodes[i].Attributes["name"].Value.Contains("Key") && centerH && int.Parse(node.ChildNodes[i].Attributes["y"].Value) / tileWidth > center)
+                    else if (!node.ChildNodes[i].Attributes["name"].Value.Contains("Key") && !node.ChildNodes[i].Attributes["name"].Value.Contains("Locked") && centerH && int.Parse(node.ChildNodes[i].Attributes["y"].Value) / tileWidth > center)
                     {
                         copie = Instantiate(newEnt) as GameObject;
                         copie.name = node.ChildNodes[i].Attributes["name"].Value;
