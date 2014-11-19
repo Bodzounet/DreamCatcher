@@ -8,6 +8,8 @@ public class Ladder : MonoBehaviour
     private MovementController player;
     public List<SpriteRenderer> spriteRenderer = new List<SpriteRenderer>();
     public Sprite[] chip;
+    public bool isStatic = false;
+    public int height;
     float timer;
 
 	// Use this for initialization
@@ -16,11 +18,16 @@ public class Ladder : MonoBehaviour
         isActive = true;
         player = GameObject.Find("CharacterLeft").GetComponent<MovementController>();
         this.GetComponent<BoxCollider2D>().enabled = false;
+
         if (this.transform.childCount > 0 && this.transform.GetChild(0).GetComponent<Ladder>() != null)
         {
             spriteRenderer = this.transform.GetChild(0).GetComponent<Ladder>().spriteRenderer;
             this.GetComponent<BoxCollider2D>().size = new Vector2(0.32f, this.transform.GetChild(0).GetComponent<BoxCollider2D>().size.y);
             Destroy(this.transform.GetChild(0).GetComponent<Ladder>());
+        }
+        if (isStatic)
+        {
+            setHeight(height);
         }
         timer = 1;
 	}
