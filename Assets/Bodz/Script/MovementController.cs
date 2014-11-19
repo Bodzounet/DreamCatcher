@@ -13,6 +13,7 @@ public class MovementController : MonoBehaviour
         public bool isFalling;
         public bool attack;
         public bool dream;
+        public bool isClimbing;
     }
 
     public enum e_dir
@@ -139,6 +140,7 @@ public class MovementController : MonoBehaviour
             isEnter = false;
         else
             isEnter = true;
+       
         //Ladder
         if (isOnLadder == true)
             deathFall = false;
@@ -192,19 +194,31 @@ public class MovementController : MonoBehaviour
         else
             animState.isMoving = false;
 
-        if (rigidbody2D.velocity.y > 1f)
-            animState.isJumping = true;
-
-        if (rigidbody2D.velocity.y < -1f)
-        {
-            animState.isJumping = false;
-            animState.isFalling = true;
-        }
-
-        if (isGrounded)
+        if (isOnLadder)
         {
             animState.isFalling = false;
-            animState.jumpOver = true;
+            animState.isJumping = false;
+            animState.isMoving = false;
+            animState.jumpOver = false;
+            animState.isClimbing = true;
+        }
+        else
+        {
+            animState.isClimbing = false;
+            if (rigidbody2D.velocity.y > 1f)
+                animState.isJumping = true;
+
+            if (rigidbody2D.velocity.y < -1f)
+            {
+                animState.isJumping = false;
+                animState.isFalling = true;
+            }
+
+            if (isGrounded)
+            {
+                animState.isFalling = false;
+                animState.jumpOver = true;
+            }
         }
 
         if (inventory.item == Item.ItemType.FLAME)
@@ -242,6 +256,7 @@ public class MovementController : MonoBehaviour
         anim.SetBool("holdWindMill", animState.wind);
         anim.SetBool("isAttacking", animState.attack);
         anim.SetBool("dream", animState.dream);
+        anim.SetBool("isClimbing", animState.isClimbing);
     }
 
     /* void OnDrawGizmos()
