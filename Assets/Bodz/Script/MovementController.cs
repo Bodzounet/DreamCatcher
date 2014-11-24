@@ -68,12 +68,15 @@ public class MovementController : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+        anim = GameObject.Find("CharacterLeft").GetComponent<Animator>();
         if (Application.loadedLevel == 1)
         {
-            anim = GameObject.Find("CharacterLeft").GetComponent<Animator>();
+
             anim.Play("awake");
             StartCoroutine(lolilol());
         }
+        else
+            stop = false;
 
         spawnPos = rigidbody2D.transform.position;
 		lastVelocity = new Vector2(rigidbody2D.velocity.x, -jumpVelocity);

@@ -12,9 +12,10 @@ public class MovementReflexion : MonoBehaviour {
 
     void Awake()
     {
+        anim = GameObject.Find("CharacterRight").GetComponent<Animator>();
         if (Application.loadedLevel == 1)
         {
-            anim = GameObject.Find("CharacterRight").GetComponent<Animator>();
+
             anim.Play("awake");
         }
     }
