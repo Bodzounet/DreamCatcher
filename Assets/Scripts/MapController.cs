@@ -18,7 +18,7 @@ public class MapController : MonoBehaviour {
 	private int _i = 0;
     public GameObject hidden;
     public bool centerH = false;
-    public bool _print = true;
+    public bool _print = false;
     public GameObject lightPoint;
     public Sprite hideBlock;
 	// Use this for initialization
@@ -130,7 +130,7 @@ public class MapController : MonoBehaviour {
                     tmp.name = "Block_" + _i;
 
 
-                    tmp.GetComponent<SpriteRenderer>().sortingOrder = l - map.GetElementsByTagName("data").Count + 1;
+                    tmp.GetComponent<SpriteRenderer>().sortingOrder = -5;
                     if (!_print && !hide)
                         tmp.GetComponent<SpriteRenderer>().enabled = false;
                     if (l == map.GetElementsByTagName("data").Count - 1 || hide)

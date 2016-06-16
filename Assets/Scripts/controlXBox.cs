@@ -22,7 +22,7 @@ public class controlXBox : MonoBehaviour {
     public GameObject[] subMenu;
     bool subMenuActive = false;
 
-    private bool onOff = false;
+    private bool onOff = true;
     public Sprite[] spirtes;
 
 
@@ -192,7 +192,7 @@ public class controlXBox : MonoBehaviour {
         {
             opt.GetComponent<SpriteRenderer>().sprite = spirtes[0];
             onOff = false;
-            current.gameObject.GetComponent<TextMesh>().text = "Micro       : On";
+            current.gameObject.GetComponent<TextMesh>().text = "Micro       : Non fonctionnel";
             PlayerPrefs.SetInt("micro", 1);
         }
         else

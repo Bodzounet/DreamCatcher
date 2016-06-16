@@ -9,7 +9,7 @@ public class clickOptions : MonoBehaviour {
     void Start ()
     {
         PlayerPrefs.SetInt("fr", 1);
-        PlayerPrefs.SetInt("micro", 1);
+        PlayerPrefs.SetInt("micro", 0);
     }
 
     void OnMouseDown()
