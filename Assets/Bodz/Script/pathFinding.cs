@@ -39,20 +39,20 @@ public class pathFinding : MonoBehaviour {
         if (Vector2.Distance(trans.position, transform.position) > 2f)
         {
             anim.SetBool("mustAttack", false);
-            if (sounds.Length > 0 && sounds[0] != null && !this.audio.isPlaying)
+            if (sounds.Length > 0 && sounds[0] != null && !this.GetComponent<AudioSource>().isPlaying)
             {
-                this.audio.clip = sounds[0];
-                this.audio.Play();
-                this.transform.GetChild(0).audio.Stop();
+                this.GetComponent<AudioSource>().clip = sounds[0];
+                this.GetComponent<AudioSource>().Play();
+                this.transform.GetChild(0).GetComponent<AudioSource>().Stop();
             }
         }
         else
         {
             anim.SetBool("mustAttack", true);
-            if (sounds.Length > 1 && sounds[1] != null && !this.transform.GetChild(0).audio.isPlaying )
+            if (sounds.Length > 1 && sounds[1] != null && !this.transform.GetChild(0).GetComponent<AudioSource>().isPlaying )
             {
-                this.transform.GetChild(0).audio.clip = sounds[1];
-                this.transform.GetChild(0).audio.Play();
+                this.transform.GetChild(0).GetComponent<AudioSource>().clip = sounds[1];
+                this.transform.GetChild(0).GetComponent<AudioSource>().Play();
             }
         }
     }

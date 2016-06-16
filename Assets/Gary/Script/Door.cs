@@ -8,7 +8,7 @@ public class Door : MonoBehaviour {
     public bool isActive;
     public AudioClip sound;
     Animator animator;
-    Collider2D collider;
+    Collider2D _collider;
 
 	// Use this for initialization
 	void Start () 
@@ -36,10 +36,10 @@ public class Door : MonoBehaviour {
     
     void delayedTP()
     {
-        collider.transform.position = other.position;
+        _collider.transform.position = other.position;
 
         //collider.transform.position += Vector3.down * 0.42f;
-        collider.GetComponent<MovementController>().isEnter = true;
+        _collider.GetComponent<MovementController>().isEnter = true;
     }
 
     void OnTriggerStay2D(Collider2D c)
@@ -49,11 +49,11 @@ public class Door : MonoBehaviour {
             if (this.transform.childCount > 1)
                 this.transform.GetChild(1).GetChild(0).GetComponent<Animator>().Play("OpenDoor");
             animator.Play("OpenDoor");
-            collider = c;
+            _collider = c;
             if (sound != null)
             {
-                this.audio.clip = sound;
-                this.audio.Play();
+                this.GetComponent<AudioSource>().clip = sound;
+                this.GetComponent<AudioSource>().Play();
             }
             Invoke("delayedTP", 0.35f);
         }

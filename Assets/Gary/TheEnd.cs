@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class TheEnd : MonoBehaviour {
 
@@ -30,7 +31,9 @@ public class TheEnd : MonoBehaviour {
                 Eye.GetComponent<Animator>().SetBool("dead", true);
             }
             if (Eye.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("close"))
-                Application.LoadLevel(0);
+            {
+                SceneManager.LoadScene(0);
+            }
         }
 	}
 }

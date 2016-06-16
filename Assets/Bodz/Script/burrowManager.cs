@@ -84,7 +84,6 @@ public class burrowManager : MonoBehaviour
 
     private void unmuteItem(GameObject go)
     {
-        Debug.Log("caca");
         go.GetComponent<MonsterFactory>().enabled = true;
         go.GetComponent<SpriteRenderer>().enabled = true;
     }

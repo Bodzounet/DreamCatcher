@@ -87,8 +87,8 @@ public class switchTorchMode : MonoBehaviour
             isActive = true;
             if (sounds.Length > 0)
             {
-                this.audio.clip = sounds[0];
-                this.audio.Play();
+                this.GetComponent<AudioSource>().clip = sounds[0];
+                this.GetComponent<AudioSource>().Play();
             }
         }
         else if (col.tag == "Water" && isActive)
@@ -96,8 +96,8 @@ public class switchTorchMode : MonoBehaviour
             isActive = false;
             if (sounds.Length > 1)
             {
-                this.audio.clip = sounds[1];
-                this.audio.Play();
+                this.GetComponent<AudioSource>().clip = sounds[1];
+                this.GetComponent<AudioSource>().Play();
             }
         }
         else if (isTuto == true && col.gameObject.GetComponent<CharacterInventory>() != null && col.gameObject.GetComponent<CharacterInventory>().key == Key.KeyType.NO_KEY)

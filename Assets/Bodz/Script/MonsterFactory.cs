@@ -28,7 +28,7 @@ public class MonsterFactory : MonoBehaviour {
         }
         else if (ci.hiddenEntTimer < 0)
         {
-            this.gameObject.renderer.enabled = true;
+            this.gameObject.GetComponent<Renderer>().enabled = true;
             wait = false;
         }
 	}
@@ -38,7 +38,7 @@ public class MonsterFactory : MonoBehaviour {
         GameObject monster;
 
         anim.SetBool("spawn", false);
-        this.gameObject.renderer.enabled = false;
+        this.gameObject.GetComponent<Renderer>().enabled = false;
         monster = Instantiate(model, transform.position, model.transform.rotation) as GameObject;
         Destroy(monster, timeBeforeDeath);
         timeBeforeDeath += 1f;

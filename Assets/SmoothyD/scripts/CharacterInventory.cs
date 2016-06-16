@@ -56,8 +56,8 @@ public class CharacterInventory : MonoBehaviour {
             {
                 if (dreamCatch != null)
                 {
-                    dreamEye.gameObject.audio.clip = dreamCatch;
-                    dreamEye.audio.Play();
+                    dreamEye.gameObject.GetComponent<AudioSource>().clip = dreamCatch;
+                    dreamEye.GetComponent<AudioSource>().Play();
                 }
                 dream = true;
                 Invoke("resetDream", 1);
@@ -98,8 +98,8 @@ public class CharacterInventory : MonoBehaviour {
     {
         if (yogaSouffle != null)
         {
-            this.transform.GetChild(0).audio.clip = yogaSouffle;
-            this.transform.GetChild(0).audio.Play();
+            this.transform.GetChild(0).GetComponent<AudioSource>().clip = yogaSouffle;
+            this.transform.GetChild(0).GetComponent<AudioSource>().Play();
         }
         attack = true;
         fus.SetTrigger("air");
@@ -112,8 +112,8 @@ public class CharacterInventory : MonoBehaviour {
     {
         if (yogaFlame != null)
         {
-            this.transform.GetChild(0).audio.clip = yogaFlame;
-            this.transform.GetChild(0).audio.Play();
+            this.transform.GetChild(0).GetComponent<AudioSource>().clip = yogaFlame;
+            this.transform.GetChild(0).GetComponent<AudioSource>().Play();
         }
         attack = true;
         fus.SetTrigger("fire");

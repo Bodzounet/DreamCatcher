@@ -8,11 +8,11 @@ public class MicrophoneInput : MonoBehaviour {
 	public float loudness = 0;
 	
 	void Start() {
-		audio.clip = Microphone.Start(null, true, 10, 44100);
-		audio.loop = true; // Set the AudioClip to loop
-		audio.mute = true; // Mute the sound, we don't want the player to hear it
+		GetComponent<AudioSource>().clip = Microphone.Start(null, true, 10, 44100);
+		GetComponent<AudioSource>().loop = true; // Set the AudioClip to loop
+		GetComponent<AudioSource>().mute = true; // Mute the sound, we don't want the player to hear it
 		while (!(Microphone.GetPosition(null) > 0)){} // Wait until the recording has started
-		audio.Play(); // Play the audio source!
+		GetComponent<AudioSource>().Play(); // Play the audio source!
 	}
 	
 	void Update(){
@@ -23,7 +23,7 @@ public class MicrophoneInput : MonoBehaviour {
 	{ 
 		float[] data = new float[256];
 		float a = 0;
-		audio.GetOutputData(data,0);
+		GetComponent<AudioSource>().GetOutputData(data,0);
 		foreach(float s in data)
 		{
 			a += Mathf.Abs(s);

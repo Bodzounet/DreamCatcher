@@ -58,8 +58,8 @@ public class PickUpItem : MonoBehaviour {
                 other.GetComponent<MovementController>().isGUIOpen = true;
                 if (pickS != null && !showTuto)
                 {
-                    GameObject.Find("DreamEye").audio.clip = pickS;
-                    GameObject.Find("DreamEye").audio.Play();
+                    GameObject.Find("DreamEye").GetComponent<AudioSource>().clip = pickS;
+                    GameObject.Find("DreamEye").GetComponent<AudioSource>().Play();
                 }
                 showTuto = true;
             }

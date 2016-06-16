@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class controlXBox : MonoBehaviour {
 
@@ -135,7 +136,7 @@ public class controlXBox : MonoBehaviour {
     {
         if (Eye.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("close"))
         {
-            Application.LoadLevel(1);
+            SceneManager.LoadScene(1);
         }
         yield return null;
     }
@@ -145,8 +146,8 @@ public class controlXBox : MonoBehaviour {
         Eye.SetActive(true);
         if (darkness != null)
         {
-            Camera.main.audio.clip = darkness;
-            Camera.main.audio.Play();
+            Camera.main.GetComponent<AudioSource>().clip = darkness;
+            Camera.main.GetComponent<AudioSource>().Play();
         }
 
         Eye.GetComponent<Animator>().SetBool("dead", true);
@@ -155,7 +156,7 @@ public class controlXBox : MonoBehaviour {
 
     private void doOptionButton()
     {
-        if (opt.active == false)
+        if (opt.activeSelf == false)
         {
             subMenuActive = true;
             current = subMenu[0];
@@ -175,7 +176,7 @@ public class controlXBox : MonoBehaviour {
 
     private void doCredit()
     {
-        if (credits.active == false)
+        if (credits.activeSelf == false)
         {
             opt.SetActive(false);
             subMenuActive = false;

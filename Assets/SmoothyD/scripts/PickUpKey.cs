@@ -44,8 +44,8 @@ public class PickUpKey : MonoBehaviour {
         {
             if (pickS != null)
             {
-                GameObject.Find("DreamEye").audio.clip = pickS;
-                GameObject.Find("DreamEye").audio.Play();
+                GameObject.Find("DreamEye").GetComponent<AudioSource>().clip = pickS;
+                GameObject.Find("DreamEye").GetComponent<AudioSource>().Play();
             }
             if (isTuto == true)
             {

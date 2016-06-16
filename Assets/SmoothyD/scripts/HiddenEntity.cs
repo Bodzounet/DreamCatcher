@@ -4,13 +4,13 @@ using System.Collections;
 public class HiddenEntity : MonoBehaviour {
     double timer;
     SpriteRenderer spriteRenderer;
-    BoxCollider2D collider;
+    BoxCollider2D _collider;
 
 	// Use this for initialization
 	void Start () {
-        collider = this.GetComponent<BoxCollider2D>();
+        _collider = this.GetComponent<BoxCollider2D>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
-        collider.isTrigger = true;
+        _collider.isTrigger = true;
         spriteRenderer.enabled = false;
 	}
 	
@@ -19,7 +19,7 @@ public class HiddenEntity : MonoBehaviour {
         if (timer > 0)
             timer -= Time.deltaTime;
         else {
-            collider.isTrigger = true;
+            _collider.isTrigger = true;
             spriteRenderer.enabled = false;
         }
 	}
@@ -27,7 +27,7 @@ public class HiddenEntity : MonoBehaviour {
     public void Reveal()
     {
         Debug.Log("test");
-        collider.isTrigger = false;
+        _collider.isTrigger = false;
         spriteRenderer.enabled = true;
         timer = 5;
     }

@@ -26,12 +26,12 @@ public class Detector : MonoBehaviour {
         {
             if (sound != null)
             {
-                GameObject.Find("DreamEye").audio.clip = sound;
-                GameObject.Find("DreamEye").audio.Play();
+                GameObject.Find("DreamEye").GetComponent<AudioSource>().clip = sound;
+                GameObject.Find("DreamEye").GetComponent<AudioSource>().Play();
             }
-            this.transform.parent.collider2D.enabled = false;
+            this.transform.parent.GetComponent<Collider2D>().enabled = false;
             this.GetComponentInParent<SpriteRenderer>().enabled = false;
-            this.collider2D.enabled = false;
+            this.GetComponent<Collider2D>().enabled = false;
             c.GetComponent<CharacterInventory>().key = Key.KeyType.NO_KEY;
             if (this.transform.parent.parent != null)
                 Destroy(this.transform.parent.parent.gameObject);

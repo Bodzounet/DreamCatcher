@@ -14,7 +14,7 @@ public class clickOptions : MonoBehaviour {
 
     void OnMouseDown()
     {
-        if (go.active == false)
+        if (go.activeSelf == false)
         {
             otherGo.SetActive(false);
             go.SetActive(true);

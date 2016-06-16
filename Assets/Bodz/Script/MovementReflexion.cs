@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MovementReflexion : MonoBehaviour {
 
@@ -13,7 +14,7 @@ public class MovementReflexion : MonoBehaviour {
     void Awake()
     {
         anim = GameObject.Find("CharacterRight").GetComponent<Animator>();
-        if (Application.loadedLevel == 1)
+        if (SceneManager.GetActiveScene().buildIndex == 1)
         {
 
             anim.Play("awake");

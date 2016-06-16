@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MovementController : MonoBehaviour 
 {
@@ -69,7 +70,7 @@ public class MovementController : MonoBehaviour
 	void Start () 
 	{
         anim = GameObject.Find("CharacterLeft").GetComponent<Animator>();
-        if (Application.loadedLevel == 1)
+        if (SceneManager.GetActiveScene().buildIndex == 1)
         {
 
             anim.Play("awake");
@@ -78,8 +79,8 @@ public class MovementController : MonoBehaviour
         else
             stop = false;
 
-        spawnPos = rigidbody2D.transform.position;
-		lastVelocity = new Vector2(rigidbody2D.velocity.x, -jumpVelocity);
+        spawnPos = GetComponent<Rigidbody2D>().transform.position;
+		lastVelocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, -jumpVelocity);
 
         inventory = GameObject.Find("CharacterLeft").GetComponent<CharacterInventory>();
         deathFall = false;
@@ -158,18 +159,18 @@ public class MovementController : MonoBehaviour
             isGrounded = false;
 
         //jump
-        if (Input.GetButtonDown("Jump") && !isGUIOpen && isGrounded && rigidbody2D.velocity.y <= 0)
+        if (Input.GetButtonDown("Jump") && !isGUIOpen && isGrounded && GetComponent<Rigidbody2D>().velocity.y <= 0)
         {
             if (JumpSounds.Length > 0)
             {
-                this.audio.clip = JumpSounds[Random.Range(0, JumpSounds.Length )];
-                this.audio.Play();
+                this.GetComponent<AudioSource>().clip = JumpSounds[Random.Range(0, JumpSounds.Length )];
+                this.GetComponent<AudioSource>().Play();
             }
             isGrounded = false;
             y = jumpVelocity;
         }
         else
-            y = rigidbody2D.velocity.y;
+            y = GetComponent<Rigidbody2D>().velocity.y;
 
         if (Input.GetAxis("Vertical") <= 0)
             isEnter = false;
@@ -190,20 +191,20 @@ public class MovementController : MonoBehaviour
             this.transform.position = new Vector3(ladderX.x, transform.position.y);
             y = -1;
         }
-        else if (isOnLadder && this.rigidbody2D.gravityScale == 0)
+        else if (isOnLadder && this.GetComponent<Rigidbody2D>().gravityScale == 0)
             y = 0;
         else if (isOnLadder)
-            this.rigidbody2D.gravityScale = 0;
+            this.GetComponent<Rigidbody2D>().gravityScale = 0;
         else
-            this.rigidbody2D.gravityScale = 1;
+            this.GetComponent<Rigidbody2D>().gravityScale = 1;
 
-        if (x != 0 && walk != null && !this.audio.isPlaying && isGrounded)
+        if (x != 0 && walk != null && !this.GetComponent<AudioSource>().isPlaying && isGrounded)
         {
-            this.audio.clip = walk;
-            this.audio.Play();
+            this.GetComponent<AudioSource>().clip = walk;
+            this.GetComponent<AudioSource>().Play();
         }
 		lastVelocity = new Vector2 (x, y);
-		rigidbody2D.velocity = lastVelocity;
+		GetComponent<Rigidbody2D>().velocity = lastVelocity;
 
         animCharacter();
         setAnim();
@@ -222,15 +223,15 @@ public class MovementController : MonoBehaviour
             eye.GetComponent<Animator>().SetBool("dead", true);
         if (eye.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("close"))
         {
-            Application.LoadLevel(Application.loadedLevel);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        if (death != null && this.audio.clip != death)
+        if (death != null && this.GetComponent<AudioSource>().clip != death)
         {
-            this.audio.clip = death;
-            this.audio.Play();
+            this.GetComponent<AudioSource>().clip = death;
+            this.GetComponent<AudioSource>().Play();
         }
         //transform.position = spawnPos;
-        rigidbody2D.velocity = new Vector2(0, -jumpVelocity);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(0, -jumpVelocity);
         currentDir = e_dir.LEFT;
         deathFall = false;
         //dead = false;
@@ -241,7 +242,7 @@ public class MovementController : MonoBehaviour
     private void animCharacter()
     {
         animState.jumpOver = false;
-        if (Mathf.Abs(rigidbody2D.velocity.x) > maxVelocityX / 10)
+        if (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) > maxVelocityX / 10)
             animState.isMoving = true;
         else
             animState.isMoving = false;
@@ -257,10 +258,10 @@ public class MovementController : MonoBehaviour
         else
         {
             animState.isClimbing = false;
-            if (rigidbody2D.velocity.y > 1f)
+            if (GetComponent<Rigidbody2D>().velocity.y > 1f)
                 animState.isJumping = true;
 
-            if (rigidbody2D.velocity.y < -1f)
+            if (GetComponent<Rigidbody2D>().velocity.y < -1f)
             {
                 animState.isJumping = false;
                 animState.isFalling = true;

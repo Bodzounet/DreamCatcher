@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class start : MonoBehaviour {
 
@@ -10,8 +11,8 @@ public class start : MonoBehaviour {
         Eye.SetActive(true);
         if (darkness != null)
         {
-            Camera.main.audio.clip = darkness;
-            Camera.main.audio.Play();
+            Camera.main.GetComponent<AudioSource>().clip = darkness;
+            Camera.main.GetComponent<AudioSource>().Play();
         }
 
         Eye.GetComponent<Animator>().SetBool("dead", true);
@@ -22,7 +23,7 @@ public class start : MonoBehaviour {
     {
         if (Eye.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("close"))
         {
-            Application.LoadLevel(1);
+            SceneManager.LoadScene(1);
         }
     }
 }

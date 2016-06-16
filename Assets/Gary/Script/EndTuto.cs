@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class EndTuto : MonoBehaviour {
 
@@ -17,7 +18,7 @@ public class EndTuto : MonoBehaviour {
     {
         if (ending == true && eye.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("close"))
         {
-            Application.LoadLevel(nextScene);
+            SceneManager.LoadScene(nextScene);
         }
 	}
 

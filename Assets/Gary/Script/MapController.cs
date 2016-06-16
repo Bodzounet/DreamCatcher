@@ -18,7 +18,7 @@ public class MapController : MonoBehaviour {
 	private int _i = 0;
     public GameObject hidden;
     public bool centerH = false;
-    public bool print = true;
+    public bool _print = true;
     public GameObject lightPoint;
     public Sprite hideBlock;
 	// Use this for initialization
@@ -86,7 +86,7 @@ public class MapController : MonoBehaviour {
                 {
                     GameObject tmp = new GameObject();
 
-                    tmp.AddComponent("SpriteRenderer");
+                    tmp.AddComponent<SpriteRenderer>();
 
                     tmp.GetComponent<SpriteRenderer>().sprite = Sprite.Create(tilesetTextures[t], new Rect(x, y - tileHeight, tileWidth, tileHeight), new Vector2(0.5f, 0.5f), pixelToUnit);
                     /* tmp.AddComponent<MeshFilter>().mesh = GameObject.Find("Player").GetComponent<MeshFilter>().mesh;
@@ -131,7 +131,7 @@ public class MapController : MonoBehaviour {
 
 
                     tmp.GetComponent<SpriteRenderer>().sortingOrder = l - map.GetElementsByTagName("data").Count + 1;
-                    if (!print && !hide)
+                    if (!_print && !hide)
                         tmp.GetComponent<SpriteRenderer>().enabled = false;
                     if (l == map.GetElementsByTagName("data").Count - 1 || hide)
                     {
@@ -213,10 +213,10 @@ public class MapController : MonoBehaviour {
                         copie.name = node.ChildNodes[i].Attributes["name"].Value; 
                         copie.transform.position = new Vector3(((center * tileWidth) - (int.Parse(node.ChildNodes[i].Attributes["x"].Value) - (center * tileWidth))) / pixelToUnit, newEnt.transform.position.y, 0);
                         copie.transform.position -= new Vector3(0, ((int.Parse(node.ChildNodes[i].Attributes["height"].Value) / 2) * 1.25f) / pixelToUnit, 0);
-                        if (copie.renderer != null)
-                            copie.renderer.enabled = false;
-                        else if (copie.transform.GetChild(0).renderer != null)
-                            copie.transform.GetChild(0).renderer.enabled = false;
+                        if (copie.GetComponent<Renderer>() != null)
+                            copie.GetComponent<Renderer>().enabled = false;
+                        else if (copie.transform.GetChild(0).GetComponent<Renderer>() != null)
+                            copie.transform.GetChild(0).GetComponent<Renderer>().enabled = false;
                     }
                     else if (!node.ChildNodes[i].Attributes["name"].Value.Contains("Key") & centerH && int.Parse(node.ChildNodes[i].Attributes["y"].Value) / tileWidth > center)
                     {
@@ -224,10 +224,10 @@ public class MapController : MonoBehaviour {
                         copie.name = node.ChildNodes[i].Attributes["name"].Value;
                         copie.transform.position = new Vector3(((width / 2 * tileWidth) - (int.Parse(node.ChildNodes[i].Attributes["x"].Value) - (width / 2 * tileWidth))) / pixelToUnit, newEnt.transform.position.y + (center * tileHeight / pixelToUnit), 0);
                         copie.transform.position -= new Vector3(0, ((int.Parse(node.ChildNodes[i].Attributes["height"].Value) / 2) * 0.8f) / pixelToUnit, 0);
-                        if (copie.renderer != null)
-                            copie.renderer.enabled = false;
-                        else if (copie.transform.GetChild(0).renderer != null)
-                            copie.transform.GetChild(0).renderer.enabled = false;
+                        if (copie.GetComponent<Renderer>() != null)
+                            copie.GetComponent<Renderer>().enabled = false;
+                        else if (copie.transform.GetChild(0).GetComponent<Renderer>() != null)
+                            copie.transform.GetChild(0).GetComponent<Renderer>().enabled = false;
                     }
                     else
                         newEnt.name = node.ChildNodes[i].Attributes["name"].Value; 

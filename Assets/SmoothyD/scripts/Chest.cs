@@ -87,8 +87,8 @@ public class Chest : MonoBehaviour {
             int newButton = mainMenu.CheckJoystickButton();
             if (sounds.Length > 2  && newButton != currentlyPressedButton)
             {
-                this.audio.clip = sounds[2];
-                this.audio.Play();
+                this.GetComponent<AudioSource>().clip = sounds[2];
+                this.GetComponent<AudioSource>().Play();
             }
 			currentlyPressedButton = newButton;
 			if (currentlyPressedButton == 0) {
@@ -108,8 +108,8 @@ public class Chest : MonoBehaviour {
 			if (Input.GetButtonDown ("Validate") || !canBeOpenend) {
                 if (sounds.Length > 1)
                 {
-                    this.audio.clip = sounds[1];
-                    this.audio.Play();
+                    this.GetComponent<AudioSource>().clip = sounds[1];
+                    this.GetComponent<AudioSource>().Play();
                 }
 				mainMenu.currentFocus = 0;
 				mainMenu.SetFocus(0);
@@ -122,8 +122,8 @@ public class Chest : MonoBehaviour {
 		else if (Input.GetButtonDown("Validate") && canBeOpenend) {
             if (sounds.Length > 0 )
             {
-                this.audio.clip = sounds[0];
-                this.audio.Play();
+                this.GetComponent<AudioSource>().clip = sounds[0];
+                this.GetComponent<AudioSource>().Play();
             }
 			mainMenu.enabled = true;
             movementController.isGUIOpen = true;
@@ -151,8 +151,8 @@ public class Chest : MonoBehaviour {
             canBeOpenend = false;
             if (sounds.Length > 1)
             {
-                this.audio.clip = sounds[1];
-                this.audio.Play();
+                this.GetComponent<AudioSource>().clip = sounds[1];
+                this.GetComponent<AudioSource>().Play();
             }
             mainMenu.currentFocus = 0;
             mainMenu.SetFocus(0);
