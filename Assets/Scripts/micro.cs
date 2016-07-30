@@ -6,22 +6,22 @@ public class micro : MonoBehaviour {
     public bool onOff = false;
 
     public GameObject panel;
-    public Sprite[] sprites;
+    public GameObject Cross;
 
     void OnMouseDown()
     {
         if (onOff)
         {
-            panel.GetComponent<SpriteRenderer>().sprite = sprites[1];
-            transform.gameObject.GetComponent<TextMesh>().text = "Micro       : On";
+            Cross.SetActive(false);
+            transform.gameObject.GetComponent<TextMesh>().text = "Micro            : On";
             onOff = false;
             PlayerPrefs.SetInt("micro", 1);
         }
         else
         {
-            panel.GetComponent<SpriteRenderer>().sprite = sprites[0];
+            Cross.SetActive(true);
             onOff = true;
-            transform.gameObject.GetComponent<TextMesh>().text = "Micro       : Off";
+            transform.gameObject.GetComponent<TextMesh>().text = "Micro            : Off";
             PlayerPrefs.SetInt("micro", 0);
         }
     }

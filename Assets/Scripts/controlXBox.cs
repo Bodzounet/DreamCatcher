@@ -79,6 +79,8 @@ public class controlXBox : MonoBehaviour {
                 doCredit();
             else if (current.name == "Quit")
                 Application.Quit();
+            else if (current.name == "Controller/Keyboard")
+                doKeyBoardController();
             else if (current.name == "micro")
                 doMicro();
             else if (current.name == "language")
@@ -188,42 +190,50 @@ public class controlXBox : MonoBehaviour {
 
     private void doMicro()
     {
-        if (onOff)
-        {
-            opt.GetComponent<SpriteRenderer>().sprite = spirtes[0];
-            onOff = false;
-            current.gameObject.GetComponent<TextMesh>().text = "Micro       : Non fonctionnel";
-            PlayerPrefs.SetInt("micro", 1);
-        }
-        else
-        {
-            opt.GetComponent<SpriteRenderer>().sprite = spirtes[1];
-            onOff = true;
-            current.gameObject.GetComponent<TextMesh>().text = "Micro       : Off";
-            PlayerPrefs.SetInt("micro", 0);
-        }
+        //if (onOff)
+        //{
+        //    opt.GetComponent<SpriteRenderer>().sprite = spirtes[0];
+        //    onOff = false;
+        //    current.gameObject.GetComponent<TextMesh>().text = "Micro       : Non fonctionnel";
+        //    PlayerPrefs.SetInt("micro", 1);
+        //}
+        //else
+        //{
+        //    opt.GetComponent<SpriteRenderer>().sprite = spirtes[1];
+        //    onOff = true;
+        //    current.gameObject.GetComponent<TextMesh>().text = "Micro       : Off";
+        //    PlayerPrefs.SetInt("micro", 0);
+        //}
+
+        subMenu[1].SendMessage("OnMouseDown");
     }
 
     private void doLanguage()
     {
-        if (fr)
-        {
-            fr = false;
-            current.GetComponent<TextMesh>().text = "Language  : English";
-            PlayerPrefs.SetInt("fr", 0);
+        //if (fr)
+        //{
+        //    fr = false;
+        //    current.GetComponent<TextMesh>().text = "Language  : English";
+        //    PlayerPrefs.SetInt("fr", 0);
 
-            transform.GetChild(0).gameObject.GetComponent<TextMesh>().text = "Play";
-            transform.GetChild(3).gameObject.GetComponent<TextMesh>().text = "Quit";
-        }
-        else
-        {
-            fr = true;
-            current.GetComponent<TextMesh>().text = "Langue     : Français";
-            PlayerPrefs.SetInt("fr", 1);
+        //    transform.GetChild(0).gameObject.GetComponent<TextMesh>().text = "Play";
+        //    transform.GetChild(3).gameObject.GetComponent<TextMesh>().text = "Quit";
+        //}
+        //else
+        //{
+        //    fr = true;
+        //    current.GetComponent<TextMesh>().text = "Langue     : Français";
+        //    PlayerPrefs.SetInt("fr", 1);
 
-            transform.GetChild(0).gameObject.GetComponent<TextMesh>().text = "Jouer";
-            transform.GetChild(3).gameObject.GetComponent<TextMesh>().text = "Quitter";
-        }
+        //    transform.GetChild(0).gameObject.GetComponent<TextMesh>().text = "Jouer";
+        //    transform.GetChild(3).gameObject.GetComponent<TextMesh>().text = "Quitter";
+        //}
+        subMenu[2].SendMessage("OnMouseDown");
+    }
+
+    private void doKeyBoardController()
+    {
+        subMenu[0].SendMessage("OnMouseDown");
     }
 
     private void doExit()
@@ -233,5 +243,6 @@ public class controlXBox : MonoBehaviour {
         current = transform.GetChild(1).gameObject;
         childId = 1;
         opt.SetActive(false);
+        //subMenu[3].SendMessage("OnMouseDown");
     }
 }

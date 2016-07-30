@@ -3,28 +3,30 @@ using System.Collections;
 
 public class Language : MonoBehaviour {
 
-    public bool fr = true;
+    public Translation.e_language language;
 
-    public TextMesh t1;
-    public TextMesh t2;
+    public Translation[] txts;
 
     void OnMouseDown()
     {
-        if (fr)
+        if (language == Translation.e_language.English)
         {
-            fr = false;
-            gameObject.GetComponent<TextMesh>().text = "Language  : English";
-            t1.text = "Play";
-            t2.text = "Quit";
-            PlayerPrefs.SetInt("fr", 0);
+            language = Translation.e_language.French;
+            foreach (Translation t in txts)
+            {
+                t.UpdateTxt(Translation.e_language.French);
+            }
+            PlayerPrefs.SetInt("fr", 1);
         }
         else
         {
-            fr = true;
-            gameObject.GetComponent<TextMesh>().text = "Langue     : Français";
-            t1.text = "Jouer";
-            t2.text = "Quitter";
-            PlayerPrefs.SetInt("fr", 1);
+            language = Translation.e_language.English;
+            foreach (Translation t in txts)
+            {
+                t.UpdateTxt(Translation.e_language.English);
+            }
+            PlayerPrefs.SetInt("fr", 0);
+
         }
     }
 }
