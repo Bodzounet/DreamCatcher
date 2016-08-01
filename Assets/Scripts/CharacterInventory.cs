@@ -24,6 +24,8 @@ public class CharacterInventory : MonoBehaviour {
     public AudioClip        yogaSouffle;
     public AudioClip        dreamCatch;
     public Animator fus;
+
+    private MicrophoneInput micro;
 	
 	// Use this for initialization
 	void Start () {
@@ -40,6 +42,8 @@ public class CharacterInventory : MonoBehaviour {
         visibleTime = 3;
         dreamEye = GameObject.Find("DreamEye").GetComponent<SpriteRenderer>();
         dreamEye.color = new Color(1, 1, 1, 0);
+
+        micro = GameObject.FindObjectOfType<MicrophoneInput>();
 	}
 
     void HideEntities() {
@@ -49,6 +53,7 @@ public class CharacterInventory : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
 		if (dreamCatcher == true && ((Input.GetButton ("BlowCharLeft") && Input.GetButton ("BlowCharRight")) || Input.GetKeyDown(KeyCode.LeftControl)) && hiddenEntTimer <= 0) {
             if (side == "Left")
             {
@@ -68,7 +73,7 @@ public class CharacterInventory : MonoBehaviour {
             }
 			timer = 0.75;
 		}
-        else if (Input.GetButtonDown("Blow") && timer <= 0) 
+        else if ((Input.GetButtonDown("Blow") || (PlayerPrefs.GetInt("micro") == 1 && micro.MicLoudness > 0.3f)) && timer <= 0) 
         {
             if (item == Item.ItemType.WATER)
             {

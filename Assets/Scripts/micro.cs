@@ -3,7 +3,7 @@ using System.Collections;
 
 public class micro : MonoBehaviour {
 
-    public bool onOff = false;
+    public bool onOff = true;
 
     public GameObject panel;
     public GameObject Cross;

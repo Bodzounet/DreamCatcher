@@ -33,7 +33,7 @@ public class controlXBox : MonoBehaviour {
     {
         current = transform.GetChild(childId).gameObject;
         current.GetComponent<TextMesh>().color = c2;
-
+        PlayerPrefs.SetInt("micro", 0);
 	}
 	
 	// Update is called once per frame
